@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>veccookielaw</name>
+    <displayName><![CDATA[Vec - Cookie Law]]></displayName>
+    <version><![CDATA[1.1.0]]></version>
+    <description><![CDATA[Show text about cookies in your shop for Eu Cookie Law]]></description>
+    <author><![CDATA[ThemeVec]]></author>
+    <tab><![CDATA[]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

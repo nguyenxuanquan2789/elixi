@@ -1,0 +1,37 @@
+
+         :root {  
+            --hovercolor: #4fb68d; 
+        }body{
+            font-family: "Open Sans", sans-serif;
+            font-size: 14px;
+            color: #666666;
+        }{
+            font-size: 14px;
+        }.pos_title h2{
+            font-family: "Open Sans", sans-serif;
+            font-size: 24px;
+            color: #253237;
+            text-transform: capitalize;
+        }.pos_title_column h2{  
+            font-size: 20px;
+        }.sticky-inner{  
+            background-color: #FFFFFF;   
+        }.js-product-miniature .product_desc .product_name{
+            color: #253237;
+            font-size: 14px;
+            text-transform: none;
+        }.js-product-miniature .product_desc .product_name:hover{
+            color: #4fb68d;
+        }.product-price-and-shipping .price{
+            color:#555555;
+            font-size: 15px;
+        }.h1.namne_details, .product_name_h1{
+            color: #253237;
+            font-size: 24px;
+            text-transform: none;
+        }.product-prices .price, .product-prices .current-price span:first-child{
+            color:#555555;
+            font-size: 22px;
+        }#product.showcase-body #header,.showcase-inner,#product.showcase-body .page-title-wrapper{
+            background-color: #FFFFFF;
+        }

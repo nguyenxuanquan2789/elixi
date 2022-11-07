@@ -1,0 +1,25 @@
+.ce-lightbox.dialog-type-lightbox .dialog-widget-content {
+	width: auto;
+}
+.ce-lightbox.dialog-type-lightbox .dialog-close-button {
+	top: 12px;
+	right: 12px;
+}
+.ce-lightbox.dialog-type-lightbox .dialog-message {
+	padding: 0;
+}
+.ce-lightbox.dialog-type-lightbox .dialog-message > iframe {
+	width: 100%;
+	height: 100%;
+}
+.elementor-control-image_size,
+.elementor-control-thumbnail_size {
+	display: none;
+}
+/* Hide elements */
+.elementor-panel-menu-item-finder,
+#elementor-panel-elements-navigation-all,
+#elementor-panel-elements-navigation-global,
+.elementor-context-menu-list__group-save {
+	display: none !important;
+}

@@ -1,0 +1,66 @@
+.wishlist-table-wrapper .shop_table {
+	width: 100%;
+	margin-bottom: 3rem;
+}
+.wishlist-table-wrapper .shop_table tr {
+	border-bottom: 1px solid #ebebeb; 
+	padding-bottom: 1.25rem;  
+	margin-bottom: 1.25rem;  
+	position: relative;
+}
+.wishlist-table-wrapper .shop_table tr th{
+	font-size: .875rem;
+	color: #0c0c0c;
+	text-transform: uppercase;
+	line-height: 1.875rem; 
+	font-weight: 500; 
+}
+.wishlist-table-wrapper .shop_table tr td{
+	padding: 15px 10px;
+}
+.wishlist-table-wrapper p {
+	margin: 0;
+}
+
+.wishlist-table-wrapper .shop_table .product-remove a {
+	font-size: 16px;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	display: block;
+	text-align: center;
+}
+.wishlist-table-wrapper .shop_table .label {
+	font-weight: 500;
+}
+.wishlist-table-wrapper .shop_table .product-image img{
+	max-width:120px;
+}
+.wishlist-table-wrapper .shop_table .product-button button{
+	width:100%;
+	line-height:1;
+}
+#my_wishlist .input-group button {
+	padding-left: 1.875rem;
+	padding-right: 1.875rem;
+}
+@media (max-width: 767px) {
+	.wishlist-table-wrapper .shop_table tr {
+		padding-left: 140px;
+		display: block;
+	}
+	.wishlist-table-wrapper .shop_table tr td{
+		display: block;
+		padding: 5px 0;
+	}
+	.wishlist-table-wrapper .shop_table .product-thumbnail {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.wishlist-table-wrapper .shop_table .product-remove {
+		position: absolute;
+		right: 0;
+		top:-20px;
+	}
+}

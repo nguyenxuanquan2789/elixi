@@ -1,0 +1,69 @@
+.ce-edit-wrapper {
+	position: relative; }
+a.ce-edit-btn {
+	display: inline-block;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	padding: 0 !important;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 13px;
+	background: #990916;
+	text-align: center;
+	border-radius: 3px;
+	box-sizing: border-box;
+	z-index: 101;
+	transition: 0.3s opacity;
+	opacity: 0; }
+.ce-edit-wrapper:hover a.ce-edit-btn {
+	opacity: 0.5; }
+.ce-edit-wrapper a.ce-edit-btn:hover {
+	opacity: 1; }
+a.ce-edit-btn:link,
+a.ce-edit-btn:hover,
+a.ce-edit-btn:active,
+a.ce-edit-btn:visited {
+	color: #fff !important; }
+a.ce-edit-btn > i{
+	font-size: 18px;
+	line-height: 24px;
+}
+i.ce-icon {
+	position: relative;
+	display: inline-block;
+	height: 10px;
+	width: 10px; }
+i.ce-icon:before,
+i.ce-icon:after {
+	content: '';
+	position: absolute;
+	margin: 0;
+	left: 1px;
+	top: 0;
+	width: 8px;
+	height: 6px;
+	border-width: 2px 0;
+	border-style: solid;
+	border-color: inherit;
+	box-sizing: content-box; }
+i.ce-icon:after {
+	top: 4px;
+	width: 6px;
+	height: 0;
+	border-width: 2px 0 0; }
+.ce-edit-outline {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	outline: 1px dashed #990916;
+	box-shadow: 0 0 0 1px #fff;
+	pointer-events: none;
+	transition: 0.3s opacity;
+	opacity: 0; }
+.ce-edit-btn:hover + .ce-edit-outline {
+	opacity: 1; }

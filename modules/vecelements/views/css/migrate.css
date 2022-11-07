@@ -1,0 +1,60 @@
+@-webkit-keyframes ce-progress-bar-stripes {
+	from {
+		background-position: 1rem 0;
+	}
+	to {
+		background-position: 0 0;
+	}
+}
+@keyframes ce-progress-bar-stripes {
+	from {
+		background-position: 1rem 0;
+	}
+	to {
+		background-position: 0 0;
+	}
+}
+#ce-progress.progress {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 1rem;
+	overflow: hidden;
+	font-size: .75rem;
+	background-color: #e9ecef;
+	border-radius: .25rem;
+}
+#ce-progress .progress-bar {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	color: #fff;
+	text-align: center;
+	background-color: #007bff;
+	-webkit-transition: width .6s ease;
+	transition: width .6s ease;
+}
+#ce-progress .progress-bar-animated {
+	-webkit-animation: ce-progress-bar-stripes 1s linear infinite;
+	animation: ce-progress-bar-stripes 1s linear infinite;
+}
+#ce-progress .progress-bar-striped {
+	background-image: linear-gradient(
+		45deg,
+		rgba(255,255,255,.15) 25%,
+		transparent 25%,
+		transparent 50%,
+		rgba(255,255,255,.15) 50%,
+		rgba(255,255,255,.15) 75%,
+		transparent 75%,
+		transparent
+	);
+	background-size: 1rem 1rem;
+}

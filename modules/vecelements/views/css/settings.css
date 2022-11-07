@@ -1,0 +1,6 @@
+.admincesettings.modal-open {
+	overflow: auto;
+}
+.admincesettings .modal {
+	overflow-y: hidden;
+}

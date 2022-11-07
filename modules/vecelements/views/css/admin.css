@@ -1,0 +1,117 @@
+.row .btn-edit-with-ce,
+.form-group .btn-edit-with-ce {
+	margin: 5px 0;
+	padding: 12px 20px;
+	background: #990916 !important;
+	color: #fff !important;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ce-edit.pull-right {
+	margin: 0 3px;
+}
+.ce-edit .btn i.icon-AdminParentVECContent {
+	font-size: 11px;
+}
+.btn-group-action {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+}
+.ce-edit a.dropdown-toggle {
+	padding: 5px;
+}
+.ce-edit a.dropdown-toggle:after,
+.adminvectemplates .btn-back-to-ps,
+.adminvecheader .btn-back-to-ps,
+.adminvecfooter .btn-back-to-ps,
+.adminvechome .btn-back-to-ps,
+.adminveccontent .btn-back-to-ps {
+	display: none;
+}
+.adminvecheader #vec_theme_form .form-group label.col-lg-4,
+.adminvechome #vec_theme_form .form-group label.col-lg-4,
+.adminvecfooter #vec_theme_form .form-group label.col-lg-4,
+.adminveccontent #vec_content_form .form-group label.col-lg-4{
+	width: 25%;
+}
+.btn.btn-back-to-ps {
+	margin: 5px 0;
+}
+.adminvectemplates textarea,
+.adminveccontent textarea {
+	color: transparent;
+}
+
+.vec_template td:last-child {
+	width: 120px;
+}
+.adminvectemplates td.ce-shortcode {
+	width: 230px;
+}
+.adminvectemplates .ce-shortcode input {
+	font-family: monospace !important;
+}
+
+.adminproducts #description .btn-edit-with-ce {
+	margin: 10px;
+}
+.adminproducts #description .btn-edit-with-ce ~ .mce-tinymce {
+	margin: 0 10px 10px;
+}
+.adminproducts .tab-content .wrapper-edit-with-ve {
+	border: none;
+	border-top: 1px solid #dfdfdf;
+	border-radius: 0;
+}
+.ce-product-hook::first-letter {
+	text-transform: uppercase;
+}
+.row .btn-edit-with-ce:hover,
+.form-group .btn-edit-with-ce:hover {
+	opacity: 0.85;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+.row .btn-edit-with-ce:active,
+.form-group .btn-edit-with-ce:active {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+.row .btn-edit-with-ce .material-icons,
+.form-group .btn-edit-with-ce .material-icons {
+	vertical-align: -2px;
+	border-color: #fff;
+	line-height: 1em;
+}
+.adminveccontent .select2-container {
+	margin: 4px 0;
+}
+#vec_theme_fieldset_theme_settings .form-wrapper {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+}
+.btn-back-to-ps i.material-icons {
+	vertical-align: middle;
+}
+.wrapper-edit-with-ve {
+	background: #f5f8f9;
+	border: 1px solid #c7d6db;
+	border-radius: 3px;
+	padding: 30px;
+	text-align: center;
+	cursor: pointer;
+	transition: background 0.05s;
+}
+.wrapper-edit-with-ve:hover {
+	background: rgba(245, 248, 249, 0.2);
+}
+.btn-edit-with-ce ~ .mce-tinymce {
+	border: 1px solid #dfdfdf !important;
+}
+.btn-edit-with-ce ~ .mce-tinymce > .mce-container-body {
+	border: none !important;
+}
