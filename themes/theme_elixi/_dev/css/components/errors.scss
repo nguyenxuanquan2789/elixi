@@ -1,0 +1,51 @@
+#products,
+#pagenotfound {
+  #main {
+    .page-header {
+      margin: 2rem 0 3rem;
+    }
+
+    .page-content {
+      margin-bottom: 10rem;
+    }
+  }
+
+  .page-not-found {
+    margin: 0 auto;
+    overflow: auto;
+    font-size: $font-size-sm;
+    color: $gray;
+    background: $white;
+    text-align: center;
+    padding-top: 3.75rem;
+    
+    h4 {
+      margin: 0.5rem 0 1rem;
+      font-size: 2.4rem;
+      font-weight: 500;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 3.75rem;
+    }
+    .image-404 {
+      font-size: 6rem; 
+      color: $gray-dark;
+      line-height: 1;
+      margin-bottom: 1.875rem;
+      font-weight: 700;
+    }
+    .search-widget {
+      float: none;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+.page-search {
+  #product-list-header {
+    display: none;
+  }
+}

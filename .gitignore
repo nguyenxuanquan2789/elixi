@@ -116,7 +116,7 @@ app/config/config.php
 
 override/*
 themes/*/
-!themes/classic
+!themes/theme_elixi
 !themes/_core
 !themes/_libraries
 modules/vecmegamenu/views/css/vecmegamenu_s_*.css

@@ -1,0 +1,101 @@
+/*
+ * Custom code goes here.
+ * A template should always ship with an empty custom.css
+ */
+.hidden{
+  display: none !important;
+}
+ .slick-block:not(.slick-initialized){
+   white-space: nowrap;
+   overflow: hidden;
+   width: auto;
+   -ms-overflow-style: -ms-autohiding-scrollbar;
+   display: block !important;
+ }
+ .slick-block:not(.slick-initialized) > *{
+     display: inline-block !important;
+     white-space: normal !important;
+     vertical-align: top;
+     padding: 0 5px;
+ }
+
+ @media (max-width: 767px) {
+     .slick-block:not(.slick-initialized) > * {
+       padding: 0 5px;
+   }
+ }
+ @media (min-width: 0px) {
+   .items-mobile-1:not(.slick-initialized) > * {
+     width: 100%;
+   }
+   .items-mobile-2:not(.slick-initialized) > * {
+     width: 50%;
+   }
+   .items-mobile-3:not(.slick-initialized) > * {
+     width: 33.333333%;
+   }
+ }
+ @media (min-width: 768px) and (max-width: 1024px) {
+   .items-tablet-1:not(.slick-initialized) > * {
+     max-width: 100%;
+     -ms-flex-preferred-size: 100%;
+     flex-basis: 100%;
+   }
+   .items-tablet-2:not(.slick-initialized) > * {
+     width: 50%;
+   }
+   .items-tablet-3:not(.slick-initialized) > * {
+     width: 33.33333%;
+   }
+   .items-tablet-4:not(.slick-initialized) > * {
+     width: 25%;
+   }
+   .items-tablet-5:not(.slick-initialized) > * {
+     max-width: 20%;
+     -ms-flex-preferred-size: 20%;
+     flex-basis: 20%;
+   }
+ }
+ @media (min-width: 1025px) {
+   .items-desktop-1:not(.slick-initialized) > * {
+     max-width: 100%;
+     -ms-flex-preferred-size: 100%;
+     flex-basis: 100%;
+   }
+   .items-desktop-2:not(.slick-initialized) > * {
+     max-width: 50%;
+     -ms-flex-preferred-size: 50%;
+     flex-basis: 50%;
+   }
+   .items-desktop-3:not(.slick-initialized) > * {
+     max-width: 33.33333%;
+     -ms-flex-preferred-size: 33.33333%;
+     flex-basis: 33.33333%;
+   }
+   .items-desktop-4:not(.slick-initialized) > * {
+     max-width: 25%;
+     -ms-flex-preferred-size: 25%;
+     flex-basis: 25%;
+   }
+   .items-desktop-5:not(.slick-initialized) > * {
+     max-width: 20%;
+     -ms-flex-preferred-size: 20%;
+     flex-basis: 20%;
+   }
+   .items-desktop-6:not(.slick-initialized) > * {
+     max-width: 16.666666%;
+     -ms-flex-preferred-size: 16.666666%;
+     flex-basis: 16.666666%;
+   }
+   .items-desktop-7:not(.slick-initialized) > * {
+     max-width: 14.285%;
+     -ms-flex-preferred-size: 14.285%;
+     flex-basis: 14.285%;
+   }
+   .items-desktop-8:not(.slick-initialized) > * {
+     max-width: 12.5%;
+     -ms-flex-preferred-size: 12.5%;
+     flex-basis: 12.5%;
+   }
+ }
+ 

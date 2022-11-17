@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="D:\xampp_74\htdocs\framework\admin356qkcutb" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="146ffe2fd9fa5bec3b63b52543793ec7">
+        <source>Show more</source>
+        <target>Show more</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c74ea6dbff701bfa23819583c52ebd97">
+        <source>Show less</source>
+        <target>Show less</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="de4f3fd396b0d72a0903ace7728892dd">
+        <source>More Products</source>
+        <target>More Products</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8524de963f07201e5c086830d370797f">
+        <source>Loading...</source>
+        <target>Loading...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5174d1309f275ba6f275db3af9eb3e18">
+        <source>Grid</source>
+        <target>Grid</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4ee29ca12c7d126654bd0e5275de6135">
+        <source>List</source>
+        <target>List</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

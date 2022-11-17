@@ -1,0 +1,190 @@
+name: theme_elixi
+display_name: Elixi
+version: 1.0.0
+author:
+  name: "Vec Team"
+  email: ""
+  url: ""
+
+meta:
+  compatibility:
+      from: 1.7.0.0
+      to: ~
+
+  available_layouts:
+    layout-full-width:
+      name: Full Width
+      description: No side columns, ideal for distraction-free pages such as product pages.
+    layout-both-columns:
+      name: Three Columns
+      description: One large central column and 2 side columns.
+    layout-left-column:
+      name: Two Columns, small left column
+      description: Two columns with a small left column
+    layout-right-column:
+      name: Two Columns, small right column
+      description: Two columns with a small right column
+
+assets:
+  # If you're using this theme as child and you want to load
+  # the parent theme assets, uncomment this line.
+#  use_parent_assets: true
+
+  # The following lines are showing how to load assets in your page
+  # Uncomment and change value to start loading css or js files
+#  css:
+#    all:
+#      - id: custom-lib-style
+#        path: assets/css/custom-lib.css
+#    product:
+#      - id: product-style
+#        path: assets/css/product.css
+#        media: all
+#        priority: 200
+#  js:
+#    cart:
+#      - id: cat-extra-lib
+#        path: assets/js/cart-lib.js
+
+
+global_settings:
+  configuration:
+    PS_IMAGE_QUALITY: png
+  modules:
+   to_disable:
+     - welcome
+     - ps_customtext
+     - ps_featuredproducts
+     - ps_bestsellers
+     - ps_imageslider
+     - ps_mainmenu
+     - ps_banner
+     - ps_searchbar 
+     - blockwishlist 
+     - ps_shoppingcart 
+     - productcomments 
+   to_enable:
+     - ps_socialfollow
+     - ps_contactinfo
+     - ps_linklist
+     - ps_categoryproducts 
+     - blockreassurance 
+     - veccompare
+     - veccustomersignin
+     - vecelements
+     - vecmegamenu
+     - vecpopupnewsletter
+     - vecproductcomments
+     - vecsearchbar
+     - vecshoppingcart
+     - vecthemeoptions
+     - vecvegamenu
+     - vecviewedproduct
+     - vecwishlist
+     - veccookielaw
+     - vecproductextratab
+     - smartblog
+     - smartbloglatestcomments
+     - smartblogrecentposts
+     - smartblogsearch
+     - smartblogtag
+     - smartblogcategories
+  hooks:
+    modules_to_hook:
+      displayMegamenuMobileBottom:
+        - ps_languageselector
+        - ps_currencyselector
+        - vecwishlist
+        - veccompare
+      displayProductListFunctionalButtons:
+        - veccompare 
+      displayBeforeBodyClosingTag:
+        - veccustomersignin
+        - vecwishlist
+        - vecpopupnewsletter
+        - veccookielaw
+      displayProductListCompare:
+        - veccompare
+      displayWishlistButton:
+        - vecwishlist  
+      displayLeftColumn:
+        - ps_categorytree
+        - ps_facetedsearch
+      displayRightColumn:
+        - smartblogsearch
+        - smartblogcategories
+        - smartblogrecentposts
+        - smartblogtag
+      displayProductAdditionalInfo:
+        - ps_sharebuttons
+      displayAfterButtonCart:
+        - veccompare
+        - vecwishlist
+      displayFooterProduct:
+        - ps_categoryproducts   
+        - vecviewedproduct   
+      displayReassurance:
+        - blockreassurance
+  image_types:
+    cart_default:
+      width: 125
+      height: 125
+      scope: [products]
+    small_default:
+      width: 98
+      height: 98
+      scope: [products, categories, manufacturers, suppliers]
+    medium_default:
+      width: 600
+      height: 600
+      scope: [products, manufacturers, suppliers]
+    home_default:
+      width: 450
+      height: 450
+      scope: [products]
+    large_default:
+      width: 1200
+      height: 1200
+      scope: [products, manufacturers, suppliers]
+    category_default:
+      width: 960
+      height: 255
+      scope: [categories]
+    stores_default:
+      width: 170
+      height: 115
+      scope: [stores]
+
+theme_settings:
+  default_layout: layout-full-width
+  layouts:
+    category: layout-left-column
+    best-sales: layout-left-column
+    new-products: layout-left-column
+    prices-drop: layout-left-column
+    contact: layout-left-column
+    module-smartblog-category: layout-right-column
+    module-smartblog-list: layout-right-column 
+dependencies:
+  modules:
+     - ps_categoryproducts  
+     - veccompare
+     - veccustomersignin
+     - vecelements
+     - vecmegamenu
+     - vecpopupnewsletter
+     - vecproductcomments
+     - vecsearchbar
+     - vecshoppingcart
+     - vecthemeoptions
+     - vecvegamenu
+     - vecviewedproduct
+     - vecwishlist
+     - veccookielaw
+     - vecproductextratab
+     - smartblog
+     - smartbloglatestcomments
+     - smartblogrecentposts
+     - smartblogsearch
+     - smartblogtag
+     - smartblogcategories

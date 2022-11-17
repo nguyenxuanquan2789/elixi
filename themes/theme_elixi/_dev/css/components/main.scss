@@ -1,0 +1,23 @@
+#main {
+  .page-header {
+    margin-bottom: 1.563rem;
+  }
+
+  .page-content {
+    margin-bottom: 1.563rem;
+
+    h6 {
+      margin-bottom: 1.125rem;
+    }
+  }
+  .page-footer {
+    margin-bottom: 1.563rem;
+  }
+}
+#my-account .customer-account-content {
+  > span {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $gray-dark;
+  }
+}
