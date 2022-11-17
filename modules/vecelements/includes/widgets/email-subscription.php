@@ -587,6 +587,17 @@ class WidgetEmailSubscription extends WidgetBase
                 ],
             ]
         );
+        $this->addControl(
+            'input_margin',
+            [
+                'label' => __('Text Margin'),
+                'type' => ControlsManager::DIMENSIONS,
+                'size_units' => ['px'],
+                'selectors' => [
+                    '{{WRAPPER}} input[type=email]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
         $this->endControlsSection();
 

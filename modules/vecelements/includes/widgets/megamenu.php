@@ -467,6 +467,40 @@ class WidgetMegamenu extends WidgetBase {
 			]
 		);
 			$this->addControl(
+				'behaviour',
+				[
+					'label' => __('Behaviour'),
+					'type' => ControlsManager::SELECT,
+					'default' => '',
+					'options' => [
+						'' => __('Hide in all pages'),
+						'show' => __('Show in homepage and hide in other pages'),
+					],
+					'prefix_class' => 'toogle-content-',
+				]
+			);
+			$this->addResponsiveControl( 
+				'max_width_content',
+				[
+					'label' => __('Max width' ),
+					'type' => ControlsManager::SLIDER,
+					'size_units' => [ 'px' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 500,
+						],
+					],
+					'default' => [
+						'unit' => 'px',
+						'size' => 300,
+					],
+					'selectors' => [
+						'{{WRAPPER}} .vec-menu-vertical .menu-content' => 'max-width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->addControl(
 				'content_border_radius',
 				[
 					'label' => __( 'Border Radius' ),

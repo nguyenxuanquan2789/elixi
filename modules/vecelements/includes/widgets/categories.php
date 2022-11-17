@@ -119,6 +119,21 @@ class WidgetCategories extends WidgetProductBase
 				]
 			);
 			$this->addControl(
+				'style_hover',
+				[
+					'label' 		=> __('Style hover'),
+					'type' 			=> ControlsManager::SWITCHER,
+					'return_value' 	=> 'yes',
+					'default' 		=> '', 
+					'label_on'      => __('Yes'),
+                    'label_off'     => __('No'),
+					'prefix_class' => 'style-hover-',
+					'condition' => [
+						'layout' => '3'
+					],
+				]
+			);
+			$this->addControl(
 				'layout_style',
 				[
 					'label' 		=> __('No-padding layout style'),
@@ -261,6 +276,13 @@ class WidgetCategories extends WidgetProductBase
 					],
 				]
 			);
+			$this->addGroupControl(
+				GroupControlBoxShadow::getType(),
+				[
+					'name' => 'box_shadow',
+					'selector' => '{{WRAPPER}} .elementor-categories-item',
+				]
+			);
 		$this->endControlsSection();
 		$this->startControlsSection(
             'section_style_image',
@@ -355,6 +377,18 @@ class WidgetCategories extends WidgetProductBase
 					],
 				]
 			);
+			$this->addControl(
+				'background_color',
+				[
+					'label' => __('background Color'),
+					'type' => ControlsManager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .elementor-categories-content' => 'Background-color: {{VALUE}};',
+					],
+				]
+			);
+	
 			$this->addGroupControl(
 				GroupControlTypography::getType(),
 				[
