@@ -37,11 +37,11 @@ i.icon-AdminParentVECContent:after, i.mi-ce:after {
 	display: none;
 }
 </style>
-{if !empty($edit_width_ce)}
+{if !empty($edit_with_vec)}
 <script type="text/html" id="tmpl-btn-back-to-ps">
-    <a href="{$edit_width_ce|escape:'html':'UTF-8'}&amp;action=backToPsEditor" class="btn btn-default btn-back-to-ps"><i class="material-icons">navigate_before</i> {l s='Back to PrestaShop Editor' mod='vecelements'}</a>
+    <a href="{$edit_with_vec|escape:'html':'UTF-8'}&amp;action=backToPsEditor" class="btn btn-default btn-back-to-ps"><i class="material-icons">navigate_before</i> {l s='Back to PrestaShop Editor' mod='vecelements'}</a>
 </script>
 <script type="text/html" id="tmpl-btn-edit-with-ce">
-    <a href="{$edit_width_ce|escape:'html':'UTF-8'}" class="btn pointer btn-edit-with-ce"><i class="material-icons mi-ve"></i> {l s='Edit with Vec Elements' mod='vecelements'}</a>
+    <a href="{$edit_with_vec|escape:'html':'UTF-8'}" class="btn pointer btn-edit-with-ce"><i class="material-icons mi-ve"></i> {l s='Edit with Vec Elements' mod='vecelements'}</a>
 </script>
 {/if}

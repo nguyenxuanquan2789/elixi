@@ -34,12 +34,7 @@ class VecElements extends Module
         'preview',
     ];
 
-    protected $overrides = [
-        'Category',
-        'CmsCategory',
-        'Manufacturer',
-        'Supplier',
-    ];
+    protected $overrides = ['Category','CmsCategory','Manufacturer','Supplier'];
     protected $tplOverride = false;
 
     public function __construct($name = null, Context $context = null)
@@ -49,18 +44,18 @@ class VecElements extends Module
         $this->version = '1.5.5';
         $this->author = 'ThemeVec';
         $this->module_key = '7a5ebcc21c1764675f1db5d0f0eacfe5';
-        $this->ps_versions_compliancy = ['min' => '1.7.0', 'max' => '1.7'];
-        $this->bootstrap = true;
+        $this->ps_versions_compliancy = ['min' => '1.7.6', 'max' => '1.7.8'];
         $this->displayName = $this->l('V-Elements - Live page builder');
         $this->description = $this->l('The frontend drag & drop page builder. Based on Elementor WP plugin.');
+        $this->bootstrap = true;
         parent::__construct($this->name, null);
 
         $this->checkThemeChange();
 
-        Shop::addTableAssociation(VECTheme::$definition['table'], ['type' => 'shop']);
-        Shop::addTableAssociation(VECTheme::$definition['table'] . '_lang', ['type' => 'fk_shop']);
-        Shop::addTableAssociation(VECContent::$definition['table'], ['type' => 'shop']);
-        Shop::addTableAssociation(VECContent::$definition['table'] . '_lang', ['type' => 'fk_shop']);
+        Shop::addTableAssociation( VECTheme::$definition['table'], ['type' => 'shop'] );
+        Shop::addTableAssociation( VECTheme::$definition['table'] . '_lang', ['type' => 'fk_shop'] );
+        Shop::addTableAssociation( VECContent::$definition['table'], ['type' => 'shop']);
+        Shop::addTableAssociation( VECContent::$definition['table'] . '_lang', ['type' => 'fk_shop'] );
     }
 
     public function install()
@@ -81,9 +76,9 @@ class VecElements extends Module
             foreach (VecElementInstall::getHooks() as $hook) {
                 $res = $res && $this->registerHook($hook, null, 1);
             }
-            Configuration::updateValue('CE_HEADER', 1);
-            Configuration::updateValue('CE_PAGE_INDEX', 2);
-            Configuration::updateValue('CE_FOOTER', 3);
+            Configuration::updateValue('VEC_HEADER', 1);
+            Configuration::updateValue('VEC_PAGE_INDEX', 2);
+            Configuration::updateValue('VEC_FOOTER', 3);
         }
 
         return $res && $this->_createAdminMenu();
@@ -135,8 +130,7 @@ class VecElements extends Module
         return $response;
     }
 
-    protected static function updateTab($class_parent, $position, $class, $active, $name, $icon = '')
-    {
+    protected static function updateTab($class_parent, $position, $class, $active, $name, $icon = ''){
         $id = (int) Tab::getIdFromClassName($class);
         $tab = new Tab($id);
         $tab->id_parent = (int) Tab::getIdFromClassName($class_parent);
@@ -163,17 +157,15 @@ class VecElements extends Module
         return $tab;
     }
 
-    public function uninstall()
-    {
-        foreach (Tab::getCollectionFromModule($this->name) as $tab) {
+    public function uninstall(){
+        foreach ( Tab::getCollectionFromModule($this->name) as $tab ) {
             $tab->delete();
         }
 
         return parent::uninstall();
     }
 
-    public function enable($force_all = false)
-    {
+    public function enable( $force_all = false ){
         return parent::enable($force_all) && Db::getInstance()->update(
             'tab',
             ['active' => 1],
@@ -181,8 +173,7 @@ class VecElements extends Module
         );
     }
 
-    public function disable($force_all = false)
-    {
+    public function disable( $force_all = false ){
         return Db::getInstance()->update(
             'tab',
             ['active' => 0],
@@ -190,11 +181,11 @@ class VecElements extends Module
         ) && parent::disable($force_all);
     }
 
-    public function addOverride($classname)
+    public function addOverride( $classname )
     {
-        try {
+        try{
             return parent::addOverride($classname);
-        } catch (Exception $ex) {
+        }catch(Exception $ex){
             return false;
         }
     }
@@ -206,20 +197,18 @@ class VecElements extends Module
 
     public function hookDisplayBackOfficeHeader($params)
     {
-        if (!Configuration::get("PS_ALLOW_HTML_\x49FRAME")) {
+        if(!Configuration::get("PS_ALLOW_HTML_\x49FRAME")) {
             Configuration::updateValue("PS_ALLOW_HTML_\x49FRAME", 1);
         }
 
         // Handle migrate
-        if ((Configuration::getGlobalValue('ce_migrate') || Tools::getIsset('VECMigrate')) &&
-            Db::getInstance()->executeS("SHOW TABLES LIKE '%_vec_meta'")
-        ) {
+        if((Configuration::getGlobalValue('ce_migrate') || Tools::getIsset('VECMigrate')) && Db::getInstance()->executeS("SHOW TABLES LIKE '%_vec_meta'")){
             require_once _VEC_PATH_ . 'classes/VECMigrate.php';
             VECMigrate::registerJavascripts();
         }
 
         $footer_product = '';
-        preg_match('~/([^/]+)/(\d+)/edit\b~', $_SERVER['REQUEST_URI'], $req);
+        preg_match( '~/([^/]+)/(\d+)/edit\b~', $_SERVER['REQUEST_URI'], $req );
         $controller = Tools::strtolower(Tools::getValue('controller'));
 
         switch ($controller) {
@@ -242,15 +231,6 @@ class VecElements extends Module
             case 'adminveccontent':
                 $id_type = VEC\UId::CONTENT;
                 $id = (int) Tools::getValue('id_vec_content');
-                break;
-            case 'admincmscontent':
-                if ($req && $req[1] == 'category' || Tools::getIsset('addcms_category') || Tools::getIsset('updatecms_category')) {
-                    $id_type = VEC\UId::CMS_CATEGORY;
-                    $id = (int) Tools::getValue('id_cms_category', $req ? $req[2] : 0);
-                    break;
-                }
-                $id_type = VEC\UId::CMS;
-                $id = (int) Tools::getValue('id_cms', $req ? $req[2] : 0);
                 break;
             case 'adminproducts':
                 $id_type = VEC\UId::PRODUCT;
@@ -293,20 +273,20 @@ class VecElements extends Module
             isset($hideEditor) or $hideEditor = $uid->getBuiltLangIdList();
 
             Media::addJsDef([
-                'ceAdmin' => [
+                'vecAdmin' => [
                     'uid' => "$uid",
-                    'hideEditor' => $hideEditor,
+                    'editorUrl' => Tools::safeOutput($this->context->link->getAdminLink('AdminVECEditor') . '&uid='),
                     'footerProduct' => "$footer_product",
+                    'hideEditor' => $hideEditor,
                     'i18n' => [
                         'edit' => str_replace("'", "’", $this->l('Edit with V-Elements')),
                         'save' => str_replace("'", "’", $this->l('Please save the form before editing with V-Elements')),
                         'error' => str_replace("'", "’", $this->getErrorMsg()),
                     ],
-                    'editorUrl' => Tools::safeOutput($this->context->link->getAdminLink('AdminVECEditor') . '&uid='),
                     'languages' => Language::getLanguages(true, $uid->id_shop),
                 ],
             ]);
-            $this->context->smarty->assign('edit_width_ce', $this->context->link->getAdminLink('AdminVECEditor'));
+            $this->context->smarty->assign('edit_with_vec', $this->context->link->getAdminLink('AdminVECEditor'));
         }
         return $this->context->smarty->fetch(_VEC_TEMPLATES_ . 'hook/backoffice_header.tpl');
     }
@@ -317,7 +297,7 @@ class VecElements extends Module
             $ips = explode(',', Configuration::get('PS_MAINTENANCE_IP', null, null, $this->context->shop->id));
 
             if (!in_array(Tools::getRemoteAddr(), $ips)) {
-                return $this->l('The shop is in maintenance mode, please whitelist your IP');
+                return $this->l('The shop is in maintenance mode, please add your IP to whitelist');
             }
         }
 
@@ -334,17 +314,11 @@ class VecElements extends Module
             $loadObject = new ReflectionMethod(self::$controller, 'loadObject');
             $loadObject->setAccessible(true);
 
-            if (empty($loadObject->invoke(self::$controller, true)->active) && !defined("$class::CE_OVERRIDE")) {
-                return $this->l('You can not edit items which are not displayed, because an override file is missing. Please contact us on https://addons.prestashop.com');
+            if (empty($loadObject->invoke(self::$controller, true)->active) && !defined("$class::V`")) {
+                return $this->l('You can not edit items which are not displayed, because an override file is missing. Please contact us on email: themevec@gmail.com');
             }
         }
         return '';
-    }
-
-    public function hookHeader()
-    {
-        // Compatibility fix for PS 1.7.7.x upgrade
-        return $this->hookDisplayHeader();
     }
 
     public function hookDisplayHeader()
@@ -414,7 +388,7 @@ class VecElements extends Module
                 }
                 break;
             case 'cms':
-                $model = class_exists('CMS') ? 'CMS' : 'CMSCategory';
+                $model = 'CMS';
                 $key = $model::${'definition'}['table'];
 
                 if (isset($tpl_vars[$key]->value['id'])) {
@@ -425,14 +399,6 @@ class VecElements extends Module
                 } elseif (isset($controller->cms->id)) {
                     $id = $controller->cms->id;
                     $desc = ['description' => &$controller->cms->content];
-                } elseif (isset($tpl_vars['cms_category']->value['id'])) {
-                    $model = 'CMSCategory';
-                    $id = $tpl_vars['cms_category']->value['id'];
-                    $desc = &$tpl_vars['cms_category']->value;
-                } elseif (isset($controller->cms_category->id)) {
-                    $model = 'CMSCategory';
-                    $id = $controller->cms_category->id;
-                    $desc = ['description' => &$controller->cms_category->description];
                 }
                 break;
             case 'product':
@@ -477,8 +443,8 @@ class VecElements extends Module
 
         // Theme Builder
         $themes = [
-            'header' => Configuration::get('CE_HEADER'),
-            'footer' => Configuration::get('CE_FOOTER'),
+            'header' => Configuration::get('VEC_HEADER'),
+            'footer' => Configuration::get('VEC_FOOTER'),
         ];
         $pages = [
             'index' => 'page-index',
@@ -552,31 +518,33 @@ class VecElements extends Module
 
     protected function displayMaintenancePage()
     {
-        Configuration::set('PS_SHOP_ENABLE', false);
-        Configuration::set('PS_MAINTENANCE_IP', '');
+        Configuration::set( 'PS_SHOP_ENABLE', false );
+        Configuration::set( 'PS_MAINTENANCE_IP', '' );
 
-        $displayMaintenancePage = new ReflectionMethod($this->context->controller, 'displayMaintenancePage');
-        $displayMaintenancePage->setAccessible(true);
-        $displayMaintenancePage->invoke($this->context->controller);
+        $displayMaintenancePage = new ReflectionMethod( $this->context->controller, 'displayMaintenancePage' );
+        $displayMaintenancePage->setAccessible( true );
+        $displayMaintenancePage->invoke( $this->context->controller );
     }
 
     public function hookDisplayMaintenance($params)
     {
-        if (self::getPreviewUId(false)) {
+        if (self::getPreviewUId(false)){
             http_response_code(200);
             header_remove('Retry-After');
-        } else {
+        }else{
             $this->hookDisplayHeader();
         }
 
-        VEC\add_filter('the_content', function () {
+        VEC\add_filter('the_content', function(){
             $uid = VEC\get_the_ID();
-            ${'this'}->context->smarty->assign('vec_content', new VECContent($uid->id, $uid->id_lang, $uid->id_shop));
+            ${'this'}->context->smarty->assign(
+                'vec_content', new VECContent($uid->id, $uid->id_lang, $uid->id_shop)
+            );
 
             VEC\remove_all_filters('the_content');
         }, 0);
 
-        if (!$maintenance = $this->renderContent('displayMaintenance', $params)) {
+        if (!$maintenance = $this->renderContent('displayMaintenance', $params)){
             return;
         }
         
@@ -602,7 +570,7 @@ class VecElements extends Module
         if (stripos($method, 'hookActionObject') === 0 && stripos($method, 'DeleteAfter') !== false) {
             call_user_func_array([$this, 'hookActionObjectDeleteAfter'], $args);
         } elseif (stripos($method, 'hook') === 0) {
-            // render hook only after Header init or if it's Home
+            // render this hook only after the Header inited or if it's the home page.
             if (false !== $this->tplOverride || !strcasecmp($method, 'hookDisplayHome')) {
                 return $this->renderContent(Tools::substr($method, 4), $args);
             }
@@ -659,18 +627,15 @@ class VecElements extends Module
         return $res;
     }
 
-    public function registerHook($hook_name, $shop_list = null, $position = null)
-    {
+    public function registerHook($hook_name, $shop_list = null, $position = null){
         $res = parent::registerHook($hook_name, $shop_list);
-
-        if ($res && is_numeric($position)) {
+        if($res){
             $this->updatePosition(Hook::getIdByName($hook_name), 0, $position);
         }
         return $res;
     }
 
-    public function hookVECTemplate($params)
-    {
+    public function hookVECTemplate($params){
         if (empty($params['id']) || !Validate::isLoadedObject($tpl = new VECTemplate($params['id'])) || !$tpl->active) {
             return;
         }
@@ -714,22 +679,19 @@ class VecElements extends Module
     {
         if (isset($params['request']) && $params['request']->attributes->get('action') === 'duplicate') {
             $id_product_duplicate = (int) $params['request']->attributes->get('id');
-        } elseif (Tools::getIsset('duplicateproduct')) {
+        }elseif(Tools::getIsset('duplicateproduct')){
             $id_product_duplicate = (int) Tools::getValue('id_product');
         }
 
-        if (isset($id_product_duplicate, $params['id_product']) &&
-            $built_list = VEC\UId::getBuiltList($id_product_duplicate, VEC\UId::PRODUCT)
-        ) {
+        if (isset($id_product_duplicate, $params['id_product']) && $built_list = VEC\UId::getBuiltList($id_product_duplicate, VEC\UId::PRODUCT)){
             $db = VEC\Plugin::instance()->db;
             $uid = new VEC\UId($params['id_product'], VEC\UId::PRODUCT, 0);
 
-            foreach ($built_list as $id_shop => &$langs) {
-                foreach ($langs as $id_lang => $uid_from) {
+            foreach($built_list as $id_shop => &$langs){
+                foreach($langs as $id_lang => $uid_from){
                     $uid->id_lang = $id_lang;
                     $uid->id_shop = $id_shop;
-
-                    $db->copyElementorMeta($uid_from, $uid);
+                    $db->copyElementorMeta( $uid_from, $uid );
                 }
             }
         }
@@ -755,93 +717,31 @@ class VecElements extends Module
         }
     }
 
-    public static function getPreviewUId($embed = true)
-    {
+    public static function getPreviewUId($embed = true){
         static $res = null;
 
-        if (null === $res && $res = Tools::getIsset('preview_id') &&
-            $uid = VEC\UId::parse(Tools::getValue('preview_id'))
-        ) {
-            $admin = $uid->getAdminController();
-            $key = 'AdminBlogPosts' === $admin ? 'blogtoken' : 'adtoken';
-            $res = self::hasAdminToken($admin, $key) ? $uid : false;
+        if(null === $res && $res = Tools::getIsset('preview_id') && $uid = VEC\UId::parse(Tools::getValue('preview_id'))){
+            $controller = $uid->getAdminController();
+            $key = 'AdminBlogPosts' === $controller ? 'blogtoken' : 'adtoken';
+            $res = self::hasAdminToken($controller, $key) ? $uid : false;
         }
         return !$embed || Tools::getIsset('ver') ? $res : false;
     }
 
-    public static function hasAdminToken($tab, $key = 'adtoken')
+    public static function hasAdminToken( $tab, $key = 'adtoken' )
     {
         $adtoken = Tools::getAdminToken($tab . (int) Tab::getIdFromClassName($tab) . (int) Tools::getValue('id_employee'));
-
         return Tools::getValue($key) == $adtoken;
     }
 
-    public static function getThemeVarName($theme_type)
+    public static function getThemeVarName( $theme_type )
     {
-        return 'CE_' . Tools::strtoupper(str_replace('-', '_', $theme_type));
+        return 'VEC_' . Tools::strtoupper(str_replace('-', '_', $theme_type));
     }
 
     public static function isMaintenance()
     {
-        return !Configuration::get('PS_SHOP_ENABLE') &&
-            !in_array(Tools::getRemoteAddr(), explode(',', Configuration::get('PS_MAINTENANCE_IP')));
-    }
-
-    public function _getProductsPath($items_type)
-    {       
-        $items_type_path = [];
-
-        for( $i = 1; $i <= 30; $i++ ){
-            $items_type_path[$i] = 'catalog/_partials/miniatures/_partials/_product/product-' . $i . '.tpl';
-        }
-
-        $items_type_path = Wp_Helper::apply_filters( 'axoncreator_products_type_path', $items_type_path );  
-        
-        return $items_type_path[$items_type];
-    }
-    
-    public function _prepProductsSelected($settings)
-    {   
-        $content = array();
-        $data = array();
-        
-        $content['products'] = $this->execProducts('s', $settings, 0, null, null, 1);   
-        $content['lastPage'] = true;
-        
-        $content['items_type_path'] = $this->_getProductsPath($settings['items_type']);
-        
-        return $content;
-    }
-        
-    public function _prepProducts($settings)
-    {   
-        $content = array();
-        
-        $source = $settings['source'];
-        $limit = (int)$settings['limit'] <= 0 ? 10 : (int)$settings['limit'];
-        $order_by = $settings['order_by'];
-        $order_way = $settings['order_way'];
-        
-        if($source == 'c'){
-            $source = $settings['category'];
-            if ($settings['randomize']) {
-                $order_by = 'rand';
-            }
-        }
-                
-        $page = $settings['paged'];
-                
-        $content['products'] = $this->execProducts($source,  $settings, $limit, $order_by, $order_way, $page);
-        
-        $content['lastPage'] = true;
-        
-        if( $page > 1 ){
-            $content['lastPage'] = !(bool)$this->execProducts($source,  $settings, $limit, $order_by, $order_way, $page + 1);
-        }
-        
-        $content['items_type_path'] = $this->_getProductsPath($settings['items_type']);
-        
-        return $content;
+        return !Configuration::get('PS_SHOP_ENABLE') && !in_array(Tools::getRemoteAddr(), explode(',', Configuration::get('PS_MAINTENANCE_IP')));
     }
 
     protected function getProduct($id)

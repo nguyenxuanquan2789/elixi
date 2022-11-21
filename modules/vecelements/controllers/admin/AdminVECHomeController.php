@@ -71,7 +71,7 @@ class AdminVECHomeController extends ModuleAdminController
             'icon' => 'icon-cog',
             'title' => $this->l('Theme Settings'),
             'fields' => [
-                'CE_PAGE_INDEX' => [
+                'VEC_PAGE_INDEX' => [
                     'title' => $this->l('Home Page'),
                     'cast' => 'strval',
                     'type' => 'select',

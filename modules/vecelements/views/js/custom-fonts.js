@@ -101,12 +101,12 @@ var modules = {
 	AssetsManager: __webpack_require__(61)
 };
 
-window.ceAdmin = {
+window.vecAdmin = {
 	assetsManager: new modules.AssetsManager()
 };
 
 jQuery(function () {
-	ceAdmin.assetsManager.fontManager.init();
+	vecAdmin.assetsManager.fontManager.init();
 });
 
 /***/ }),

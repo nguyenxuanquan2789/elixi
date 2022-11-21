@@ -71,7 +71,7 @@ class AdminVECHeaderController extends ModuleAdminController
             'icon' => 'icon-cog',
             'title' => $this->l('Theme Settings'),
             'fields' => [
-                'CE_HEADER' => [
+                'VEC_HEADER' => [
                     'title' => $this->l('Header'),
                     'cast' => 'strval',
                     'type' => 'select',

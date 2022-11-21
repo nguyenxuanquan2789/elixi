@@ -10,7 +10,7 @@ defined('_PS_VERSION_') or die;
 
 class Manufacturer extends ManufacturerCore
 {
-    const CE_OVERRIDE = true;
+    const VEC_OVERRIDE = true;
 
     public function __construct($id = null, $idLang = null)
     {

@@ -756,7 +756,7 @@ class Editor
 
         wp_register_style(
             'font-themevec',
-            _VEC_ASSETS_URL_ . 'lib/font-themevec/css/vecthemes-icon' . $suffix . '.css',
+            _VEC_ASSETS_URL_ . 'lib/font-themevec/css/elixi-icon' . $suffix . '.css',
             [],
             '1.0.0'
         );

@@ -71,7 +71,7 @@ class AdminVECFooterController extends ModuleAdminController
             'icon' => 'icon-cog',
             'title' => $this->l('Theme Settings'),
             'fields' => [
-                'CE_FOOTER' => [
+                'VEC_FOOTER' => [
                     'title' => $this->l('Footer'),
                     'cast' => 'strval',
                     'type' => 'select',

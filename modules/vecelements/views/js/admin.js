@@ -3,9 +3,9 @@
  * Copyright 2020-2022 themevec.com
  */
 
-window.ceAdmin && document.addEventListener('DOMContentLoaded', function() {
-	if (ceAdmin.ready) return;
-	else ceAdmin.ready = true;
+window.vecAdmin && document.addEventListener('DOMContentLoaded', function() {
+	if (vecAdmin.ready) return;
+	else vecAdmin.ready = true;
 
 	// Cancel button fix
 	$('.btn[id$=_form_cancel_btn]')
@@ -34,32 +34,32 @@ window.ceAdmin && document.addEventListener('DOMContentLoaded', function() {
 	});
 
 	// Handler functions
-	ceAdmin.onClickImport = function() {
+	vecAdmin.onClickImport = function() {
 		$import.hasClass('visible')
 			? $import.removeClass('visible').slideUp(300)
 			: $import.addClass('visible').slideDown(300)
 		;
 	};
-	ceAdmin.onClickBtnBack = function(e) {
-		ceAdmin.checkChanges = true;
+	vecAdmin.onClickBtnBack = function(e) {
+		vecAdmin.checkChanges = true;
 	};
-	ceAdmin.onClickBtnWrapper = function(e) {
+	vecAdmin.onClickBtnWrapper = function(e) {
 		this.children[0].click();
 	};
-	ceAdmin.onClickBtnEdit = function(e) {
+	vecAdmin.onClickBtnEdit = function(e) {
 		e.stopPropagation();
-		ceAdmin.checkChanges = true;
+		vecAdmin.checkChanges = true;
 
-		if (ceAdmin.i18n.error) {
-			ceAdmin.checkChanges = e.preventDefault();
-			return alert(ceAdmin.i18n.error);
+		if (vecAdmin.i18n.error) {
+			vecAdmin.checkChanges = e.preventDefault();
+			return alert(vecAdmin.i18n.error);
 		}
-		if ('0' === ceAdmin.uid[0]) {
+		if ('0' === vecAdmin.uid[0]) {
 			if (document.body.classList.contains('adminmaintenance')) {
 				return this.href += '&action=addMaintenance';
 			}
-			ceAdmin.checkChanges = e.preventDefault();
-			return alert(ceAdmin.i18n.save);
+			vecAdmin.checkChanges = e.preventDefault();
+			return alert(vecAdmin.i18n.save);
 		}
 	};
 
@@ -67,7 +67,7 @@ window.ceAdmin && document.addEventListener('DOMContentLoaded', function() {
 	var tmplBtnBack = $('#tmpl-btn-back-to-ps').html(),
 		tmplBtnEdit = $('#tmpl-btn-edit-with-ce').html();
 
-	if (ceAdmin.footerProduct) {
+	if (vecAdmin.footerProduct) {
 		var $tf = $('<div class="translationsFields tab-content">').wrap('<div class="translations tabbable">');
 		$tf.parent()
 			.insertAfter('#related-product')
@@ -77,12 +77,12 @@ window.ceAdmin && document.addEventListener('DOMContentLoaded', function() {
 		$('textarea[id*=description_short_]').each(function(i, el) {
 			var idLang = el.id.split('_').pop(),
 				lang = el.parentNode.className.match(/translation-label-(\w+)/),
-				$btn = $(tmplBtnEdit).click(ceAdmin.onClickBtnEdit);
+				$btn = $(tmplBtnEdit).click(vecAdmin.onClickBtnEdit);
 
-			if ('0' === ceAdmin.footerProduct[0]) {
-				$btn[0].href += '&action=addFooterProduct&uid=' + (1*ceAdmin.uid + 100*idLang);
+			if ('0' === vecAdmin.footerProduct[0]) {
+				$btn[0].href += '&action=addFooterProduct&uid=' + (1*vecAdmin.uid + 100*idLang);
 			} else {
-				$btn[0].href += '&uid=' + (1*ceAdmin.footerProduct + 100*idLang) + '&footerProduct=' + ceAdmin.uid.slice(0, -6);
+				$btn[0].href += '&uid=' + (1*vecAdmin.footerProduct + 100*idLang) + '&footerProduct=' + vecAdmin.uid.slice(0, -6);
 			}
 			$('<div class="translation-field tab-pane">')
 				.addClass(lang ? 'translation-label-'+lang[1] : '')
@@ -94,16 +94,16 @@ window.ceAdmin && document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 
-	ceAdmin.getContents = function(selector) {
+	vecAdmin.getContents = function(selector) {
 		return $(selector).each(function(i, el) {
 			var idLang = parseInt(el[el.id ? 'id' : 'name'].split('_').pop()) || 0,
-				$btn = $(tmplBtnEdit).insertBefore(el).click(ceAdmin.onClickBtnEdit);
+				$btn = $(tmplBtnEdit).insertBefore(el).click(vecAdmin.onClickBtnEdit);
 
-			$btn[0].href += '&uid=' + (1*ceAdmin.uid + 100*idLang);
+			$btn[0].href += '&uid=' + (1*vecAdmin.uid + 100*idLang);
 
-			if (~ceAdmin.hideEditor.indexOf(idLang)) {
-				$(tmplBtnBack).insertBefore($btn).click(ceAdmin.onClickBtnBack)[0].href += '&uid=' + (1*ceAdmin.uid + 100*idLang);
-				$btn.wrap('<div class="wrapper-edit-with-ve">').parent().click(ceAdmin.onClickBtnWrapper);
+			if (~vecAdmin.hideEditor.indexOf(idLang)) {
+				$(tmplBtnBack).insertBefore($btn).click(vecAdmin.onClickBtnBack)[0].href += '&uid=' + (1*vecAdmin.uid + 100*idLang);
+				$btn.wrap('<div class="wrapper-edit-with-ve">').parent().click(vecAdmin.onClickBtnWrapper);
 				$(el).hide().next('.maxLength').hide();
 			} else {
 				$btn.after('<br>');
@@ -111,10 +111,10 @@ window.ceAdmin && document.addEventListener('DOMContentLoaded', function() {
 		});
 	};
 
-	ceAdmin.$contents = ceAdmin.getContents([
+	vecAdmin.$contents = vecAdmin.getContents([
 		'body:not(.adminproducts) textarea[name^=content_]:not([name*=short])',
 		'body:not(.adminproducts) textarea[name*="[content]"]',
-		'body:not(.adminpsblogblogs) textarea[name^=description_]:not([name*=short])',
+		'body:not(.adminpsblogblogs, .admincmscontent) textarea[name^=description_]:not([name*=short])',
 		'textarea[name*="[description]"]',
 		'textarea[name^=post_content_]',
 		'textarea[name=content]',
@@ -122,27 +122,27 @@ window.ceAdmin && document.addEventListener('DOMContentLoaded', function() {
 	].join());
 
 	// Insert edit button to Maintenance on PS 1.6
-	if (!ceAdmin.$contents.length && document.body.classList.contains('adminmaintenance')) {
+	if (!vecAdmin.$contents.length && document.body.classList.contains('adminmaintenance')) {
 		var $btn = $(tmplBtnEdit)
 			.css('marginTop', 25)
 			.insertAfter('input[name=PS_MAINTENANCE_IP]')
-			.click(ceAdmin.onClickBtnEdit);
+			.click(vecAdmin.onClickBtnEdit);
 
-		$btn[0].href += '&uid=' + (1*ceAdmin.uid + 100*default_language);
+		$btn[0].href += '&uid=' + (1*vecAdmin.uid + 100*default_language);
 	}
 
-	ceAdmin.form = ceAdmin.$contents[0] && ceAdmin.$contents[0].form;
-	ceAdmin.formChanged = false;
+	vecAdmin.form = vecAdmin.$contents[0] && vecAdmin.$contents[0].form;
+	vecAdmin.formChanged = false;
 
 	$(function() {
 		// run after jQuery's document ready
-		$(ceAdmin.form).one('change', ':input', function() {
-			ceAdmin.formChanged = true;
+		$(vecAdmin.form).one('change', ':input', function() {
+			vecAdmin.formChanged = true;
 		});
 	});
 	$(window).on('beforeunload', function() {
-		if (ceAdmin.checkChanges && ceAdmin.formChanged) {
-			delete ceAdmin.checkChanges;
+		if (vecAdmin.checkChanges && vecAdmin.formChanged) {
+			delete vecAdmin.checkChanges;
 			return "Changes you made may not be saved!";
 		}
 	});

@@ -694,7 +694,7 @@ class VecThemeoptions extends Module implements WidgetInterface
 
     public function hookDisplayBackOfficeHeader($params)
 	{
-		$this->context->controller->addCSS($this->_path . 'views/css/vecthemes-icon.css');
+		$this->context->controller->addCSS($this->_path . 'views/css/elixi-icon.css');
 	}
 	protected function getWarningMultishopHtml()
     {

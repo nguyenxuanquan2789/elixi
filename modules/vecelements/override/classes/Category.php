@@ -10,7 +10,7 @@ defined('_PS_VERSION_') or die;
 
 class Category extends CategoryCore
 {
-    const CE_OVERRIDE = true;
+    const VEC_OVERRIDE = true;
 
     public function __construct($idCategory = null, $idLang = null, $idShop = null)
     {
