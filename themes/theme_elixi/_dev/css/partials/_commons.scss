@@ -16,49 +16,59 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 main {
-  overflow: hidden; 
+  overflow: hidden;
 }
+
 ul {
-  list-style: none;   
+  list-style: none;
   padding-left: 0;
 }
 
-a{
+a {
   color: $gray-dark;
-  @include vec-transition(300ms); 
+  @include vec-transition(300ms);
+
   &:hover {
     text-decoration: none;
-    color: var(--hovercolor); 
+    color: var(--hovercolor);
   }
+
   &:focus {
     outline: none;
     outline-offset: 0;
   }
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
+
 p {
   font-size: .875rem;
   font-weight: 400;
-  color: $gray; 
+  color: $gray;
 }
+
 .unvisible {
   display: none;
 }
-button:focus{
-  outline:none; 
+
+button:focus {
+  outline: none;
 }
-button{
-  @include vec-transition(300ms); 
+
+button {
+  @include vec-transition(300ms);
 }
-.btn:focus, 
-.btn.focus, 
-.btn:active:focus, 
-.btn:active.focus, 
-.btn.active:focus, 
+
+.btn:focus,
+.btn.focus,
+.btn:active:focus,
+.btn:active.focus,
+.btn.active:focus,
 .btn.active.focus,
 .btn-primary:active,
 .btn-secondary:active,
@@ -67,13 +77,14 @@ button{
 .btn-secondary:active:hover,
 .btn-tertiary:active:hover,
 .btn-primary.active,
-.btn-secondary.active, 
+.btn-secondary.active,
 .btn-tertiary.active {
-	outline:none; 
-	background: var(--buttonhoverbackground);
-	color: var(--buttonhovercolor);
+  outline: none;
+  background: var(--buttonhoverbackground);
+  color: var(--buttonhovercolor);
   border-color: var(--buttonhoverborder);
 }
+
 .dropdown-item:focus,
 .dropdown-item:hover {
   background: none;
@@ -81,10 +92,10 @@ button{
 
 label .color,
 .variant-links .color,
-.custom-checkbox input[type="checkbox"] + span.color {
+.custom-checkbox input[type="checkbox"]+span.color {
   display: inline-block;
   width: 1.125rem;
-  height: 1.125rem; 
+  height: 1.125rem;
   margin-top: 0.3125rem;
   margin-right: 0.5rem;
   cursor: pointer;
@@ -98,6 +109,7 @@ label .color,
 }
 
 .facet-label {
+
   &.active,
   &:hover {
     .custom-checkbox span.color {
@@ -109,41 +121,56 @@ label .color,
 .h1,
 .h2,
 .h3 {
-  color: $gray-darker; 
+  color: $gray-darker;
 }
 
 .h4 {
   font-weight: $headings-font-weight;
   color: $gray-darker;
 }
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   color: $gray-darker;
 }
+
 .btn,
 .btn-primary,
 .btn-secondary,
 .btn-tertiary {
-  padding: .7813rem 1.25rem; 
+  padding: .7813rem 2.5rem;
   font-weight: 500;
   text-transform: uppercase;
   font-size: .875rem;
-  line-height: 1.25rem; 
+  line-height: 1.25rem;
   border: none;
   background: var(--buttonbackground);
   color: var(--buttoncolor);
   border-color: var(--buttonborder);
-  @include vec-transition(300ms); 
+  @include vec-transition(300ms);
+
   &:hover {
     background: var(--buttonhoverbackground);
     color: var(--buttonhovercolor);
     border-color: var(--buttonhoverborder);
   }
+
   i {
     margin-right: $small-space;
     vertical-align: -2px;
   }
 }
+
 .btn-unstyle {
   padding: 0;
   text-align: inherit;
@@ -181,12 +208,13 @@ small.value {
 .form-control {
   padding: .836rem 1rem;
   color: $gray;
-  background: $white; 
+  background: $white;
   border: $input-btn-border-width solid $input-border-color;
-  font-size: .8125rem; 
+  font-size: .8125rem;
+
   &:focus {
     color: $gray-darker;
-    background-color: $white; 
+    background-color: $white;
   }
 }
 
@@ -194,7 +222,8 @@ small.value {
   position: relative;
   clear: both;
 }
-.js-customer-form , 
+
+.js-customer-form,
 .js-address-form {
   .form-group .form-control-label {
     position: absolute;
@@ -204,12 +233,14 @@ small.value {
     font-weight: 400;
     color: #999;
     transition: 0.3s;
-  
+
   }
+
   .cl-id_gender .form-control-label {
     position: static;
   }
-  .form-group .form-control-label.has-value{
+
+  .form-group .form-control-label.has-value {
     top: -6px;
     background-color: $white;
     padding: 0 5px;
@@ -218,14 +249,18 @@ small.value {
     line-height: 1;
   }
 }
-.form-group .form-control:focus{
+
+.form-group .form-control:focus {
   border-color: var(--hovercolor);
 }
-.field-require{
+
+.field-require {
   color: red;
 }
+
 .input-group {
   display: flex;
+
   .form-control:focus {
     outline: none;
   }
@@ -234,7 +269,7 @@ small.value {
     display: block;
     width: auto;
 
-    > .btn {
+    >.btn {
       display: flex;
       align-items: center;
       height: 100%;
@@ -257,6 +292,7 @@ small.value {
 
 input,
 textarea {
+
   /* stylelint-disable */
   &::-webkit-input-placeholder {
     color: $gray;
@@ -291,26 +327,29 @@ textarea {
       color: $gray-darker;
     }
   }
+
   /* stylelint-enable */
 }
+
 input:focus-visible {
-  outline: 1px solid var(--hovercolor); 
+  outline: 1px solid var(--hovercolor);
 }
+
 .form-control-select {
   height: 2.8125rem;
   padding: 0 0.5rem;
   background:
-    $white
-    url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAPklEQVR4Ae3TwREAEBQD0V/6do4SXPZg7EsBhsQ8IEmSMOsiuEfg3gL3oXC7wK0bd1G4o8X9F4yIkyQfSrIByQBjp7QuND8AAAAASUVORK5CYII=")
-    no-repeat scroll right 0.5rem center / 1.25rem 1.25rem;
+    $white url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAPklEQVR4Ae3TwREAEBQD0V/6do4SXPZg7EsBhsQ8IEmSMOsiuEfg3gL3oXC7wK0bd1G4o8X9F4yIkyQfSrIByQBjp7QuND8AAAAASUVORK5CYII=") no-repeat scroll right 0.5rem center / 1.25rem 1.25rem;
   /* stylelint-disable */
   -moz-appearance: none;
   -webkit-appearance: none;
   /* stylelint-enable */
 }
+
 select.form-control:not([size]):not([multiple]) {
   height: 2.8125rem;
 }
+
 .form-control-valign {
   padding-top: 0.5rem;
 }
@@ -330,6 +369,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .form-group {
   &.has-error {
+
     input,
     select {
       outline: 0.1875rem solid $brand-danger;
@@ -452,7 +492,7 @@ form {
   .form-control-label {
     font-size: 0.875rem;
     font-weight: 400;
-    color: $gray-darker; 
+    color: $gray-darker;
   }
 }
 
@@ -473,7 +513,7 @@ form {
     cursor: pointer;
     opacity: 0;
 
-    &:checked + span {
+    &:checked+span {
       position: absolute;
       top: 0.125rem;
       left: 0.125rem;
@@ -484,7 +524,7 @@ form {
       border-radius: 50%;
     }
 
-    &:focus + span {
+    &:focus+span {
       border-color: $gray;
     }
   }
@@ -501,7 +541,7 @@ form {
     cursor: pointer;
     opacity: 0;
 
-    + span {
+    +span {
       display: inline-block;
       width: 1.125rem;
       height: 1.125rem;
@@ -519,13 +559,13 @@ form {
       }
     }
 
-    &:checked + span {
+    &:checked+span {
       .checkbox-checked {
         display: block;
       }
     }
 
-    &:focus + span {
+    &:focus+span {
       border-color: $gray;
     }
   }
@@ -547,7 +587,7 @@ form {
 }
 
 .thumb-mask {
-  > .mask {
+  >.mask {
     position: relative;
     width: 3.438rem;
     height: 3.438rem;
@@ -650,6 +690,7 @@ form {
 }
 
 .nav-item {
+
   .nav-link,
   .nav-separtor {
     font-weight: 600;
@@ -673,6 +714,7 @@ form {
   // 30px corresponds to the default margin size from bootstrap 4.0.0-alpha.5 for modal-dialog class
   min-height: calc(100% - (30px * 2));
 }
+
 .modal-dialog {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -684,11 +726,13 @@ form {
   min-height: calc(100% - (0.5rem * 2));
   margin: 0 auto;
   pointer-events: none;
+
   .modal-content {
     pointer-events: auto;
     width: 100%;
     border-radius: 0;
   }
+
   .close {
     position: absolute;
     right: -3px;
@@ -705,34 +749,42 @@ form {
     border: none;
     z-index: 1;
     opacity: 1;
+
     &:hover {
       color: var(--buttonhovercolor);
       background: var(--buttonhoverbackground);
     }
+
     i {
       font-size: 1.125rem;
     }
   }
 }
+
 //modal-compare
 #compareModal {
   text-align: center;
+
   .modal-dialog {
     max-width: 22.5rem;
   }
+
   img {
     width: 100%;
   }
+
   h4 {
     color: $gray-dark;
     margin: 1.25rem 0 0 0;
   }
+
   a {
-    display: block; 
+    display: block;
     width: 100%;
     margin-top: .9375rem;
   }
 }
+
 //modal-login
 .vec-quicklogin-modal {
   h3 {
@@ -740,17 +792,21 @@ form {
     text-align: center;
     margin: .625rem 0;
   }
+
   .vec-login-btn {
-    margin-top: 0.5rem; 
-    width: 100%; 
+    margin-top: 0.5rem;
+    width: 100%;
   }
+
   .vec-register {
     text-align: center;
   }
 }
+
 .close {
-  opacity:1;
+  opacity: 1;
 }
+
 .popover {
   font-family: inherit;
 }
@@ -764,6 +820,7 @@ input[type="number"] {
     margin: 0;
     -webkit-appearance: none;
   }
+
   /* stylelint-enable */
 }
 

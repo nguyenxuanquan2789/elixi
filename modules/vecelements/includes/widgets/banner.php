@@ -177,7 +177,7 @@ class WidgetBanner extends WidgetBase {
 				]
 			);
 			
-			$this->addControl(
+			$this->addResponsiveControl(
 				'padding',
 				[
 					'label' => __('Padding'),

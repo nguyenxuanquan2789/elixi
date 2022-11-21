@@ -269,7 +269,13 @@ class WidgetProductTab extends WidgetProductBase
 				'tab' 			=> ControlsManager::TAB_STYLE,
 			]
 		);
-			
+			$this->addGroupControl(
+				GroupControlBorder::getType(),
+				[
+					'name' => 'border_tab',
+					'selector' => '{{WRAPPER}} .nav-tabs',
+				]
+			);
 			$this->addControl(
 				'title_align',
 				[

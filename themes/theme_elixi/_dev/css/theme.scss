@@ -50,7 +50,7 @@
         border: none;
         margin: auto;
         padding-top: 0;
-        padding-bottom: 0; 
+        padding-bottom: 0;
         -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
         -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
         box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
@@ -1978,7 +1978,7 @@
     }
 }
 
-.toogle-content-show {
+#index .toogle-content-show {
     .vec-menu-content .vec-menu-vertical .menu-content {
         opacity: 1;
         visibility: visible;
@@ -4008,10 +4008,13 @@
 // tab product
 .product-tabs-widget {
     .nav-tabs {
-        white-space: nowrap;
-        overflow-y: hidden;
         font-size: 0;
         border: none;
+
+        @media (max-width: 1199px) {
+            white-space: nowrap;
+            overflow-y: hidden;
+        }
 
         @media (max-width: 767px) {
             text-align: left !important;
@@ -4020,7 +4023,6 @@
         li {
             display: inline-block;
             line-height: 1;
-            margin-bottom: 0.625rem;
             float: none;
 
             &:last-child {
