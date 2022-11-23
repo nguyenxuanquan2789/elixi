@@ -18,7 +18,8 @@
  *}
 <section id="js-active-search-filters" class="{if $activeFilters|count}active_filters{else}hide{/if}">
   {block name='active_filters_title'}
-    <p class="h6 {if $activeFilters|count}active-filter-title{else}hidden-xs-up{/if}">{l s='Active filters' d='Shop.Theme.Global'}</p>
+    <p class="h6 {if $activeFilters|count}active-filter-title{else}hidden-xs-up{/if}">
+      {l s='Active filters' d='Shop.Theme.Global'}</p>
   {/block}
 
   {if $activeFilters|count}
@@ -28,7 +29,7 @@
           <li class="filter-block">
             {l s='%1$s:' d='Shop.Theme.Catalog' sprintf=[$filter.facetLabel]}
             {$filter.label}
-            <a class="js-search-link" href="{$filter.nextEncodedFacetsURL}"><i class="vecicon-cross"></i></a>
+            <a class="js-search-link" href="{$filter.nextEncodedFacetsURL}"><i class="elicon-cross"></i></a>
           </li>
         {/block}
       {/foreach}
@@ -38,7 +39,7 @@
     {if $activeFilters|count}
       <div>
         <button data-search-url="{$clear_all_link}" class="btn btn-tertiary js-search-filters-clear-all">
-         <i class="vecicon-cross"></i>
+          <i class="elicon-cross"></i>
           {l s='Clear all' d='Shop.Theme.Actions'}
         </button>
       </div>

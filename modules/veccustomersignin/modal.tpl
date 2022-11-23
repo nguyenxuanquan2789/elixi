@@ -12,7 +12,7 @@
 					{l s='You have to login to use Wishlist' mod='veccustomersignin'}
 				</h3>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<i class="vecicon-cross"></i>
+					<i class="elicon-cross"></i>
 				</button>
 			</div>
 			<div class="modal-body">

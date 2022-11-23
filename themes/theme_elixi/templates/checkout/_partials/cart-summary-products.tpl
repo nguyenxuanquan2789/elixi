@@ -23,14 +23,14 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 
- <div class="cart-summary-products js-cart-summary-products">
+<div class="cart-summary-products js-cart-summary-products">
   <div class="summary-details">
-  <strong>{$cart.summary_string}</strong>
-  <a href="#" data-toggle="collapse" data-target="#cart-summary-product-list" class="js-show-details">
+    <strong>{$cart.summary_string}</strong>
+    <a href="#" data-toggle="collapse" data-target="#cart-summary-product-list" class="js-show-details">
       {l s='show details' d='Shop.Theme.Actions'}
-      <i class="vecicon-angle_down"></i>
-   </a>
-   </div>
+      <i class="elicon-arrow_more"></i>
+    </a>
+  </div>
   {block name='cart_summary_product_list'}
     <div class="collapse" id="cart-summary-product-list">
       <ul class="media-list">

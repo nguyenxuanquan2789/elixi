@@ -28,7 +28,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <i class="vecicon-cross"></i>
+          <i class="elicon-cross"></i>
         </button>
         <h4 class="modal-title h6 text-sm-center" id="myModalLabel">
           {l s='Product successfully added to your shopping cart' d='Shop.Theme.Checkout'}</h4>

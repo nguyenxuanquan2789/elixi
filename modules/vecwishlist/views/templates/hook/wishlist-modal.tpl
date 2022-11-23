@@ -22,14 +22,16 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-	 
-<div id="modal_wishlist" class="modal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog animationShowPopup animated" role="document">
-	<div class="modal-content">
-		<button type="button" class="close" data-dismiss="modal" aria-label="{l s='Close' d='Shop.Theme.Global'}">
-			<i class="vecicon-cross"></i>
-		</button>
-		<div class="modal-body">
-			<div id="wishlist_content"></div>
+
+<div id="modal_wishlist" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog animationShowPopup animated" role="document">
+		<div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal" aria-label="{l s='Close' d='Shop.Theme.Global'}">
+				<i class="elicon-cross"></i>
+			</button>
+			<div class="modal-body">
+				<div id="wishlist_content"></div>
+			</div>
 		</div>
 	</div>
-</div></div>
+</div>

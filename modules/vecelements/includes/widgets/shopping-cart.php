@@ -57,23 +57,24 @@ class WidgetShoppingCart extends WidgetBase{
 				]
 			);
 			$icon_options = [
-				'vecicon-shopping_bag1',
-				'vecicon-shopping_bag2',
-				'vecicon-shopping_bag3',
-				'vecicon-shopping_bag4',
-				'vecicon-shopping_basket1',
-				'vecicon-shopping_basket2',
-				'vecicon-shopping_cart1',
-				'vecicon-shopping_cart2',
-				'vecicon-shopping_cart3',
-				'vecicon-shopping_cart4',
+				'elicon-cart',
+				'elicon-bag',
+				'elicon-shopping_bag1',
+				'elicon-shopping_bag2',
+				'elicon-shopping_bag3',
+				'elicon-shopping_bag4',
+				'elicon-shopping_basket1',
+				'elicon-shopping_basket2',
+				'elicon-shopping_cart1',
+				'elicon-shopping_cart3',
+				'elicon-shopping_cart4',
 			];
 			$this->addControl(
 				'cart_icon',
 				[
 					'label' => __('Cart icon'),
 					'type' => ControlsManager::ICON,
-					'default' => 'vecicon-shopping_bag1',
+					'default' => 'elicon-bag',
 					'label_block' => true,
 					'icon_type' => 'vecicon',
 					'include' => $icon_options,

@@ -275,7 +275,7 @@ class WidgetProductTab extends WidgetProductBase
 					'name' => 'border_tab',
 					'selector' => '{{WRAPPER}} .nav-tabs',
 				]
-			);
+			); 
 			$this->addControl(
 				'title_align',
 				[

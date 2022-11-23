@@ -25,60 +25,60 @@
 
 {block name="content_wrapper"}
   <div id="content-wrapper" class="js-content-wrapper left-column col-xs-12 col-xl-9">
-  {hook h="displayContentWrapperTop"}
-  {block name='content'}
-    <section id="main">
+    {hook h="displayContentWrapperTop"}
+    {block name='content'}
+      <section id="main">
 
-      {block name='product_list_header'}
-        <h1 id="js-product-list-header" class="h2">{$listing.label}</h1>
-      {/block}
+        {block name='product_list_header'}
+          <h1 id="js-product-list-header" class="h2">{$listing.label}</h1>
+        {/block}
 
-      {block name='subcategory_list'}{/block}
-      
-      {hook h="displayHeaderCategory"}
+        {block name='subcategory_list'}{/block}
 
-      <section id="products">
-        {if $listing.products|count}
-          <div id="vec-use-scroll"></div>
-          {block name='product_list_top'}
-            {include file='catalog/_partials/products-top.tpl' listing=$listing}
-          {/block}
+        {hook h="displayHeaderCategory"}
 
-          {block name='product_list_active_filters'}
-            <div class="filters-active">
-              {$listing.rendered_active_filters nofilter}
+        <section id="products">
+          {if $listing.products|count}
+            <div id="vec-use-scroll"></div>
+            {block name='product_list_top'}
+              {include file='catalog/_partials/products-top.tpl' listing=$listing}
+            {/block}
+
+            {block name='product_list_active_filters'}
+              <div class="filters-active">
+                {$listing.rendered_active_filters nofilter}
+              </div>
+            {/block}
+
+            {block name='product_list'}
+              {include file='catalog/_partials/products.tpl' listing=$listing productClass="col-xs-6 col-xl-4"}
+            {/block}
+
+            {block name='product_list_bottom'}
+              {include file='catalog/_partials/products-bottom.tpl' listing=$listing}
+            {/block}
+
+          {else}
+            <div id="js-product-list-top"></div>
+
+            <div id="js-product-list">
+              {capture assign="errorContent"}
+                <h4>{l s='No products available yet' d='Shop.Theme.Catalog'}</h4>
+                <p>{l s='Stay tuned! More products will be shown here as they are added.' d='Shop.Theme.Catalog'}</p>
+              {/capture}
+
+              {include file='errors/not-found.tpl' errorContent=$errorContent}
             </div>
-          {/block}
 
-          {block name='product_list'}
-            {include file='catalog/_partials/products.tpl' listing=$listing productClass="col-xs-6 col-xl-4"}
-          {/block}
+            <div id="js-product-list-bottom"></div>
+          {/if}
+        </section>
+        {block name='product_list_footer'}{/block}
+        {hook h="displayFooterCategory"}
 
-          {block name='product_list_bottom'}
-            {include file='catalog/_partials/products-bottom.tpl' listing=$listing}
-          {/block}
-
-        {else}
-          <div id="js-product-list-top"></div>
-
-          <div id="js-product-list">
-            {capture assign="errorContent"}
-              <h4>{l s='No products available yet' d='Shop.Theme.Catalog'}</h4>
-              <p>{l s='Stay tuned! More products will be shown here as they are added.' d='Shop.Theme.Catalog'}</p>
-            {/capture}
-
-            {include file='errors/not-found.tpl' errorContent=$errorContent}
-          </div>
-
-          <div id="js-product-list-bottom"></div>
-        {/if}
       </section>
-      {block name='product_list_footer'}{/block}  
-      {hook h="displayFooterCategory"}
-
-    </section>
-  {/block}
-  {hook h="displayContentWrapperBottom"}
+    {/block}
+    {hook h="displayContentWrapperBottom"}
   </div>
 {/block}
 {block name="left_column"}
@@ -94,7 +94,7 @@
 
 {block name='hook_filter_canvas'}
   <div class="filters-canvas">
-  <button class="filter-close-btn"><i class="vecicon-cross float-xs-right"></i></button>
+    <button class="filter-close-btn"><i class="elicon-cross float-xs-right"></i></button>
     <div id="_mobile_search_filters"></div>
   </div>
 {/block}

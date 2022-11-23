@@ -24,7 +24,7 @@
  *}
 {extends file=$layout}
 {block name='page_title'}
-	{l s='Shopping Cart' d='Shop.Theme.Checkout'}
+  {l s='Shopping Cart' d='Shop.Theme.Checkout'}
 {/block}
 {block name='content'}
 
@@ -43,7 +43,7 @@
 
         {block name='continue_shopping'}
           <a class="label btn btn-primary" href="{$urls.pages.index}">
-            <i class="vecicon-reply"></i>
+            <i class="elicon-reply"></i>
             {l s='Continue shopping' d='Shop.Theme.Actions'}
           </a>
         {/block}

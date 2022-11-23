@@ -55,14 +55,26 @@ class WidgetWishlist extends WidgetBase
 					'prefix_class' => 'button-layout-',
 				]
 			);
+			$this->addControl(
+				'button_design',
+				[
+					'label' => __( 'Button desgin'),
+					'type' => ControlsManager::SELECT,
+					'default' => 'inline',
+					'options' => [
+						'inline' => __( 'inline'),
+						'block' => __( 'block'),
+					],
+					'prefix_class' => 'button-design-'
+				]
+			);
 			$icon_options = [
-				'vecicon-heart1',
-				'vecicon-heart2',
-				'vecicon-heart2_solid',
-				'vecicon-heart3',
-				'vecicon-heart4',
-				'vecicon-heart5',
-				'vecicon-heart5_solid',
+				'elicon-heart',
+				'elicon-hearta',
+				'elicon-heart2',
+				'elicon-heart2_solid',
+				'elicon-heart5',
+				'elicon-heart5_solid',
 			];
 			$this->addControl(
 				'wishlist_icon',
@@ -70,7 +82,7 @@ class WidgetWishlist extends WidgetBase
 					'label' => __( 'Wishlist icon'),
 					'type' => ControlsManager::ICON,
 					'label_block' => true,
-					'default' => 'vecicon-heart1',
+					'default' => 'elicon-heart',
 					'icon_type' => 'vecicon',
 					'include' => $icon_options,
 					'condition' => array(

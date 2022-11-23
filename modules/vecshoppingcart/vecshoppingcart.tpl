@@ -23,24 +23,26 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 <div id="_desktop_cart_block">
-  <div class="blockcart cart-preview {if $cart_layout == '1'}cart-default{else}cart-sidebar{/if}" {if isset($icon)}data-icon="{$icon}"{else}data-icon="vecicon-shopping_cart1"{/if} data-refresh-url="{$refresh_url}" data-cartitems="{$cart.products_count}">
-     <a rel="nofollow" href="{$cart_url}">
-        <span class="shopping-cart-icon">
-          {if isset($icon)}
-            <i class="{$icon}"></i>
-          {else}
-            <i class="vecicon-shopping_cart1"></i>
-          {/if}
-        </span>
-        <span class="cart-products-total">{$cart.totals.total.value}</span>
-        <span class="cart-products-count">{$cart.products_count}</span>
+  <div class="blockcart cart-preview {if $cart_layout == '1'}cart-default{else}cart-sidebar{/if}"
+    {if isset($icon)}data-icon="{$icon}" {else}data-icon="vecicon-shopping_cart1" {/if}
+    data-refresh-url="{$refresh_url}" data-cartitems="{$cart.products_count}">
+    <a rel="nofollow" href="{$cart_url}">
+      <span class="shopping-cart-icon">
+        {if isset($icon)}
+          <i class="{$icon}"></i>
+        {else}
+          <i class="vecicon-shopping_cart1"></i>
+        {/if}
+      </span>
+      <span class="cart-products-total">{$cart.totals.total.value}</span>
+      <span class="cart-products-count">{$cart.products_count}</span>
     </a>
-	 {if $page.page_name != 'cart'}
-    {if $cart_layout == '1'}
-      <div class="popup_cart popup-dropdown">
+    {if $page.page_name != 'cart'}
+      {if $cart_layout == '1'}
+        <div class="popup_cart popup-dropdown">
           <ul>
             {foreach from=$cart.products item=product}
-            <li>{include 'module:vecshoppingcart/vecshoppingcart-product-line.tpl' product=$product}</li>
+              <li>{include 'module:vecshoppingcart/vecshoppingcart-product-line.tpl' product=$product}</li>
             {/foreach}
           </ul>
           <div class="shopping-cart-totals">
@@ -51,53 +53,55 @@
               </div>
             {else}
               <div class="cart-summary-line cart-total">
-                <span class="label">{$cart.totals.total.label}&nbsp;{if $configuration.taxes_enabled}{$cart.labels.tax_short}{/if}</span>
+                <span
+                  class="label">{$cart.totals.total.label}&nbsp;{if $configuration.taxes_enabled}{$cart.labels.tax_short}{/if}</span>
                 <span class="value">{$cart.totals.total.value}</span>
               </div>
             {/if}
           </div>
           <div class="checkout">
-            <a href="{$cart_url}" class="btn btn-primary">{l s='Checkout' d='Shop.Theme.Actions'}</a> 
+            <a href="{$cart_url}" class="btn btn-primary">{l s='Checkout' d='Shop.Theme.Actions'}</a>
           </div>
-      </div>
-    {else}
-     <div class="popup_cart popup-sidebar">
-		<div class="title-cart flex-layout space-between">
-			<span>{l s='My cart' d='Shop.Theme.Global'}</span>
-			<a href="javascript:void(0)" class="close-cart"><i class="vecicon-cross"></i></a>
-		</div>
-		<div class="content-sidebar">
-			{if $cart.products_count != '0'}
-			  <ul>
-				{foreach from=$cart.products item=product}
-				<li>{include 'module:vecshoppingcart/vecshoppingcart-product-line.tpl' product=$product}</li>
-				{/foreach}
-			  </ul>
-			  <div class="shopping-cart-totals">
-          {if !$configuration.display_prices_tax_incl && $configuration.taxes_enabled}
-            <div class="cart-summary-line cart-total">
-              <span class="label">{$cart.totals.total_including_tax.label}</span>
-              <span class="value">{$cart.totals.total_including_tax.value}</span>
-            </div>
-          {else}
-            <div class="cart-summary-line cart-total">
-              <span class="label">{$cart.totals.total.label}&nbsp;{if $configuration.taxes_enabled}{$cart.labels.tax_short}{/if}</span>
-              <span class="value">{$cart.totals.total.value}</span>
-            </div>
-          {/if}
-			  </div>
-			  <div class="checkout">
-				<a href="{$cart_url}" class="btn btn-primary">{l s='Checkout' d='Shop.Theme.Actions'}</a> 
-			  </div>
-			{else}
-				<div class="empty-cart">
-					<i class="vecicon-shopping_bag3"></i>
-					{l s='Your cart is empty.' d='Shop.Theme.Actions'}
-				</div>
-			{/if}
-		</div>
-      </div>
+        </div>
+      {else}
+        <div class="popup_cart popup-sidebar">
+          <div class="title-cart flex-layout space-between">
+            <span>{l s='My cart' d='Shop.Theme.Global'}</span>
+            <a href="javascript:void(0)" class="close-cart"><i class="elicon-cross"></i></a>
+          </div>
+          <div class="content-sidebar">
+            {if $cart.products_count != '0'}
+              <ul>
+                {foreach from=$cart.products item=product}
+                  <li>{include 'module:vecshoppingcart/vecshoppingcart-product-line.tpl' product=$product}</li>
+                {/foreach}
+              </ul>
+              <div class="shopping-cart-totals">
+                {if !$configuration.display_prices_tax_incl && $configuration.taxes_enabled}
+                  <div class="cart-summary-line cart-total">
+                    <span class="label">{$cart.totals.total_including_tax.label}</span>
+                    <span class="value">{$cart.totals.total_including_tax.value}</span>
+                  </div>
+                {else}
+                  <div class="cart-summary-line cart-total">
+                    <span
+                      class="label">{$cart.totals.total.label}&nbsp;{if $configuration.taxes_enabled}{$cart.labels.tax_short}{/if}</span>
+                    <span class="value">{$cart.totals.total.value}</span>
+                  </div>
+                {/if}
+              </div>
+              <div class="checkout">
+                <a href="{$cart_url}" class="btn btn-primary">{l s='Checkout' d='Shop.Theme.Actions'}</a>
+              </div>
+            {else}
+              <div class="empty-cart">
+                <i class="elicon-cart"></i>
+                {l s='Your cart is empty.' d='Shop.Theme.Actions'}
+              </div>
+            {/if}
+          </div>
+        </div>
+      {/if}
     {/if}
-	{/if}
   </div>
 </div>

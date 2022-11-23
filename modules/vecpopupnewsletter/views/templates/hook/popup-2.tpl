@@ -3,7 +3,7 @@
 	<div class="modal-dialog animationShowPopup animated" role="document">
 		<div class="modal-content">
 			<button type="button" class="close" data-dismiss="modal" aria-label="{l s='Close' d='Shop.Theme.Global'}">
-				<i class="vecicon-cross"></i>
+				<i class="elicon-cross"></i>
 			</button>
 			<div class="wrapper-popup">
 				{if $vecpopup.VEC_NEWSLETTER_BG == 1 && !empty($vecpopup.VEC_NEWSLETTER_BG_IMAGE)}

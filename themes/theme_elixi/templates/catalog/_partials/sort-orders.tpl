@@ -23,75 +23,52 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 {if isset($currentSortUrl)}
-<div class="products-sort-nb-dropdown products-nb-per-page dropdown">
-    <a class="select-title expand-more form-control" rel="nofollow" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-        {$listing.products|count}
-        <i class="vecicon-angle_down float-xs-right"></i>
+  <div class="products-sort-nb-dropdown products-nb-per-page dropdown">
+    <a class="select-title expand-more form-control" rel="nofollow" data-toggle="dropdown" data-display="static"
+      aria-haspopup="true" aria-expanded="false">
+      {$listing.products|count}
+      <i class="elicon-arrow_more float-xs-right"></i>
     </a>
 
     <div class="dropdown-menu">
-        <a
-                rel="nofollow"
-                href="{$currentSortUrl}&resultsPerPage=12"
-                class="select-list dropdown-item {['js-search-link' => true]|classnames}"
-        >
-            12
-        </a>
-        <a
-                rel="nofollow"
-                href="{$currentSortUrl}&resultsPerPage=24"
-                class="select-list dropdown-item {['js-search-link' => true]|classnames}"
-        >
-            24
-        </a>
-        <a
-                rel="nofollow"
-                href="{$currentSortUrl}&resultsPerPage=48"
-                class="select-list dropdown-item {['js-search-link' => true]|classnames}"
-        >
-            48
-        </a>
-        <a
-                rel="nofollow"
-                href="{$currentSortUrl}&resultsPerPage=96"
-                class="select-list dropdown-item {['js-search-link' => true]|classnames}"
-        >
-            96
-        </a>
-        <a
-                rel="nofollow"
-                href="{$currentSortUrl}&resultsPerPage=9999"
-                class="select-list dropdown-item {['js-search-link' => true]|classnames}"
-        >
-            {l s='All' d='Shop.Theme.Global'}
-        </a>
-     </div>
-</div>
+      <a rel="nofollow" href="{$currentSortUrl}&resultsPerPage=12"
+        class="select-list dropdown-item {['js-search-link' => true]|classnames}">
+        12
+      </a>
+      <a rel="nofollow" href="{$currentSortUrl}&resultsPerPage=24"
+        class="select-list dropdown-item {['js-search-link' => true]|classnames}">
+        24
+      </a>
+      <a rel="nofollow" href="{$currentSortUrl}&resultsPerPage=48"
+        class="select-list dropdown-item {['js-search-link' => true]|classnames}">
+        48
+      </a>
+      <a rel="nofollow" href="{$currentSortUrl}&resultsPerPage=96"
+        class="select-list dropdown-item {['js-search-link' => true]|classnames}">
+        96
+      </a>
+      <a rel="nofollow" href="{$currentSortUrl}&resultsPerPage=9999"
+        class="select-list dropdown-item {['js-search-link' => true]|classnames}">
+        {l s='All' d='Shop.Theme.Global'}
+      </a>
+    </div>
+  </div>
 {/if}
 <div class="products-sort-order dropdown">
-  <button
-    class="btn-unstyle select-title"
-    rel="nofollow"
-    data-toggle="dropdown"
-    aria-label="{l s='Sort by selection' d='Shop.Theme.Global'}"
-    aria-haspopup="true"
-    aria-expanded="false">
+  <button class="btn-unstyle select-title" rel="nofollow" data-toggle="dropdown"
+    aria-label="{l s='Sort by selection' d='Shop.Theme.Global'}" aria-haspopup="true" aria-expanded="false">
     {if $listing.sort_selected}{$listing.sort_selected}{else}{l s='Select' d='Shop.Theme.Actions'}{/if}
-    <i class="vecicon-angle_down float-xs-right"></i>
+    <i class="elicon-arrow_more float-xs-right"></i>
   </button>
   <div class="dropdown-menu">
     {foreach from=$listing.sort_orders item=sort_order}
       {if $sort_order.current}
-          {assign var="currentSortUrl" value=$sort_order.url|regex_replace:"/&resultsPerPage=\d+$/":""}
+        {assign var="currentSortUrl" value=$sort_order.url|regex_replace:"/&resultsPerPage=\d+$/":""}
       {/if}
-      <a
-        rel="nofollow"
-        href="{$sort_order.url}"
-        class="select-list {['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
-      >
+      <a rel="nofollow" href="{$sort_order.url}"
+        class="select-list {['current' => $sort_order.current, 'js-search-link' => true]|classnames}">
         {$sort_order.label}
       </a>
     {/foreach}
   </div>
 </div>
-

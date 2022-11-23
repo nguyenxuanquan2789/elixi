@@ -51,6 +51,7 @@
         margin: auto;
         padding-top: 0;
         padding-bottom: 0;
+        border-radius: 0;
         -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
         -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
         box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
@@ -67,7 +68,7 @@
 }
 
 .container {
-    max-width: 1320px;
+    max-width: 1510px;
     width: auto;
 
     @media (max-width: 1024px) {
@@ -422,12 +423,12 @@
             width: 100%;
             z-index: 1;
             -webkit-font-smoothing: antialiased;
-            color: #d0d0d0;
+            color: #dfdfdf;
             font-family: $font-icon;
-            font-size: 16px;
-            letter-spacing: 1px;
+            font-size: 14px;
+            letter-spacing: 4px;
             line-height: 1;
-            content: "\e9a6" "\e9a6" "\e9a6" "\e9a6" "\e9a6";
+            content: "\e991" "\e991" "\e991" "\e991" "\e991";
             display: block;
             font-style: normal;
             font-weight: 400;
@@ -442,12 +443,12 @@
                 position: relative;
                 z-index: 2;
                 -webkit-font-smoothing: antialiased;
-                color: #f9b223;
+                color: #ffae00;
                 font-family: $font-icon;
-                font-size: 16px;
-                letter-spacing: 1px;
+                font-size: 14px;
+                letter-spacing: 4px;
                 line-height: 1;
-                content: "\e9a6" "\e9a6" "\e9a6" "\e9a6" "\e9a6";
+                content: "\e991" "\e991" "\e991" "\e991" "\e991";
                 display: block;
                 font-style: normal;
                 font-weight: 400;
@@ -562,6 +563,7 @@
 
         .shopping-cart-icon {
             vertical-align: middle;
+            display: inline-block;
         }
 
         .cart-products-count {
@@ -698,7 +700,7 @@
                     padding-top: 1.25rem;
 
                     i {
-                        font-size: 2.25rem;
+                        font-size: 4.375rem;
                         margin-bottom: 0.625rem;
                         display: block;
                     }
@@ -957,6 +959,17 @@
             vertical-align: -1px;
         }
     }
+
+    &.button-design-block {
+        .btn-wishlist-top {
+            text-align: center;
+
+            i {
+                display: block;
+                line-height: 37px;
+            }
+        }
+    }
 }
 
 //compare
@@ -1021,8 +1034,6 @@
 
 //account
 .vec-customersignin {
-    line-height: 1;
-
     .my-account {
         display: inline-block;
         color: $gray-dark;
@@ -1128,6 +1139,18 @@
         .my-account {
             >i {
                 vertical-align: -1px;
+                margin-right: .625rem;
+            }
+        }
+    }
+
+    &.button-design-block {
+        .my-account {
+            text-align: center;
+
+            >i {
+                display: block;
+                line-height: 37px;
             }
         }
     }
@@ -1213,7 +1236,7 @@
         }
 
         .icon-toggle {
-            font-size: .75rem;
+            font-size: .875rem;
             vertical-align: -2px;
         }
     }
@@ -1338,6 +1361,10 @@
                 font-weight: 500;
                 cursor: pointer;
                 z-index: 1;
+
+                i {
+                    vertical-align: middle;
+                }
             }
         }
 
@@ -3718,7 +3745,7 @@
             &::before {
                 font-family: $font-icon;
                 font-size: 1rem;
-                content: '\e988';
+                content: '\e926';
             }
         }
 
@@ -3755,7 +3782,7 @@
                     }
 
                     &::before {
-                        content: '\e97e';
+                        content: '\e92b';
                         font-size: 1.125rem;
                     }
                 }
@@ -3766,7 +3793,7 @@
                     }
 
                     &::before {
-                        content: '\e942';
+                        content: '\e944';
                     }
                 }
 

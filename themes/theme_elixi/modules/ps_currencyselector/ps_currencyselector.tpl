@@ -24,15 +24,19 @@
  *}
 
 <div class="currency-selector dropdown js-dropdown">
-<button data-toggle="dropdown" class="btn-unstyle" aria-haspopup="true" aria-expanded="false" aria-label="{l s='Currency dropdown' d='Shop.Theme.Global'}">
-  <span class="expand-more _gray-darker">{$current_currency.iso_code}{if $current_currency.iso_code !== $current_currency.sign} {$current_currency.sign}{/if}</span>
-  <i class="vecicon-angle_down"></i>
-</button>
-<ul class="dropdown-menu" aria-labelledby="currency-selector-label">
-  {foreach from=$currencies item=currency}
-	<li {if $currency.current} class="current" {/if}>
-	  <a title="{$currency.name}" rel="nofollow" href="{$currency.url}" class="dropdown-item">{$currency.iso_code}{if $currency.sign !== $currency.iso_code} {$currency.sign}{/if}</a>
-	</li>
-  {/foreach}
-</ul>
+  <button data-toggle="dropdown" class="btn-unstyle" aria-haspopup="true" aria-expanded="false"
+    aria-label="{l s='Currency dropdown' d='Shop.Theme.Global'}">
+    <span
+      class="expand-more _gray-darker">{$current_currency.iso_code}{if $current_currency.iso_code !== $current_currency.sign}
+      {$current_currency.sign}{/if}</span>
+    <i class="elicon-arrow_more"></i>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="currency-selector-label">
+    {foreach from=$currencies item=currency}
+      <li {if $currency.current} class="current" {/if}>
+        <a title="{$currency.name}" rel="nofollow" href="{$currency.url}"
+          class="dropdown-item">{$currency.iso_code}{if $currency.sign !== $currency.iso_code} {$currency.sign}{/if}</a>
+      </li>
+    {/foreach}
+  </ul>
 </div>

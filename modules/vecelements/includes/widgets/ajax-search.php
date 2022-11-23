@@ -86,19 +86,18 @@ class WidgetAjaxSearch extends WidgetBase {
             ]
         );
         $icon_options = [
-            'vecicon-search1',
-            'vecicon-search2',
-            'vecicon-search3',
-            'vecicon-search4',
-            'vecicon-search5',
-            'vecicon-search6',
+            'elicon-search',
+            'elicon-search1',
+            'elicon-search4',
+            'elicon-search5',
+            'elicon-search6',
         ];
 		$this->addControl(
 			'icon',
 			[
 				'label' => __( 'Search icon'),
 				'type' => ControlsManager::ICON,
-				'default' => 'vecicon-search1',
+				'default' => 'elicon-search',
                 'label_block' => true,
                 'icon_type' => 'vecicon',
                 'include' => $icon_options,

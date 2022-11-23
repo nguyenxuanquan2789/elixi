@@ -50,20 +50,33 @@ class WidgetSignIn extends WidgetBase {
 					'prefix_class' => 'button-layout-'
 				]
 			);
+			$this->addControl(
+				'button_design',
+				[
+					'label' => __( 'Button desgin'),
+					'type' => ControlsManager::SELECT,
+					'default' => 'inline',
+					'options' => [
+						'inline' => __( 'inline'),
+						'block' => __( 'block'),
+					],
+					'prefix_class' => 'button-design-'
+				]
+			);
 			$icon_options = [
-				'vecicon-person1',
-				'vecicon-person2',
-				'vecicon-person3',
-				'vecicon-person4',
-				'vecicon-person5',
-				'vecicon-person6',
+				'elicon-user',
+				'elicon-person2',
+				'elicon-person3',
+				'elicon-person4',
+				'elicon-person5',
+				'elicon-person6',
 			];
 			$this->addControl(
 				'account_icon',
 				[
 					'label' => __( 'Account icon'),
 					'type' => ControlsManager::ICON,
-					'default' => 'vecicon-person1',
+					'default' => 'elicon-user',
 					'label_block' => true,
 					'icon_type' => 'vecicon',
 					'include' => $icon_options,
