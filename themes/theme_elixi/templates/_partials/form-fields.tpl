@@ -97,7 +97,7 @@
           <span class="custom-checkbox">
             <label>
               <input name="{$field.name}" type="checkbox" value="1" {if $field.value}checked="checked"{/if} {if $field.required}required{/if}>
-              <span><i class="vecicon-check rtl-no-flip checkbox-checked"></i></span>
+              <span><i class="elicon-check rtl-no-flip checkbox-checked"></i></span>
               {$field.label nofilter}
             </label>
           </span>

@@ -107,7 +107,7 @@
                         value = "1"
                         class = "ps-shown-by-js"
                 >
-                <span><i class="vecicon-check rtl-no-flip checkbox-checked"></i></span>
+                <span><i class="elicon-check rtl-no-flip checkbox-checked"></i></span>
               </span>
             </div>
             <div class="condition-label">

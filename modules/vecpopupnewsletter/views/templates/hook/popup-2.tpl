@@ -39,7 +39,7 @@
 						<div class="newsletter_block_popup-bottom custom-checkbox">
 							<label>
 								<input id="newsletter_popup_dont_show_again" type="checkbox">
-								<span><i class="vecicon-check rtl-no-flip checkbox-checked"></i></span>
+								<span><i class="elicon-check rtl-no-flip checkbox-checked"></i></span>
 								<span>{l s='Don\'t show this popup again' mod='vecpopupnewsletter'}</span>
 							</label>
 						</div>

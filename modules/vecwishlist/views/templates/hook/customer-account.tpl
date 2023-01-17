@@ -26,7 +26,7 @@
 <a class="my-wisht-list {if $page.page_name == 'view-wishlist'}active{/if}"
 	href="{url entity='module' name='vecwishlist' controller='view'}" title="{l s='My wishlists' mod='vecwishlist'}">
 	<span class="link-item">
-		<i class="vecicon-heart3"></i>
+		<i class="elicon-heart3"></i>
 		{l s='My wishlists' mod='vecwishlist'}
 	</span>
 </a>

@@ -44,7 +44,7 @@
 
             {block name='cart_voucher_notifications'}
               <div class="alert alert-danger js-error" role="alert">
-                <i class="vecicon-notifications"></i><span class="ml-1 js-error-text"></span>
+                <i class="elicon-notifications"></i><span class="ml-1 js-error-text"></span>
               </div>
             {/block}
           </div>
@@ -73,7 +73,7 @@
                   <div class="float-xs-right">
                     <span>{$voucher.reduction_formatted}</span>
                       {if isset($voucher.code) && $voucher.code !== ''}
-                        <a href="{$voucher.delete_url}" data-link-action="remove-voucher"><i class="vecicon-trash"></i></a>
+                        <a href="{$voucher.delete_url}" data-link-action="remove-voucher"><i class="elicon-trash"></i></a>
                       {/if}
                   </div>
                 </li>

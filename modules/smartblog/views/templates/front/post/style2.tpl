@@ -40,7 +40,7 @@
             </div>
             <div class="smart-blog-posts-info">
 				{if $smartshowauthor ==1}
-                <span itemprop="author">{l s='Posted by'  d='Modules.Smartblog.Category_loop'}&nbsp;<i class="vecicon-person-circle-outline"></i>&nbsp; {if $smartshowauthorstyle != 0}{$post.firstname|escape:'htmlall':'UTF-8'}
+                <span itemprop="author">{l s='Posted by'  d='Modules.Smartblog.Category_loop'}&nbsp;<i class="elicon-person-circle-outline"></i>&nbsp; {if $smartshowauthorstyle != 0}{$post.firstname|escape:'htmlall':'UTF-8'}
                     {$post.lastname|escape:'htmlall':'UTF-8'}{else}{$post.lastname|escape:'htmlall':'UTF-8'}
                     {$post.firstname|escape:'htmlall':'UTF-8'}{/if}
                 </span> {/if}
@@ -59,7 +59,7 @@
             <div class="smart-blog-post-readmore-btn">
                 <a title="{$post.meta_title|escape:'htmlall':'UTF-8'}"
                     href="{$smartbloglink->getSmartBlogPostLink($post.id_post,$post.link_rewrite)|escape:'htmlall':'UTF-8'}"
-                    class="r_more btn-primary"><span>{l s='Read More'  d='Modules.Smartblog.Category_loop'}</span> <i class="vecicon-android-arrow-dropright-circle"></i></a>
+                    class="r_more btn-primary"><span>{l s='Read More'  d='Modules.Smartblog.Category_loop'}</span> <i class="elicon-android-arrow-dropright-circle"></i></a>
             </div>
         </div>
     </div>

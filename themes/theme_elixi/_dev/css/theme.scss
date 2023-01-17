@@ -37,6 +37,41 @@
 @import "partials/elixi-icon";
 
 /* stylelint-enable */
+@media (min-width: 1025px) {
+    .bg-body-right {
+        .img-bg .elementor-image {
+            position: absolute !important;
+            right: calc((-1 * (100vw - 100%) / 2)) !important;
+            text-align: right;
+            z-index: -1;
+            top: -310px;
+        }
+
+    }
+
+    .bg-body-left {
+        .img-bg .elementor-image {
+            position: absolute !important;
+            left: calc((-1 * (100vw - 100%) / 2)) !important;
+            text-align: left;
+            z-index: -1;
+            top: 65px;
+        }
+
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .bg-body-left,
+    .bg-body-right {
+        .img-bg .elementor-image {
+            display: none;
+        }
+
+    }
+}
+
 #header {
     background-color: transparent;
 
@@ -112,6 +147,10 @@
 
 .center-vertical {
     align-items: center;
+}
+
+.dropdown-menu {
+    border-radius: 0;
 }
 
 .ps-shown-by-js .btn,
@@ -332,6 +371,27 @@
     }
 }
 
+//element title
+.elementor-widget-heading {
+    &.border-heading {
+        .elementor-heading-title {
+            display: inline-block;
+            position: relative;
+            padding-bottom: .625rem;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -1px;
+                height: 2px;
+                background-color: var(--hovercolor);
+            }
+        }
+    }
+}
+
 //productcoments
 #new_comment_tab_btn {
     color: var(--buttoncolor);
@@ -467,8 +527,6 @@
     .promo-inner {
         width: 100%;
     }
-
-    .promo-item {}
 
     .promo-close-btn {
         position: absolute;
@@ -1071,7 +1129,7 @@
             a {
                 display: inline-block;
                 width: auto;
-                padding: .9375rem 0;
+                padding: .625rem 0;
                 color: $gray-dark;
                 font-size: 0.8125rem;
 
@@ -1361,10 +1419,9 @@
                 font-weight: 500;
                 cursor: pointer;
                 z-index: 1;
-
-                i {
-                    vertical-align: middle;
-                }
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
             }
         }
 
@@ -1417,6 +1474,7 @@
                 left: 0;
                 background: $white;
                 padding: 2.5rem 1.875rem 0.625rem;
+                border-radius: 0;
 
                 @media (max-width: 767px) {
                     padding-left: 1.25rem;
@@ -1651,6 +1709,7 @@
         overflow: hidden;
         display: block;
         position: relative;
+        border-radius: $border-radius;
     }
 
     img {
@@ -2005,7 +2064,7 @@
     }
 }
 
-#index .toogle-content-show {
+#index:not(.elementor-editor-active) .toogle-content-show {
     .vec-menu-content .vec-menu-vertical .menu-content {
         opacity: 1;
         visibility: visible;
@@ -2613,6 +2672,7 @@
                 line-height: 1.5;
                 font-size: 0.875rem;
                 border-bottom: 1px solid $border-gray;
+                font-family: inherit;
             }
 
             .icon-drop-mobile i {
@@ -2805,7 +2865,7 @@
             }
 
             &:before {
-                content: "\e903";
+                content: "\e904";
             }
         }
 
@@ -2977,9 +3037,9 @@
 .elementor-widget-product-sale,
 .elementor-widget-product-carousel {
     .slick-slide {
-        >div {
-            &:not(:first-child) {
-                margin-top: -1px;
+        >div:not(:last-child) {
+            >.js-product-miniature {
+                margin-bottom: 2rem;
             }
         }
     }
@@ -3012,6 +3072,13 @@
 .elementor-widget-product-carousel {
     .elementor-slick-slider {
         .slick-slider {
+            .slick-list {
+                margin: -5px 0 -90px 0;
+                padding: 5px 0 90px 0;
+                display: inline-block;
+                width: 100%;
+            }
+
             .slick-arrow {
                 width: 1.875rem;
                 height: 1.875rem;
@@ -3044,7 +3111,7 @@
 
             .slick-prev {
                 &:before {
-                    content: "\e903";
+                    content: "\e904";
                 }
             }
 
@@ -3117,8 +3184,8 @@
                 width: 100%;
                 height: 100%;
                 background-image: url(../img/lazy-load.svg);
-                background-size: 80px auto;
-                background-position: center center;
+                background-size: 150px auto;
+                background-position: top center;
                 background-repeat: no-repeat;
                 position: absolute;
                 top: 0;
@@ -3130,14 +3197,14 @@
     }
 }
 
-.elementor-widget-brand-carousel,
+.elementor-widget-testimonial-carousel,
 .elementor-widget-v-smartblog {
     .elementor-image-carousel-wrapper {
-        margin: 0 -10px;
+        margin: 0 -15px;
     }
 
     .slick-slide {
-        padding: 0 10px;
+        padding: 0 15px;
     }
 
     .elementor-slick-slider {
@@ -3161,6 +3228,29 @@
                 .slick-next {
                     right: 10px;
                 }
+            }
+        }
+    }
+}
+
+//testi
+.elementor-testimonial-wrapper {
+    padding: 1.875rem;
+    position: relative;
+
+    .elementor-testimonial-name {}
+
+    .elementor-testimonial-job {}
+
+    &.design-layout1 {
+        .elementor-testimonial-meta .elementor-testimonial-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            img {
+                width: auto;
+                height: auto;
             }
         }
     }
@@ -3423,8 +3513,28 @@
 
 //brand
 .elementor-widget-brand-carousel {
+    .first-active .elementor-manufacturer-image {
+        &:after {
+            display: none;
+        }
+
+    }
+
     .elementor-manufacturer-image {
         overflow: hidden;
+        padding: 0 .9375rem;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            border-left: 1px solid $border-gray;
+            pointer-events: none;
+            @include vec-transition(350ms);
+        }
 
         img {
             @include vec-transition(300ms);
@@ -3432,7 +3542,7 @@
 
         &:hover {
             img {
-                @include vec-transform(scale(1.05));
+                opacity: 0.5;
                 @include vec-transition(300ms);
             }
         }
@@ -3509,6 +3619,7 @@
     .elementor-categories-item {
         position: relative;
         padding: .625rem;
+        background-color: $white;
 
         &:hover {
             .elementor-categories-image {
@@ -3756,24 +3867,27 @@
         }
 
         .add-links {
-            @include flex;
+            display: inline-flex;
+            z-index: 2;
+            @include vec-transition(350ms);
 
             a {
+                width: 2.25rem;
+                height: 2.25rem;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
                 font-size: 0;
-                background: $gray-dark;
-                color: $white;
+                color: #dadce0;
+                background: $white;
                 cursor: pointer;
-                width: 2.75rem;
-                height: 2.75rem;
-                margin-left: .1875rem;
-                @include vec-transition(350ms);
+
+                &:not(:last-child) {
+                    margin-right: .625rem;
+                }
 
                 &::before {
                     font-family: $font-icon;
-                    font-size: 1rem;
                 }
 
                 &.compare-button {
@@ -3783,7 +3897,7 @@
 
                     &::before {
                         content: '\e92b';
-                        font-size: 1.125rem;
+                        font-size: 1.4375rem;
                     }
                 }
 
@@ -3793,7 +3907,9 @@
                     }
 
                     &::before {
-                        content: '\e944';
+                        content: '\e942';
+                        font-size: 1.5rem;
+                        font-weight: 600;
                     }
                 }
 
@@ -3803,47 +3919,51 @@
             }
         }
 
-        .product-content {
-            .product_name {
-                font-size: 1.25rem;
-                margin-bottom: .625rem;
-            }
-
-            .product-price-and-shipping {
-                .regular-price {
-                    font-size: 1rem;
-                }
-
-                .price {
-                    font-size: 1.375rem;
-                }
-            }
-        }
-
         .product-cart {
             flex: 1;
+            margin-right: .625rem;
 
             button.ajax-add-to-cart-button,
             span.ajax-add-to-cart-button {
                 width: 100%;
                 font-size: .875rem;
-                text-transform: uppercase;
-                color: $white;
+                background: var(--buttonbackground);
+                color: var(--buttoncolor);
                 border: none;
-                font-weight: 500;
                 cursor: pointer;
-                background: $gray-dark;
-                padding: .625rem 1.5625rem;
-                @include vec-transition(200ms);
+                padding: .4375rem 1.5625rem;
+                border-radius: $border-radius;
+                @include vec-transition(350ms);
+                position: relative;
+                min-height: 2.25rem;
+
+                &::before {
+                    font-family: $font-icon;
+                    font-size: 0;
+                    content: '\e912';
+                    line-height: 1;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    @include vec-transform(translateX(-50%) translateY(-50%));
+                    @include vec-transition(350ms);
+                }
 
                 &:hover {
+                    font-size: 0;
                     background: var(--buttonhoverbackground);
                     color: var(--buttonhovercolor);
+
+                    &::before {
+                        font-size: 1.5rem;
+                        @include vec-transition(350ms);
+                    }
                 }
 
                 &.disabled {
                     opacity: 0.5;
                 }
+
             }
         }
 
@@ -3908,20 +4028,19 @@
         }
 
         &.grid-sale {
-            .countdown {
-                padding: 1.25rem 0;
-                text-align: center;
+            box-shadow: none !important;
+            border: 1px solid $border-gray;
+            border-radius: $border-radius;
+            overflow: hidden;
 
-                .countdown-row {
-                    justify-content: center;
-                }
+            &::before,
+            &::after {
+                display: none;
             }
-        }
-    }
 
-    &.change-size {
-        .js-product-miniature .product-content .product_name {
-            font-size: 1rem;
+            .product-content .product_name {
+                font-size: 1.125rem;
+            }
         }
     }
 }
@@ -3938,10 +4057,10 @@
 }
 
 .title_countdown {
-    font-size: .875rem;
-    color: #878787;
+    font-size: 1rem;
+    color: $gray-dark;
     display: block;
-    margin-bottom: .3125rem;
+    margin-top: .625rem;
 }
 
 .design-countdown-1 {
@@ -3955,23 +4074,23 @@
             align-items: center;
             background: var(--buttonbackground);
             color: var(--buttoncolor);
-            min-width: 2.8125rem;
-            padding: .625rem 2px;
+            min-width: 2.5rem;
+            padding: .5rem 2px;
             line-height: 1;
-            border-radius: 3px;
+            border-radius: $border-radius;
 
             &:not(:last-child) {
                 margin-right: .625rem;
             }
 
             .countdown-amount {
-                font-size: 1rem;
-                font-weight: 500;
+                font-size: .875rem;
+                font-weight: 700;
                 margin-bottom: .125rem;
             }
 
             .countdown-period {
-                font-size: 12px;
+                font-size: 11px;
                 text-transform: capitalize;
             }
         }
@@ -4243,11 +4362,12 @@
         .navbar-toggler {
             position: absolute;
             right: 0;
-            top: -4px;
+            top: 0;
             width: auto;
             height: auto;
             color: $gray-dark;
             padding: 0;
+            font-size: 1.25rem;
         }
 
         .links-widget-content {

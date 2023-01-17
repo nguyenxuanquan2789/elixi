@@ -1,4 +1,4 @@
-<div id="menu-icon"><i class="vecicon-bars"></i></div>
+<div id="menu-icon"><i class="elicon-bars"></i></div>
 <div class="menu-mobile-content" id="mobile_menu_wrapper">
 	{if $vmenu}
 		<ul class="nav nav-mobile-menu" role="tablist">

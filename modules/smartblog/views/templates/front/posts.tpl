@@ -61,14 +61,14 @@
 					<div class="title_block smart-blog-single-post-title">{$meta_title|escape:'htmlall':'UTF-8'}</div>
 					<div class="sdsarticleHeader">
 						<span class="smart-blog-posts-info">
-							{if $smartshowauthor ==1} {l s='Posted by '  d='Modules.Smartblog.Posts'} &nbsp;<i class="vecicon-person-circle-outline"></i>
+							{if $smartshowauthor ==1} {l s='Posted by '  d='Modules.Smartblog.Posts'} &nbsp;<i class="elicon-person-circle-outline"></i>
 							<span itemprop="author">{if $smartshowauthorstyle != 0}{$firstname} {$lastname}{else}{$lastname} {$firstname}{/if}</span>{/if}&nbsp;
-							<i class="vecicon-timer"></i>&nbsp;<span itemprop="dateCreated">{$created|escape:'htmlall':'UTF-8'}</span>
+							<i class="elicon-timer"></i>&nbsp;<span itemprop="dateCreated">{$created|escape:'htmlall':'UTF-8'}</span>
 							<span itemprop="articleSection">
 								{$assocCats = BlogCategory::getPostCategoriesFull($post.id_post)}
 								{$catCounts = 0}
 								{if !empty($assocCats)}
-									&nbsp;&nbsp;<i class="vecicon-list_outline"></i>&nbsp;
+									&nbsp;&nbsp;<i class="elicon-list_outline"></i>&nbsp;
 									{foreach $assocCats as $catid=>$assoCat}
 										{if $catCounts > 0}, {/if}
 										{$catlink=[]}
@@ -83,7 +83,7 @@
 							</span>
 							{if Configuration::get('smartenablecomment') == 1}
 							<span class="smart-blog-single-comments">
-							&nbsp;<i class="vecicon-chat"></i>&nbsp;
+							&nbsp;<i class="elicon-chat"></i>&nbsp;
 							{l s=' Comments'  d='Modules.Smartblog.Posts'}
 							{$countcomment}
 							<span class="comment-count-number">{if $countcomment != ''}{$countcomment|escape:'htmlall':'UTF-8'}{else}0{/if}</span>

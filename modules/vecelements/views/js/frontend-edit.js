@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		var uid = (this.className.match(/elementor-(\d+)/) || '')[1];
 		if (uid) {
 			$(this).addClass('ce-edit-wrapper');
-			$('<a class="ce-edit-btn"><i class="vecicon-open_in_new">').attr({
+			$('<a class="ce-edit-btn"><i class="elicon-open_in_new">').attr({
 				href: ceFrontendEdit.editor_url + '&uid=' + uid,
 				title: ceFrontendEdit.edit_title,
 			}).appendTo(this);

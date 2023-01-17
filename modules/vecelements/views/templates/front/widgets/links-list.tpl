@@ -13,7 +13,7 @@
 				{if $title_url}</a>{/if}
 			<span class="navbar-toggler collapse-icons">
 				<i class="elicon-arrow_more add"></i>
-				<i class="vecicon-angle_up remove"></i>
+				<i class="elicon-arrow_less remove"></i>
 			</span>
 		</h2>
 	{/if}

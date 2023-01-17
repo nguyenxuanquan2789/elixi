@@ -45,7 +45,7 @@
             {/foreach}
         </div>
         <div class="icon-zoom hidden-sm-down" data-toggle="modal" data-target="#product-modal">
-          <i class="vecicon-expand zoom-in"></i> 
+          <i class="elicon-expand zoom-in"></i> 
         </div>
       {else}
         <img

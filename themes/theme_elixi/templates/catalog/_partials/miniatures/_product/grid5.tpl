@@ -60,6 +60,11 @@
 			{/if}
 		</div>
 		<div class="product-content">
+
+			{block name='product_name'}
+				<h3><a href="{$product.url}" class="product_name"
+						title="{$product.name}">{$product.name|truncate:$vectheme.name_length:'...'}</a></h3>
+			{/block}
 			{if isset($product.id_manufacturer)}
 				<div class="manufacturer"><a
 						href="{url entity='manufacturer' id=$product.id_manufacturer }">{Manufacturer::getnamebyid($product.id_manufacturer)}</a>
@@ -70,13 +75,9 @@
 					{hook h='displayProductListReviews' product=$product}
 				</div>
 			{/block}
-			{block name='product_name'}
-				<h3><a href="{$product.url}" class="product_name"
-						title="{$product.name}">{$product.name|truncate:$vectheme.name_length:'...'}</a></h3>
-			{/block}
 			{block name='product_price_and_shipping'}
 				{if $product.show_price}
-					<div class="product-price-and-shipping">
+					<div class="product-price-and-shipping heading-text">
 						{if $product.has_discount}
 							{hook h='displayProductPriceBlock' product=$product type="old_price"}
 							<span class="regular-price"

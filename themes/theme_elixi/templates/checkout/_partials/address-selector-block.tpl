@@ -58,7 +58,7 @@
             data-link-action="delete-address"
             href="{url entity='order' params=['id_address' => $address.id, 'deleteAddress' => true, 'token' => $token]}"
           >
-            <i class="vecicon-trash"></i>{l s='Delete' d='Shop.Theme.Actions'}
+            <i class="elicon-trash"></i>{l s='Delete' d='Shop.Theme.Actions'}
           </a>
         {/if}
       </footer>

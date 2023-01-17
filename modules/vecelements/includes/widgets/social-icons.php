@@ -114,32 +114,32 @@ class WidgetSocialIcons extends WidgetBase
             [
                 'label' => __('Icon'),
                 'type' => ControlsManager::ICON,
-                'default' => 'vecicon-logo-facebook',
+                'default' => 'elicon-logo-facebook',
                 'type_icon' => 'vecicon',
                 'condition' => [
                     'icon_source' => 'vecicon',
                 ],
                 'include' => [
-                    'vecicon-facebook',
-                    'vecicon-google',
-                    'vecicon-instagram',
-                    'vecicon-line' ,
-                    'vecicon-linkedin',
-                    'vecicon-meta',
-                    'vecicon-pinterest',
-                    'vecicon-skype',
-                    'vecicon-snapchat',
-                    'vecicon-telegram',
-                    'vecicon-tumblr',
-                    'vecicon-twitter',
-                    'vecicon-vk',
-                    'vecicon-whatsapp',
-                    'vecicon-xing' ,
-                    'vecicon-youtube',
-                    'vecicon-tiktok',
-                    'vecicon-behance',
-                    'vecicon-discord',
-                    'vecicon-dribbble',
+                    'elicon-facebook',
+                    'elicon-google',
+                    'elicon-instagram',
+                    'elicon-line' ,
+                    'elicon-linkedin',
+                    'elicon-meta',
+                    'elicon-pinterest',
+                    'elicon-skype',
+                    'elicon-snapchat',
+                    'elicon-telegram',
+                    'elicon-tumblr',
+                    'elicon-twitter',
+                    'elicon-vk',
+                    'elicon-whatsapp',
+                    'elicon-xing' ,
+                    'elicon-youtube',
+                    'elicon-tiktok',
+                    'elicon-behance',
+                    'elicon-discord',
+                    'elicon-dribbble',
                 ],
             ]
         );
@@ -249,7 +249,7 @@ class WidgetSocialIcons extends WidgetBase
                     <i class="{{ social }}"></i>  {{{ social.replace( "fa fa-", "" )' .
                         '.replace( "-", " " ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}
                     <# }else{ #>
-                        <i class="{{ vecicon }}"></i>  {{{ vecicon.replace( "vecicon-", "" )' .
+                        <i class="{{ vecicon }}"></i>  {{{ vecicon.replace( "elicon-", "" )' .
                             '.replace( "-", " " ) }}}
                     <# } #>',
             ]
@@ -526,7 +526,7 @@ class WidgetSocialIcons extends WidgetBase
                 $social = str_replace('fa fa-', '', $item['social']);
             }
             if($item['icon_source'] == 'vecicon'){
-                $social = str_replace('vecicon-', '', $item['vecicon']);
+                $social = str_replace('elicon-', '', $item['vecicon']);
             }
             $this->addRenderAttribute($link_key, [
                 'class' => 'elementor-icon elementor-social-icon elementor-social-icon-' . $social . $class_animation,
@@ -571,7 +571,7 @@ class WidgetSocialIcons extends WidgetBase
                 var social = item.social.replace( 'fa fa-', '' );
             }
             if(item.icon_source === 'vecicon'){ 
-                var social = item.vecicon.replace( 'vecicon-', '' );
+                var social = item.vecicon.replace( 'elicon-', '' );
             }
             var link = item.link ? item.link.url : '',
                 linkClass = 'elementor-icon elementor-social-icon elementor-social-icon-' + social; #>

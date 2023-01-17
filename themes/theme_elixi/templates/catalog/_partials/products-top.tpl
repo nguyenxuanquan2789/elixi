@@ -49,10 +49,10 @@
         {if isset($currentSortUrl)}
           <div class="view-switcher">
             <a href="{$currentSortUrl}&shop_view=grid" class="shop-view {if !isset($vectheme.shop_view) || (isset($vectheme.shop_view) && $vectheme.shop_view == 'grid')}active{/if} {['js-search-link' => true]|classnames}" title="{l s='Grid' d='Shop.Theme.Vec'}">
-              <i class="vecicon-grid_outline"></i> 
+              <i class="elicon-grid_outline"></i> 
             </a>
             <a href="{$currentSortUrl}&shop_view=list" class="shop-view {if isset($vectheme.shop_view) && $vectheme.shop_view == 'list'}active{/if} {['js-search-link' => true]|classnames}" title="{l s='List' d='Shop.Theme.Vec'}">
-              <i class="vecicon-list_solid"></i>
+              <i class="elicon-list_solid"></i>
             </a>
           </div>
         {/if}

@@ -37,7 +37,7 @@
         <div class="smart-blog-content">
             <div class="smart-blog-posts-info">
 				{if $smartshowauthor ==1}
-                <span itemprop="author">{l s='Posted by'  d='Modules.Smartblog.Category_loop'}&nbsp;<i class="vecicon-person-circle-outline"></i>&nbsp; {if $smartshowauthorstyle != 0}{$post.firstname|escape:'htmlall':'UTF-8'}
+                <span itemprop="author">{l s='Posted by'  d='Modules.Smartblog.Category_loop'}&nbsp;<i class="elicon-person-circle-outline"></i>&nbsp; {if $smartshowauthorstyle != 0}{$post.firstname|escape:'htmlall':'UTF-8'}
                     {$post.lastname|escape:'htmlall':'UTF-8'}{else}{$post.lastname|escape:'htmlall':'UTF-8'}
                     {$post.firstname|escape:'htmlall':'UTF-8'}{/if}
                 </span> {/if}

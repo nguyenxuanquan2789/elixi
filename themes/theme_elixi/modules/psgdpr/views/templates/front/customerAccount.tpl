@@ -14,6 +14,6 @@
 *}
 <a id="identity-link" class="{if $page.page_name == 'module-psgdpr-gdpr'}active{/if}" href="{$front_controller}">
     <span class="link-item">
-    <i class="vecicon-person5"></i> {l s='My personal data' mod='psgdpr'}
+    <i class="elicon-person5"></i> {l s='My personal data' mod='psgdpr'}
     </span>
 </a>

@@ -8,7 +8,7 @@
 
             {block name='order_confirmation_header'}
               <h3 class="h1 card-title">
-                <i class="vecicon-check rtl-no-flip done"></i>{l s='Your order is confirmed' d='Shop.Theme.Checkout'}
+                <i class="elicon-check rtl-no-flip done"></i>{l s='Your order is confirmed' d='Shop.Theme.Checkout'}
               </h3>
             {/block}
 

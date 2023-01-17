@@ -11,7 +11,7 @@
 					<div class="popup-content">
 						{if $vecpopup.VEC_NEWSLETTER_TITLE}
 							<div class="popup_title">
-								<i class="popup_icon vecicon-mail_close"></i>
+								<i class="popup_icon elicon-mail_close"></i>
 								{$vecpopup.VEC_NEWSLETTER_TITLE|stripslashes nofilter}
 							</div>
 						{/if}
@@ -38,7 +38,7 @@
 						<div class="newsletter_block_popup-bottom custom-checkbox">
 							<label>
 								<input id="newsletter_popup_dont_show_again" type="checkbox">
-								<span><i class="vecicon-check rtl-no-flip checkbox-checked"></i></span>
+								<span><i class="elicon-check rtl-no-flip checkbox-checked"></i></span>
 								<span>{l s='Don\'t show this popup again' mod='vecpopupnewsletter'}</span>
 							</label>
 						</div>

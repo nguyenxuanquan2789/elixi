@@ -114,7 +114,7 @@ class WidgetIconBox extends WidgetBase
             [
                 'label' => __('Icon'),
                 'type' => ControlsManager::ICON,
-                'default' => 'vecicon-heart1',
+                'default' => 'elicon-heart1',
                 'type_icon' => 'vecicon',
                 'label_block' => true,
                 'condition' => [

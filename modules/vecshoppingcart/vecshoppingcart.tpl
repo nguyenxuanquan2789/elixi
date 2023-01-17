@@ -24,14 +24,14 @@
  *}
 <div id="_desktop_cart_block">
   <div class="blockcart cart-preview {if $cart_layout == '1'}cart-default{else}cart-sidebar{/if}"
-    {if isset($icon)}data-icon="{$icon}" {else}data-icon="vecicon-shopping_cart1" {/if}
+    {if isset($icon)}data-icon="{$icon}" {else}data-icon="elicon-shopping_cart1" {/if}
     data-refresh-url="{$refresh_url}" data-cartitems="{$cart.products_count}">
     <a rel="nofollow" href="{$cart_url}">
       <span class="shopping-cart-icon">
         {if isset($icon)}
           <i class="{$icon}"></i>
         {else}
-          <i class="vecicon-shopping_cart1"></i>
+          <i class="elicon-shopping_cart1"></i>
         {/if}
       </span>
       <span class="cart-products-total">{$cart.totals.total.value}</span>

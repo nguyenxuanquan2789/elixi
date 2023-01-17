@@ -175,7 +175,6 @@
 
   .column-product {
     padding: 0;
-    margin-top: -1px;
 
     @media (min-width: 1200px) {
       &.column_2:nth-child(2n + 1) {
@@ -285,7 +284,7 @@
 
 .first-active .js-product-miniature {
   &:after {
-    left: 0;
+    display: none;
   }
 
 }
@@ -295,23 +294,36 @@
   background: $white;
   @include vec-transition(300ms);
 
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0.5px;
+    right: 0.5px;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    box-shadow: 0 0 5px #c6c6c6;
+    @include vec-transition(350ms);
+  }
+
   &:after {
     content: '';
     position: absolute;
-    left: -1px;
-    right: 0;
+    left: -0.5px;
     top: 0;
-    bottom: 0;
-    border: 1px solid $border-gray;
+    bottom: 1.25rem;
+    border-left: 1px solid $border-gray;
     pointer-events: none;
     @include vec-transition(350ms);
   }
 
   &:hover {
-    z-index: 3;
-
-    &:after {
-      border-color: var(--hovercolor);
+    &::before {
+      opacity: 1;
+      visibility: visible;
       @include vec-transition(350ms);
     }
 
@@ -344,7 +356,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 1.25rem;
     @include vec-transition(350ms);
 
     .countdown-row {
@@ -356,13 +368,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: #d9d9d9;
-        color: #000;
+        background: $gray-dark;
+        color: $white;
         min-width: 2.5rem;
         padding: .5rem 2px;
         line-height: 1;
         text-align: center;
-        border-radius: 3px;
+        border-radius: $border-radius;
 
         @media (max-width: 767px) {
           min-width: 2.1875rem;
@@ -375,7 +387,7 @@
 
         .countdown-amount {
           font-size: .875rem;
-          font-weight: 500;
+          font-weight: 700;
           margin-bottom: .125rem;
         }
 
@@ -458,16 +470,21 @@
     position: relative;
 
     .manufacturer a {
-      display: none;
+      font-size: .8125rem;
+      margin-bottom: .5rem;
+      display: block;
 
       &:not(:hover) {
-        color: #4e4c4c;
+        color: #858997;
       }
+    }
+
+    >h3 {
+      margin-bottom: .3125rem;
     }
 
     .product_name {
       font-size: .875rem;
-      font-weight: 400;
       line-height: 1.2;
       display: block;
       color: var(--namecolor);
@@ -499,14 +516,19 @@
     .product-price-and-shipping {
       .regular-price {
         font-size: 14px;
-        color: #a2a2a2;
+        color: #858997;
         text-decoration: line-through;
+        font-weight: 400;
       }
 
       .price {
         font-weight: $headings-font-weight;
         color: $price-color;
         font-size: var(--pricesize);
+
+        &.price-sale {
+          color: #f04057;
+        }
       }
 
       .discount-product {
@@ -525,142 +547,166 @@
   }
 
   &.product-miniature-grid1 {
-    &:not(:hover) {
-      .add-links {
-        opacity: 0;
-        visibility: hidden;
-        @include vec-transform(translateY(-20px));
-      }
-    }
 
     &:hover {
-      .product-content {
-        @include vec-transform(translateY(-50px));
-      }
-
       .box-hover {
-        top: calc(100% - 10px);
         opacity: 1;
         visibility: visible;
+        @include vec-transform(translateY(0));
         @include vec-transition(350ms);
       }
 
     }
 
-    .product-content {
-      background-color: $white;
-      @include vec-transition(350ms);
-    }
-
     .box-hover {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 100%;
-      padding: 0 1.25rem;
-
-      @media (max-width: 767px) {
-        padding: 0 8px 0 8px;
-      }
-
+      flex-wrap: wrap;
       background: $white;
-      z-index: 2;
+      z-index: 4;
+      position: absolute;
+      left: 0.5px;
+      right: 0.5px;
+      top: calc(100% - 5px);
       opacity: 0;
       visibility: hidden;
+      padding: 0 1.25rem 1.25rem 1.25rem;
+      box-shadow: 0 5px 5px #c6c6c6;
+      @include vec-transform(translateY(-15px));
       @include vec-transition(350ms);
+
+      @media (max-width: 767px) {
+        padding: 0 .5rem .5rem .5rem;
+      }
+
+      .variant-links {
+        width: 100%;
+      }
+    }
+
+    a.quick-view {
+      width: 2.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0;
+      color: #dadce0;
+      background: $white;
+      cursor: pointer;
+
+      &::before {
+        font-family: $font-icon;
+        font-size: 1.5rem;
+        content: '\e926';
+        line-height: 1;
+      }
+
+      &:hover {
+        color: var(--hovercolor);
+      }
     }
 
     .add-links {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
       display: inline-flex;
-      flex-direction: column;
       z-index: 2;
       @include vec-transition(350ms);
 
       a {
-        width: 2.125rem;
-        height: 2.125rem;
+        width: 2.25rem;
+        height: 2.25rem;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         font-size: 0;
-        border: 1px solid $border-gray;
-        color: $gray-dark;
+        color: #dadce0;
         background: $white;
-        border-radius: 50%;
         cursor: pointer;
 
         &:not(:last-child) {
-          margin-bottom: .3125rem;
+          margin-right: .625rem;
         }
 
         &::before {
           font-family: $font-icon;
-          font-size: 1rem;
-        }
-
-        &.quick-view {
-          &::before {
-            content: '\e926';
-          }
         }
 
         &.compare-button {
           &.cmp_added {
-            background: var(--buttonbackground);
-            color: var(--buttoncolor);
-            border-color: var(--buttonborder);
+            color: var(--hovercolor);
           }
 
           &::before {
             content: '\e92b';
-            font-size: 1.125rem;
+            font-size: 1.4375rem;
           }
         }
 
         &.btn-wishlist {
           &.added {
-            background: var(--buttonbackground);
-            color: var(--buttoncolor);
-            border-color: var(--buttonborder);
+            color: var(--hovercolor);
           }
 
           &::before {
-            content: '\e944';
+            content: '\e942';
+            font-size: 1.5rem;
+            font-weight: 600;
           }
         }
 
         &:hover {
-          background: var(--buttonbackground);
-          color: var(--buttoncolor);
-          border-color: var(--buttonborder);
+          color: var(--hovercolor);
         }
       }
     }
 
     .product-cart {
+      margin-right: .625rem;
 
       button.ajax-add-to-cart-button,
       span.ajax-add-to-cart-button {
         font-size: .875rem;
-        text-transform: uppercase;
+        text-transform: capitalize;
         width: 100%;
-        background: var(--buttonbackground);
-        color: var(--buttoncolor);
+        min-height: 2.25rem;
+        background: var(--buttonhoverbackground);
+        color: var(--buttonhovercolor);
         border: none;
-        font-weight: 500;
-        padding: .5rem .625rem;
+        font-weight: 400;
+        padding: .3125rem .625rem;
         cursor: pointer;
+        border-radius: $btn-border-radius;
+        position: relative;
 
         &:hover {
-          background: var(--buttonhoverbackground);
-          color: var(--buttonhovercolor);
+          font-size: 0;
+
+          &::before {
+            font-size: 1.5rem;
+            @include vec-transition(350ms);
+          }
         }
 
         &.disabled {
           opacity: 0.5;
+        }
+
+        &::before {
+          font-family: $font-icon;
+          font-size: 0;
+          content: '\e912';
+          line-height: 1;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          @include vec-transform(translateX(-50%) translateY(-50%));
+          @include vec-transition(350ms);
+        }
+
+        @media (max-width: 767px) {
+          font-size: 0;
+          min-width: 40px;
+
+          &::before {
+            font-size: 1.5rem;
+          }
         }
       }
     }
@@ -694,15 +740,15 @@
           left: 50%;
           margin-top: -1.25rem;
           margin-left: -1.25rem;
-          width: 2.5rem;
-          height: 2.5rem;
+          width: 3.125rem;
+          height: 3.125rem;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           font-size: 0;
           border: 1px solid $border-gray;
           background: $white;
-          color: $gray-dark;
+          color: #dadce0;
           border-radius: 50%;
           opacity: 0;
           visibility: hidden;
@@ -719,7 +765,7 @@
           &::before {
             content: '\e926';
             font-family: $font-icon;
-            font-size: 1.125rem;
+            font-size: 1.5rem;
           }
         }
       }
@@ -746,10 +792,10 @@
         align-items: center;
         justify-content: center;
         font-size: 0;
-        color: $gray-dark;
+        color: #dadce0;
         background: $white;
         cursor: pointer;
-        margin-left: .3125rem;
+        margin-left: .9375rem;
         opacity: 0;
         visibility: hidden;
         @include vec-transform(scale(0));
@@ -757,7 +803,6 @@
 
         &::before {
           font-family: $font-icon;
-          font-size: 1rem;
         }
 
         &.compare-button {
@@ -767,7 +812,7 @@
 
           &::before {
             content: '\e92b';
-            font-size: 1.125rem;
+            font-size: 1.4375rem;
           }
         }
 
@@ -777,7 +822,9 @@
           }
 
           &::before {
-            content: '\e944';
+            content: '\e942';
+            font-size: 1.5rem;
+            font-weight: 600;
           }
         }
 
@@ -792,10 +839,10 @@
 
       button.ajax-add-to-cart-button,
       span.ajax-add-to-cart-button {
-        font-size: .875rem;
+        font-size: 1rem;
         color: $gray-dark;
         border: none;
-        font-weight: 500;
+        font-weight: 700;
         cursor: pointer;
         background: none;
         padding: 0;
@@ -858,9 +905,8 @@
         align-items: center;
         justify-content: center;
         font-size: 0;
-        border: 1px solid $border-gray;
-        color: $gray-dark;
-        background: $white;
+        background: var(--buttonbackground);
+        color: var(--buttoncolor);
         border-radius: 50%;
         cursor: pointer;
 
@@ -877,33 +923,30 @@
 
         &.compare-button {
           &.cmp_added {
-            background: var(--buttonbackground);
-            color: var(--buttoncolor);
-            border-color: var(--buttonborder);
+            background: var(--buttonhoverbackground);
+            color: var(--buttonhovercolor);
           }
 
           &::before {
             content: '\e92b';
-            font-size: 1.125rem;
           }
         }
 
         &.btn-wishlist {
           &.added {
-            background: var(--buttonbackground);
-            color: var(--buttoncolor);
-            border-color: var(--buttonborder);
+            background: var(--buttonhoverbackground);
+            color: var(--buttonhovercolor);
           }
 
           &::before {
-            content: '\e944';
+            content: '\e942';
+            font-weight: 600;
           }
         }
 
         &:hover {
-          background: var(--buttonbackground);
-          color: var(--buttoncolor);
-          border-color: var(--buttonborder);
+          background: var(--buttonhoverbackground);
+          color: var(--buttonhovercolor);
         }
       }
     }
@@ -916,21 +959,21 @@
       align-items: center;
       justify-content: center;
       font-size: 0;
-      border: 1px solid $border-gray;
-      background: $white;
+      border: 0;
+      background: var(--buttonbackground);
+      color: var(--buttoncolor);
       border-radius: 50%;
       cursor: pointer;
 
       &::before {
         font-family: $font-icon;
         font-size: 1rem;
-        content: '\e999';
+        content: '\e912';
       }
 
       &:hover {
-        background: var(--buttonbackground);
-        color: var(--buttoncolor);
-        border-color: var(--buttonborder);
+        background: var(--buttonhoverbackground);
+        color: var(--buttonhovercolor);
       }
 
       &.disabled {
@@ -983,7 +1026,7 @@
       &::before {
         font-family: $font-icon;
         font-size: 1rem;
-        content: '\e999';
+        content: '\e912';
       }
 
       &:hover {
@@ -1003,13 +1046,12 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.1);
-      font-size: .8125rem;
-      text-transform: uppercase;
+      background: rgba(0, 0, 0, 0.8);
+      font-size: .875rem;
       font-weight: 500;
       text-align: center;
       padding: .5rem .625rem;
-      color: $gray-dark;
+      color: $white;
       display: block;
       opacity: 0;
       visibility: hidden;
@@ -1017,8 +1059,8 @@
       @include vec-transition(350ms);
 
       &:hover {
-        color: var(--buttoncolor);
-        background: var(--buttonbackground);
+        color: var(--buttonhovercolor);
+        background: var(--buttonhoverbackground);
       }
     }
 
@@ -1037,11 +1079,10 @@
         align-items: center;
         justify-content: center;
         font-size: 0;
-        color: $gray-dark;
-        background: $white;
+        color: var(--buttoncolor);
+        background: var(--buttonbackground);
         cursor: pointer;
         opacity: 0;
-        border: 1px solid $border-gray;
         visibility: hidden;
         border-radius: 50%;
         @include vec-transform(scale(0));
@@ -1058,33 +1099,30 @@
 
         &.compare-button {
           &.cmp_added {
-            background: var(--buttonbackground);
-            color: var(--buttoncolor);
-            border-color: var(--buttonborder);
+            background: var(--buttonhoverbackground);
+            color: var(--buttonhovercolor);
           }
 
           &::before {
             content: '\e92b';
-            font-size: 1.125rem;
           }
         }
 
         &.btn-wishlist {
           &.added {
-            background: var(--buttonbackground);
-            color: var(--buttoncolor);
-            border-color: var(--buttonborder);
+            background: var(--buttonhoverbackground);
+            color: var(--buttonhovercolor);
           }
 
           &::before {
-            content: '\e944';
+            content: '\e942';
+            font-weight: 600;
           }
         }
 
         &:hover {
-          color: var(--buttoncolor);
-          background: var(--buttonbackground);
-          border-color: var(--buttonborder);
+          background: var(--buttonhoverbackground);
+          color: var(--buttonhovercolor);
         }
       }
     }
@@ -1150,9 +1188,8 @@
 
     button.ajax-add-to-cart-button,
     span.ajax-add-to-cart-button {
-      font-size: .8125rem;
-      text-transform: uppercase;
-      font-weight: 500;
+      font-size: .875rem;
+      font-weight: 600;
       text-align: center;
       padding: .5rem .3125rem;
       display: flex;
@@ -1192,12 +1229,11 @@
     }
 
     a.quick-view {
-      font-size: .8125rem;
-      text-transform: uppercase;
-      font-weight: 500;
+      font-size: .875rem;
+      font-weight: 600;
       text-align: center;
       padding: .5rem .625rem;
-      background: $gray-dark;
+      background: #222;
       color: $white;
       display: flex;
       align-items: center;
@@ -1241,11 +1277,10 @@
         align-items: center;
         justify-content: center;
         font-size: 0;
-        color: $gray-dark;
-        background: $white;
+        color: var(--buttoncolor);
+        background: var(--buttonbackground);
         cursor: pointer;
         opacity: 0;
-        border: 1px solid $border-gray;
         visibility: hidden;
         border-radius: 50%;
         @include vec-transform(translateY(20px));
@@ -1262,33 +1297,30 @@
 
         &.compare-button {
           &.cmp_added {
-            background: var(--buttonbackground);
-            color: var(--buttoncolor);
-            border-color: var(--buttonborder);
+            background: var(--buttonhoverbackground);
+            color: var(--buttonhovercolor);
           }
 
           &::before {
             content: '\e92b';
-            font-size: 1.125rem;
           }
         }
 
         &.btn-wishlist {
           &.added {
-            background: var(--buttonbackground);
-            color: var(--buttoncolor);
-            border-color: var(--buttonborder);
+            background: var(--buttonhoverbackground);
+            color: var(--buttonhovercolor);
           }
 
           &::before {
-            content: '\e944';
+            content: '\e942';
+            font-weight: 600;
           }
         }
 
         &:hover {
-          color: var(--buttoncolor);
-          background: var(--buttonbackground);
-          border-color: var(--buttonborder);
+          background: var(--buttonhoverbackground);
+          color: var(--buttonhovercolor);
         }
       }
     }
@@ -1444,7 +1476,7 @@
 
         &.btn-wishlist {
           &::before {
-            content: '\e944';
+            content: '\e942';
           }
         }
 

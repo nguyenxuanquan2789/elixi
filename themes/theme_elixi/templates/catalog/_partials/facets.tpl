@@ -85,7 +85,7 @@
                         {elseif isset($filter.properties.color)}
                           <span class="color" style="background-color:{$filter.properties.color}"></span>
                         {else}
-                          <span {if !$js_enabled} class="ps-shown-by-js" {/if}><i class="vecicon-check rtl-no-flip checkbox-checked"></i></span>
+                          <span {if !$js_enabled} class="ps-shown-by-js" {/if}><i class="elicon-check rtl-no-flip checkbox-checked"></i></span>
                         {/if}
                       </span>
                     {else}

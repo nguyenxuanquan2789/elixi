@@ -27,16 +27,6 @@
 					</a>
 				{/if}
 			{/block}
-			<div class="add-links">
-				{block name='quick_view'}
-					<a class="quick-view js-quick-view" href="#" data-link-action="quickview"
-						title="{l s='Quick view' d='Shop.Theme.Actions'}">
-						<span>{l s='Quick view' d='Shop.Theme.Actions'}</span>
-					</a>
-				{/block}
-				{hook h='displayProductListFunctionalButtons' product=$product}
-				{hook h='displayWishlistButton' product=$product}
-			</div>
 			{block name='product_flags'}
 				<ul class="product-flag">
 					{foreach from=$product.flags item=flag}
@@ -58,6 +48,10 @@
 
 		</div>
 		<div class="product-content">
+			{block name='product_name'}
+				<h3><a href="{$product.url}" class="product_name"
+						title="{$product.name}">{$product.name|truncate:$vectheme.name_length:'...'}</a></h3>
+			{/block}
 			{if isset($product.id_manufacturer)}
 				<div class="manufacturer"><a
 						href="{url entity='manufacturer' id=$product.id_manufacturer }">{Manufacturer::getnamebyid($product.id_manufacturer)}</a>
@@ -68,53 +62,61 @@
 					{hook h='displayProductListReviews' product=$product}
 				</div>
 			{/block}
-			{block name='product_name'}
-				<h3><a href="{$product.url}" class="product_name"
-						title="{$product.name}">{$product.name|truncate:$vectheme.name_length:'...'}</a></h3>
-			{/block}
-			{block name='product_price_and_shipping'}
-				{if $product.show_price}
-					<div class="product-price-and-shipping">
-						{if $product.has_discount}
-							{hook h='displayProductPriceBlock' product=$product type="old_price"}
-							<span class="regular-price"
-								aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
-						{/if}
-
-						{hook h='displayProductPriceBlock' product=$product type="before_price"}
-
-						<span class="price {if $product.has_discount}price-sale{/if}"
-							aria-label="{l s='Price' d='Shop.Theme.Catalog'}">
-							{capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='products_list'}{/capture}
-							{if '' !== $smarty.capture.custom_price}
-								{$smarty.capture.custom_price nofilter}
-							{else}
-								{$product.price}
+			<div class="d-flex">
+				{block name='product_price_and_shipping'}
+					{if $product.show_price}
+						<div class="product-price-and-shipping heading-text flex-1">
+							{if $product.has_discount}
+								{hook h='displayProductPriceBlock' product=$product type="old_price"}
+								<span class="regular-price"
+									aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
 							{/if}
-						</span>
 
-						{hook h='displayProductPriceBlock' product=$product type='unit_price'}
+							{hook h='displayProductPriceBlock' product=$product type="before_price"}
 
-						{hook h='displayProductPriceBlock' product=$product type='weight'}
-						{if $product.has_discount}
-							{if $product.discount_type === 'percentage'}
-								<span class="discount-percentage discount-product">{$product.discount_percentage}</span>
-							{elseif $product.discount_type === 'amount'}
-								<span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
+							<span class="price {if $product.has_discount}price-sale{/if}"
+								aria-label="{l s='Price' d='Shop.Theme.Catalog'}">
+								{capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='products_list'}{/capture}
+								{if '' !== $smarty.capture.custom_price}
+									{$smarty.capture.custom_price nofilter}
+								{else}
+									{$product.price}
+								{/if}
+							</span>
+
+							{hook h='displayProductPriceBlock' product=$product type='unit_price'}
+
+							{hook h='displayProductPriceBlock' product=$product type='weight'}
+							{if $product.has_discount}
+								{if $product.discount_type === 'percentage'}
+									<span class="discount-percentage discount-product">{$product.discount_percentage}</span>
+								{elseif $product.discount_type === 'amount'}
+									<span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
+								{/if}
 							{/if}
-						{/if}
-					</div>
-				{/if}
-			{/block}
-			{block name='product_variants'}
-				{if $product.main_variants}
-					{include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
-				{/if}
-			{/block}
-			<div class="box-hover">
-				<div class="product-cart">
+						</div>
+					{/if}
+				{/block}
+				{block name='quick_view'}
+					<a class="quick-view js-quick-view" href="#" data-link-action="quickview"
+						title="{l s='Quick view' d='Shop.Theme.Actions'}">
+						<span>{l s='Quick view' d='Shop.Theme.Actions'}</span>
+					</a>
+				{/block}
+			</div>
+			<div class="box-hover d-flex">
+				<div class="product-cart flex-1">
 					{include file='catalog/_partials/miniatures/customize/button-cart.tpl' product=$product}
 				</div>
+				<div class="add-links">
+					{hook h='displayProductListFunctionalButtons' product=$product}
+					{hook h='displayWishlistButton' product=$product}
+				</div>
+				{block name='product_variants'}
+					{if $product.main_variants}
+						{include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
+					{/if}
+				{/block}
 			</div>
 		</div>
 	</article>

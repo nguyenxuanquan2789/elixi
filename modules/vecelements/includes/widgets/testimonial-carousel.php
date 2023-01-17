@@ -1,11 +1,4 @@
 <?php
-/**
- * V-Elements - Live page builder
- *
- * @author    ThemeVec
- * @copyright 2020-2022 themevec.com & Elementor.com
- * @license   https://www.gnu.org/licenses/gpl-3.0.html
- */
 
 namespace VEC;
 
@@ -112,9 +105,9 @@ class WidgetTestimonialCarousel extends WidgetBase
                 'type' => ControlsManager::SELECT,
                 'default' => 'image_inline',
                 'options' => [
-                    'image_inline' => __('Image Inline'),
-                    'image_stacked' => __('Image Stacked'),
-                    'image_above' => __('Image Above'),
+                    'layout1' => __('Layout 1'),
+                    'layout2' => __('Layout 2'),
+                    'layout3' => __('Layout 3'),
                 ],
                 'separator' => 'before',
             ]
@@ -201,7 +194,7 @@ class WidgetTestimonialCarousel extends WidgetBase
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .slick-slider .slick-slide-inner' => 'min-height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .slick-slider .elementor-testimonial-wrapper' => 'min-height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -212,7 +205,7 @@ class WidgetTestimonialCarousel extends WidgetBase
                 'label' => __('Background Color'),
                 'type' => ControlsManager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .slick-slider .slick-slide-inner' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .slick-slider .elementor-testimonial-wrapper' => 'background: {{VALUE}};',
                 ],
             ]
         );
@@ -223,7 +216,7 @@ class WidgetTestimonialCarousel extends WidgetBase
                 'label' => __('Padding'),
                 'type' => ControlsManager::DIMENSIONS,
                 'selectors' => [
-                    '{{WRAPPER}}  .slick-slider .slick-slide-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}  .slick-slider .elementor-testimonial-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -234,7 +227,7 @@ class WidgetTestimonialCarousel extends WidgetBase
                 'label' => __('Border Width'),
                 'type' => ControlsManager::DIMENSIONS,
                 'selectors' => [
-                    '{{WRAPPER}}  .slick-slider .slick-slide-inner' => 'border-style: solid; border-width: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+                    '{{WRAPPER}}  .slick-slider .elementor-testimonial-wrapper' => 'border-style: solid; border-width: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
                 ],
             ]
         );
@@ -246,7 +239,7 @@ class WidgetTestimonialCarousel extends WidgetBase
                 'type' => ControlsManager::COLOR,
                 'separator' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .slick-slider .slick-slide-inner' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .slick-slider .elementor-testimonial-wrapper' => 'border-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'slide_border_size[top]!' => '',
@@ -262,11 +255,17 @@ class WidgetTestimonialCarousel extends WidgetBase
                 'size_units' => ['px', '%'],
                 'separator' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .slick-slider .slick-slide-inner' => 'border-radius: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .slick-slider .elementor-testimonial-wrapper' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
-
+        $this->addGroupControl(
+            GroupControlBoxShadow::getType(),
+            [
+                'name' => 'box_shadow',
+                'selector' => '{{WRAPPER}} .slick-slider .elementor-testimonial-wrapper',
+            ]
+        );
         $this->endControlsSection();
 
         $this->startControlsSection(
@@ -331,7 +330,17 @@ class WidgetTestimonialCarousel extends WidgetBase
                 'label' => __('Name'),
             ]
         );
-
+        $this->addResponsiveControl(
+            'name_gap',
+            [
+                'label' => __('Spacing'),
+                'type' => ControlsManager::SLIDER,
+                'size_units' => ['px'],
+                'selectors' => [
+                    '{{WRAPPER}} .elementor-testimonial-name' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->addControl(
             'name_color',
             [
@@ -365,7 +374,17 @@ class WidgetTestimonialCarousel extends WidgetBase
                 'label' => __('Job'),
             ]
         );
-
+        $this->addResponsiveControl(
+            'title_gap',
+            [
+                'label' => __('Spacing'),
+                'type' => ControlsManager::SLIDER,
+                'size_units' => ['px'],
+                'selectors' => [
+                    '{{WRAPPER}} .elementor-testimonial-job' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->addControl(
             'title_color',
             [
@@ -525,25 +544,9 @@ class WidgetTestimonialCarousel extends WidgetBase
             ob_start();
             ?>
             <div class="slick-slide-inner">
-                <div class="elementor-testimonial-wrapper">
-                <?php if ('image_above' == $settings['layout'] && !empty($slide['image']['url'])) : ?>
-                    <div class="elementor-testimonial-meta <?= $layout_class ?>">
-                        <div class="elementor-testimonial-meta-inner">
-                            <div class="elementor-testimonial-image">
-                            <?php if ($has_link) : ?>
-                                <a <?= $this->getRenderAttributeString('link') ?>>
-                                    <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?>
-                                </a>
-                            <?php else : ?>
-                                <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?>
-                            <?php endif ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif ?>
-                <?php if (!empty($slide['content'])) : ?>
-                    <div class="elementor-testimonial-content"><?= $slide['content'] ?></div>
-                <?php endif ?>
+            <div>
+                <div class="elementor-testimonial-wrapper design-<?= $settings['layout']; ?>">
+                <?php if($settings['layout'] == 'layout1') : ?>
                     <div class="elementor-testimonial-meta <?= $layout_class ?>">
                         <div class="elementor-testimonial-meta-inner">
                         <?php if ('image_above' != $settings['layout'] && !empty($slide['image']['url'])) : ?>
@@ -553,7 +556,7 @@ class WidgetTestimonialCarousel extends WidgetBase
                                     <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?>
                                 </a>
                             <?php else : ?>
-                                <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?>
+                                <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?> 
                             <?php endif ?>
                             </div>
                         <?php endif ?>
@@ -579,7 +582,90 @@ class WidgetTestimonialCarousel extends WidgetBase
                             </div>
                         </div>
                     </div>
+                    <?php if (!empty($slide['content'])) : ?>
+                    <div class="elementor-testimonial-content"><?= $slide['content'] ?></div>
+                    <?php endif ?>
+                <?php elseif($settings['layout'] == 'layout2') : ?>
+                    <?php if (!empty($slide['content'])) : ?>
+                        <div class="elementor-testimonial-content"><?= $slide['content'] ?></div>
+                    <?php endif ?>
+                        <div class="elementor-testimonial-meta <?= $layout_class ?>">
+                            <div class="elementor-testimonial-meta-inner">
+                            <?php if ('image_above' != $settings['layout'] && !empty($slide['image']['url'])) : ?>
+                                <div class="elementor-testimonial-image">
+                                <?php if ($has_link) : ?>
+                                    <a <?= $this->getRenderAttributeString('link') ?>>
+                                        <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?>
+                                    </a>
+                                <?php else : ?>
+                                    <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?>
+                                <?php endif ?>
+                                </div>
+                            <?php endif ?>
+                                <div class="elementor-testimonial-details">
+                                <?php if (!empty($slide['name'])) : ?>
+                                    <div class="elementor-testimonial-name">
+                                    <?php if ($has_link) : ?>
+                                        <a <?= $this->getRenderAttributeString('link') ?>><?= $slide['name'] ?></a>
+                                    <?php else : ?>
+                                        <?= $slide['name'] ?>
+                                    <?php endif ?>
+                                    </div>
+                                <?php endif ?>
+                                <?php if (!empty($slide['title'])) : ?>
+                                    <div class="elementor-testimonial-job">
+                                    <?php if ($has_link) : ?>
+                                        <a <?= $this->getRenderAttributeString('link') ?>><?= $slide['title'] ?></a>
+                                    <?php else : ?>
+                                        <?= $slide['title'] ?>
+                                    <?php endif ?>
+                                    </div>
+                                <?php endif ?>
+                                </div>
+                            </div>
+                        </div>
+                <?php else : ?>
+                    <?php if (!empty($slide['content'])) : ?>
+                        <div class="elementor-testimonial-content"><?= $slide['content'] ?></div>
+                    <?php endif ?>
+                        <div class="elementor-testimonial-meta <?= $layout_class ?>">
+                            <div class="elementor-testimonial-meta-inner">
+                            <?php if ('image_above' != $settings['layout'] && !empty($slide['image']['url'])) : ?>
+                                <div class="elementor-testimonial-image">
+                                <?php if ($has_link) : ?>
+                                    <a <?= $this->getRenderAttributeString('link') ?>>
+                                        <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?>
+                                    </a>
+                                <?php else : ?>
+                                    <?= GroupControlImageSize::getAttachmentImageHtml($slide, 'image', 'auto') ?>
+                                <?php endif ?>
+                                </div>
+                            <?php endif ?>
+                                <div class="elementor-testimonial-details">
+                                <?php if (!empty($slide['name'])) : ?>
+                                    <div class="elementor-testimonial-name">
+                                    <?php if ($has_link) : ?>
+                                        <a <?= $this->getRenderAttributeString('link') ?>><?= $slide['name'] ?></a>
+                                    <?php else : ?>
+                                        <?= $slide['name'] ?>
+                                    <?php endif ?>
+                                    </div>
+                                <?php endif ?>
+                                <?php if (!empty($slide['title'])) : ?>
+                                    <div class="elementor-testimonial-job">
+                                    <?php if ($has_link) : ?>
+                                        <a <?= $this->getRenderAttributeString('link') ?>><?= $slide['title'] ?></a>
+                                    <?php else : ?>
+                                        <?= $slide['title'] ?>
+                                    <?php endif ?>
+                                    </div>
+                                <?php endif ?>
+                                </div>
+                            </div>
+                        </div>
+                <?php endif; ?>
                 </div>
+            </div>
             </div>
             <?php
             $slides[] = ob_get_clean();
