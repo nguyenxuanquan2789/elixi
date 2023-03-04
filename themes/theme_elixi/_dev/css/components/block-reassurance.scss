@@ -29,35 +29,42 @@
 
 .blockreassurance_product {
   margin-bottom: 30px;
-  > div {
-      @include flex;
-      align-items: center;
-      width: 100%;
-      > *:not(.item-product) {
-          overflow: hidden;
-      }
-      > * {
-          float: left;
-          margin: 0;
-      }
-      &:not(:last-child) {
-          margin-bottom: 5px;
-      }
+
+  >div {
+    @include flex;
+    align-items: center;
+    width: 100%;
+
+    >*:not(.item-product) {
+      overflow: hidden;
+    }
+
+    >* {
+      float: left;
+      margin: 0;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
   }
+
   .item-product {
-      margin-right: 0.625rem !important;
-      width: auto !important;
-      height: auto !important;
-      padding: 0 !important;
-      line-height: 1;
+    margin-right: 0.625rem !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    line-height: 1;
   }
+
   .block-title {
-      font-weight: 500;
-      font-size: 0.875rem;
-      &:after {
-          content: ':';
-          display: inline-block;
-          margin: 0 5px 0 2px;
-      }
+    font-weight: $display1-weight;
+    font-size: 0.875rem;
+
+    &:after {
+      content: ':';
+      display: inline-block;
+      margin: 0 5px 0 2px;
+    }
   }
 }

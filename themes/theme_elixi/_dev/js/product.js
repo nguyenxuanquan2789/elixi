@@ -28,78 +28,78 @@ import ProductSelect from './components/product-select';
 import './lib/easyzoom.min';
 
 export default class Product {
-  productImageSlider(){
-		var $productContainer = $('.product-container'),
-			$images = $('.product-images.slick-block'),
-			$thumbnails = $('.product-thumbs.slick-block'),
+  productImageSlider() {
+    var $productContainer = $('.product-container'),
+      $images = $('.product-images.slick-block'),
+      $thumbnails = $('.product-thumbs.slick-block'),
       isQuickview = false;
-    if($('.quickview').length > 0){
+    if ($('.quickview').length > 0) {
       isQuickview = true;
     }
-		if($productContainer.hasClass('horizontal-thumb') || isQuickview){
-			var item = $thumbnails.data('item');
-			$images.not('.slick-initialized').slick({
-				infinite: false,
-			});
-			$thumbnails
-				.on('init', function(event, slick) {$('.product-thumbs.slick-block .slick-slide.slick-current').addClass('is-active');})
-				.not('.slick-initialized').slick({
-					slidesToShow: item,
-					infinite: false,
-				});
-		};
-		if(($productContainer.hasClass('vertical-left') || $productContainer.hasClass('vertical-right')) && !isQuickview){
-			var item = $thumbnails.data('item');
-			$images.not('.slick-initialized').slick({
-				infinite: false,
-			});
-			$thumbnails
-			.on('init', function(event, slick) {$('.product-thumbs.slick-block .slick-slide.slick-current').addClass('is-active');})
-			.not('.slick-initialized').slick({
-				slidesToShow: item,
-				infinite: false,
-				vertical: true,
-				responsive: [
-          {
-					  breakpoint: 767,
-					  settings: {
-              vertical: false,
+    if ($productContainer.hasClass('horizontal-thumb') || isQuickview) {
+      var item = $thumbnails.data('item');
+      $images.not('.slick-initialized').slick({
+        infinite: false,
+      });
+      $thumbnails
+        .on('init', function (event, slick) { $('.product-thumbs.slick-block .slick-slide.slick-current').addClass('is-active'); })
+        .not('.slick-initialized').slick({
+          slidesToShow: item,
+          infinite: false,
+        });
+    };
+    if (($productContainer.hasClass('vertical-left') || $productContainer.hasClass('vertical-right')) && !isQuickview) {
+      var item = $thumbnails.data('item');
+      $images.not('.slick-initialized').slick({
+        infinite: false,
+      });
+      $thumbnails
+        .on('init', function (event, slick) { $('.product-thumbs.slick-block .slick-slide.slick-current').addClass('is-active'); })
+        .not('.slick-initialized').slick({
+          slidesToShow: item,
+          infinite: false,
+          vertical: true,
+          responsive: [
+            {
+              breakpoint: 767,
+              settings: {
+                vertical: false,
+              }
+            },
+            {
+              breakpoint: 399,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                vertical: false,
+              }
             }
-					},
-					{
-					  breakpoint: 399,
-					  settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1, 
-              vertical: false,
-            }
-					}
-				]
-			});
-			$('.product-images.slick-block img').load(function() {
-				$thumbnails.slick("setPosition", 0);
-			});
-			
-		};
-	
-		$images.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-		 	$thumbnails.slick('slickGoTo', nextSlide);
-		 	var currrentNavSlideElem = $thumbnails.find('.slick-slide[data-slick-index="' + nextSlide + '"]');
-		 	$thumbnails.find('.slick-slide').removeClass('is-active');
-		 	currrentNavSlideElem.addClass('is-active');
-		});
+          ]
+        });
+      $('.product-images.slick-block img').load(function () {
+        $thumbnails.slick("setPosition", 0);
+      });
 
-		$thumbnails.on('click', '.slick-slide', function(event) {
-		 	event.preventDefault();
-		 	var goToSingleSlide = $(this).data('slick-index');
+    };
 
-		 	$images.slick('slickGoTo', goToSingleSlide);
-		});
-		if(isQuickview){
+    $images.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+      $thumbnails.slick('slickGoTo', nextSlide);
+      var currrentNavSlideElem = $thumbnails.find('.slick-slide[data-slick-index="' + nextSlide + '"]');
+      $thumbnails.find('.slick-slide').removeClass('is-active');
+      currrentNavSlideElem.addClass('is-active');
+    });
+
+    $thumbnails.on('click', '.slick-slide', function (event) {
+      event.preventDefault();
+      var goToSingleSlide = $(this).data('slick-index');
+
+      $images.slick('slickGoTo', goToSingleSlide);
+    });
+    if (isQuickview) {
       $('.product-thumbs.slick-block .slick-slide.slick-current').addClass('is-active');
     }
 
-	};
+  };
 }
 
 $(document).ready(() => {
@@ -190,66 +190,65 @@ $(document).ready(() => {
       $(target.attr('href')).removeClass(prestashop.themeSelectors.product.activeTabClass);
     });
   }
-  function productImageZoom(){
-		var $easyzoom = $('.easyzoom');
-		$easyzoom.trigger( 'zoom.destroy' );
-	 	if($(window).width() >= 992) 
-		{
-			$easyzoom.easyZoom();
-		}
-		$(window).resize(function(){
-			$easyzoom.trigger( 'zoom.destroy' );
-			if($(window).width() >= 992){
-				$easyzoom.easyZoom();
-			}
-		});
-	}
-  function initThemeSliders(){
-    $('.product-accessoriesslide').on('init', function(event, slick, currentSlide){
+  function productImageZoom() {
+    var $easyzoom = $('.easyzoom');
+    $easyzoom.trigger('zoom.destroy');
+    if ($(window).width() >= 992) {
+      $easyzoom.easyZoom();
+    }
+    $(window).resize(function () {
+      $easyzoom.trigger('zoom.destroy');
+      if ($(window).width() >= 992) {
+        $easyzoom.easyZoom();
+      }
+    });
+  }
+  function initThemeSliders() {
+    $('.product-accessoriesslide').on('init', function (event, slick, currentSlide) {
       var slideToShow = $(this).find('.slick-active').length - 1;
       $(this).find('.slick-slide').removeClass('first-active').removeClass('last-active');
       $(this).find('.slick-active').eq(0).addClass('first-active');
       $(this).find('.slick-active').eq(slideToShow).addClass('last-active');
     });
-    $('.product-accessoriesslide').not('.slick-initialized').slick({ 
-       slidesToShow: 5,
-       slidesToScroll: 1,
-       dots: false, 
-       arrows: true,  
-       responsive: [
-      {breakpoint: 1199, settings: { slidesToShow: 4}},
-      {breakpoint: 991, settings: { slidesToShow: 3}},
-      {breakpoint: 767, settings: { slidesToShow: 2}},
-      {breakpoint: 575, settings: { slidesToShow: 2}},
-      {breakpoint: 359, settings: { slidesToShow: 1}}
+    $('.product-accessoriesslide').not('.slick-initialized').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+      responsive: [
+        { breakpoint: 1199, settings: { slidesToShow: 4 } },
+        { breakpoint: 991, settings: { slidesToShow: 3 } },
+        { breakpoint: 767, settings: { slidesToShow: 2 } },
+        { breakpoint: 575, settings: { slidesToShow: 2 } },
+        { breakpoint: 359, settings: { slidesToShow: 1 } }
       ]
     });
-    $('.product-accessoriesslide').on('afterChange', function(event, slick, currentSlide){
+    $('.product-accessoriesslide').on('afterChange', function (event, slick, currentSlide) {
       var slideToShow = $(this).find('.slick-active').length - 1;
       $(this).find('.slick-slide').removeClass('first-active').removeClass('last-active');
       $(this).find('.slick-active').eq(0).addClass('first-active');
       $(this).find('.slick-active').eq(slideToShow).addClass('last-active');
     });
-    $('.product-categoryslide').on('init', function(event, slick, currentSlide){
+    $('.product-categoryslide').on('init', function (event, slick, currentSlide) {
       var slideToShow = $(this).find('.slick-active').length - 1;
       $(this).find('.slick-slide').removeClass('first-active').removeClass('last-active');
       $(this).find('.slick-active').eq(0).addClass('first-active');
       $(this).find('.slick-active').eq(slideToShow).addClass('last-active');
     });
-    $('.product-categoryslide').not('.slick-initialized').slick({ 
-       slidesToShow: 5,
-       slidesToScroll: 1,
-       dots: false, 
-       arrows: true,  
-       responsive: [
-          {breakpoint: 1199, settings: { slidesToShow: 4}},
-          {breakpoint: 991, settings: { slidesToShow: 3}},
-          {breakpoint: 767, settings: { slidesToShow: 2}},
-          {breakpoint: 575, settings: { slidesToShow: 2}},
-          {breakpoint: 359, settings: { slidesToShow: 1}}
-        ]
+    $('.product-categoryslide').not('.slick-initialized').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+      responsive: [
+        { breakpoint: 1199, settings: { slidesToShow: 4 } },
+        { breakpoint: 991, settings: { slidesToShow: 3 } },
+        { breakpoint: 767, settings: { slidesToShow: 2 } },
+        { breakpoint: 575, settings: { slidesToShow: 2 } },
+        { breakpoint: 359, settings: { slidesToShow: 1 } }
+      ]
     });
-    $('.product-categoryslide').on('afterChange', function(event, slick, currentSlide){
+    $('.product-categoryslide').on('afterChange', function (event, slick, currentSlide) {
       var slideToShow = $(this).find('.slick-active').length - 1;
       $(this).find('.slick-slide').removeClass('first-active').removeClass('last-active');
       $(this).find('.slick-active').eq(0).addClass('first-active');
@@ -258,49 +257,49 @@ $(document).ready(() => {
 
     var viewedSlick = $('.vec-viewed-products .slick-slider');
 
-    viewedSlick.on('init', function(event, slick, currentSlide){
+    viewedSlick.on('init', function (event, slick, currentSlide) {
       var slideToShow = $(this).find('.slick-active').length - 1;
       $(this).find('.slick-slide').removeClass('first-active').removeClass('last-active');
       $(this).find('.slick-active').eq(0).addClass('first-active');
       $(this).find('.slick-active').eq(slideToShow).addClass('last-active');
     });
     var defaultOptions = {
-          responsive: [
-              {
-                  breakpoint: 1200,
-                  settings: {
-                    slidesToShow: 4,
-                  }
-                },
-                {
-                  breakpoint: 992,
-                  settings: {
-                    slidesToShow: 3,
-                  }
-                },
-                {
-                  breakpoint: 768,
-                  settings: {
-                    slidesToShow: 2,
-                  }
-                },
-              {
-                  breakpoint: 568,
-                  settings: {
-                    slidesToShow: 2,
-                  }
-                },
-                {
-                  breakpoint: 360,
-                  settings: {
-                    slidesToShow: 1,
-                  }
-                }
-          ]
-        };
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 4,
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 568,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 360,
+          settings: {
+            slidesToShow: 1,
+          }
+        }
+      ]
+    };
     var slickOptions = $.extend({}, defaultOptions, viewedSlick.data('slick-options'));
     viewedSlick.not('.slick-initialized').slick(slickOptions);
-    viewedSlick.on('afterChange', function(event, slick, currentSlide){
+    viewedSlick.on('afterChange', function (event, slick, currentSlide) {
       var slideToShow = $(this).find('.slick-active').length - 1;
       $(this).find('.slick-slide').removeClass('first-active').removeClass('last-active');
       $(this).find('.slick-active').eq(0).addClass('first-active');

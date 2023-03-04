@@ -4,44 +4,53 @@
 
 .cart-items {
   margin-bottom: 0;
+
   .cart-items-title {
     border-bottom: 1px solid $border-gray;
     padding-bottom: .625rem;
     margin-bottom: .625rem;
   }
+
   h4 {
     margin-bottom: 0px;
     font-size: 1rem;
-    text-transform: uppercase; 
+    text-transform: uppercase;
   }
 }
 
 .cart-item {
   padding: 1rem 0;
-  border-bottom: 1px solid $border-gray; 
+  border-bottom: 1px solid $border-gray;
+
   .row {
     @include flex;
-    align-items: center; 
+    align-items: center;
   }
+
   .product-price {
     margin: 0;
-    > strong {
+
+    >strong {
       color: $price-color;
       font-weight: 500;
       font-size: 1.125rem;
     }
+
     .regular-price {
       font-weight: 400;
       font-size: .875rem;
       color: #a2a2a2;
       text-decoration: line-through;
     }
+
     .discount {
       display: none;
     }
   }
+
   .remove-cart {
-    padding-left: 0;;
+    padding-left: 0;
+    ;
   }
 }
 
@@ -58,7 +67,7 @@
     }
   }
 
-  &.cart-detailed-subtotals + .cart-summary-totals .cart-total {
+  &.cart-detailed-subtotals+.cart-summary-totals .cart-total {
     border-top: 1px solid #afafaf57;
   }
 
@@ -75,6 +84,7 @@
       &.cart-total {
         padding: .9375rem 0 0 0;
         border-top: 1px solid $border-gray;
+
         .label,
         .value {
           font-weight: 500;
@@ -126,6 +136,7 @@
   }
 
   &.cart-summary-subtotals {
+
     .label,
     .value {
       font-weight: 500;
@@ -136,6 +147,7 @@
   .value {
     font-size: .875rem;
   }
+
   .value {
     font-size: 1rem;
   }
@@ -144,6 +156,7 @@
 /** CART BODY **/
 .cart-grid-body {
   margin-bottom: 0.75rem;
+
   .card-block {
     padding: 1rem;
 
@@ -182,6 +195,7 @@
 
   .cart-summary-line {
     &.cart-subtotal-products {
+
       .label,
       .value {
         font-weight: 600;
@@ -193,16 +207,19 @@
     }
   }
 }
+
 .block-promo {
   .cart-voucher {
     background: #f5f5f5;
     padding: 1.25rem;
-    border: 1px solid $border-gray; 
+    border: 1px solid $border-gray;
     margin-bottom: 1rem;
   }
+
   .promo-code {
     background: $white;
     position: relative;
+
     .alert-danger {
       position: relative;
       display: none;
@@ -237,6 +254,7 @@
     padding: 0 .9375rem;
     border-right: 0;
     min-width: 100px;
+
     &:focus-visible {
       outline: none;
     }
@@ -276,10 +294,11 @@
 
   .promo-code-button {
     display: block;
-    padding: 0 0 1rem 0; 
+    padding: 0 0 1rem 0;
     font-weight: 500;
     color: $gray-dark;
     line-height: 1;
+
     &.with-discounts {
       display: none;
     }
@@ -291,14 +310,16 @@
       right: 0;
       top: -1.875rem;
       font-size: 0;
+
       &:hover {
         color: var(--hovercolor);
       }
+
       &::before {
         content: "";
         font-family: $font-icon;
         content: "\e920";
-        font-size: 1.25rem; 
+        font-size: 1.25rem;
         line-height: 1;
       }
 
@@ -329,8 +350,8 @@
 
 /** CONTENT BODY **/
 .product-line-grid-body {
-  > .product-line-info {
-    > .label {
+  >.product-line-info {
+    >.label {
       padding: 0;
       font-weight: 600;
       line-height: inherit;
@@ -338,15 +359,15 @@
       white-space: inherit;
     }
 
-    > .out-of-stock {
+    >.out-of-stock {
       color: #f00;
     }
 
-    > .available {
+    >.available {
       color: $brand-success;
     }
 
-    > .unit-price-cart {
+    >.unit-price-cart {
       padding-left: 0.3125rem;
       font-size: 0.875rem;
       color: $gray;
@@ -356,29 +377,35 @@
 
 /** CONTENT LEFT **/
 .product-line-grid-right {
+
   .cart-line-product-actions,
   .product-price {
     line-height: 1;
     color: $gray-darker;
+
     .remove-from-cart {
       i {
-        font-size: 1rem; 
+        font-size: 1rem;
       }
     }
   }
+
   .qty {
     .bootstrap-touchspin {
       display: flex;
-      border:1px solid $border-gray; 
+      border: 1px solid $border-gray;
+      border-radius: $border-radius;
+
       input.form-control {
-        border: none; 
-        text-align: center; 
+        border: none;
+        text-align: center;
         width: 2.5rem;
         font-weight: 400;
         font-size: .8125rem;
-        border-left:1px solid $border-gray; 
-        border-right:1px solid $border-gray; 
+        border-left: 1px solid $border-gray;
+        border-right: 1px solid $border-gray;
       }
+
       .input-group-btn>.btn {
         font-weight: 500;
         color: $gray-dark;
@@ -388,6 +415,7 @@
         background: #f5f5f5;
         justify-content: center;
         margin: 0;
+
         &:hover {
           background: #dbdbdb;
         }

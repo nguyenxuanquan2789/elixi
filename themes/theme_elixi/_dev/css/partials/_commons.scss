@@ -30,7 +30,7 @@ h6,
 .h5,
 .h6 {
   font-family: Nunito, sans-serif;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 main {
@@ -165,8 +165,7 @@ h6,
 .btn-secondary,
 .btn-tertiary {
   padding: .7813rem 2.5rem;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 700;
   font-size: .875rem;
   line-height: 1.25rem;
   border: none;
@@ -610,6 +609,7 @@ form {
     margin: $small-space 0;
     overflow: hidden;
     border: $gray-light 1px solid;
+    border-radius: $border-radius;
 
     img {
       width: 55px;

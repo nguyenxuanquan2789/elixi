@@ -190,7 +190,7 @@ class WidgetMegamenu extends WidgetBase {
 							'label' => __( 'Text Color' ),
 							'type' => ControlsManager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .vec-menu-horizontal .menu-item:hover > a, {{WRAPPER}} .vec-menu-vertical .menu-item:hover > a,{{WRAPPER}} .vec-menu-horizontal .menu-item.home > a, {{WRAPPER}} .vec-menu-vertical .menu-item.home > a, {{WRAPPER}} .vec-menu-horizontal .menu-item.active > a, {{WRAPPER}} .vec-menu-vertical .menu-item.active > a' => 'color: {{VALUE}};'
+								'{{WRAPPER}} .vec-menu-horizontal .menu-item:hover > a, {{WRAPPER}} .vec-menu-vertical .menu-item:hover > a,{{WRAPPER}} .vec-menu-horizontal .menu-item.home > a, {{WRAPPER}} .vec-menu-horizontal .menu-item.active > a' => 'color: {{VALUE}};'
 							],
 						]
 					);
@@ -201,7 +201,7 @@ class WidgetMegamenu extends WidgetBase {
 							'label' => __( 'Background Color' ),
 							'type' => ControlsManager::COLOR,
 							'selectors' => [
-								'{{WRAPPER}} .vec-menu-horizontal .menu-item:hover > a, {{WRAPPER}} .vec-menu-vertical .menu-item:hover > a,{{WRAPPER}} .vec-menu-horizontal .menu-item.home > a, {{WRAPPER}} .vec-menu-vertical .menu-item.home > a, {{WRAPPER}} .vec-menu-horizontal .menu-item.active > a, {{WRAPPER}} .vec-menu-vertical .menu-item.active > a' => 'background-color: {{VALUE}};',
+								'{{WRAPPER}} .vec-menu-horizontal .menu-item:hover > a, {{WRAPPER}} .vec-menu-vertical .menu-item:hover > a,{{WRAPPER}} .vec-menu-horizontal .menu-item.home > a, {{WRAPPER}} .vec-menu-horizontal .menu-item.active > a' => 'background-color: {{VALUE}};',
 							],
 						] 
 					);

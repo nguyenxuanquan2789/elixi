@@ -29,7 +29,7 @@
 {/block}
 
 {block name='continue_shopping' append}
-  <a class="label btn btn-primary" href="{$urls.pages.index}">
+  <a class="btn btn-primary" href="{$urls.pages.index}">
     <i class="elicon-reply"></i>{l s='Continue shopping' d='Shop.Theme.Actions'}
   </a>
 {/block}

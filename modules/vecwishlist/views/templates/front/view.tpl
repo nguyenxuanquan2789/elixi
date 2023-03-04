@@ -152,7 +152,7 @@
 			</div>
 			<p class="return-to-home">
 				<a href="{$urls.pages.index}" class="btn btn-primary">
-					<i class="elicon-arrow-left-solid"></i>
+					<i class="elicon-return"></i>
 					{l s='Return to home' mod='vecwishlist'}
 				</a>
 			</p>
@@ -167,7 +167,7 @@
 			</div>
 			<p class="return-to-home">
 				<a href="{$urls.pages.index}" class="btn btn-primary">
-					<i class="elicon-arrow-left-solid"></i>
+					<i class="elicon-return"></i>
 					{l s='Return to home' mod='vecwishlist'}
 				</a>
 			</p>

@@ -170,12 +170,32 @@
   margin-bottom: 3rem;
 
   .products.row {
-    margin: 0;
+    margin: 0 -10px;
+
+    .column-list {
+      padding: 0 10px;
+
+      &:not(:last-child) {
+        margin-bottom: 1.875rem;
+      }
+    }
+
+    .column-product {
+      padding: 0 10px;
+    }
+
+    @media (max-width: 767px) {
+      margin: 0 -5px;
+
+      .column-product,
+      .column-list {
+        padding: 0 5px;
+      }
+    }
   }
 
-  .column-product {
-    padding: 0;
 
+  .column-product {
     @media (min-width: 1200px) {
       &.column_2:nth-child(2n + 1) {
         clear: both;
@@ -183,7 +203,7 @@
     }
 
     @media (min-width: 1200px) {
-      .column_3:nth-child(3n + 1) {
+      &.column_3:nth-child(3n + 1) {
         clear: both;
       }
     }
@@ -309,16 +329,16 @@
     @include vec-transition(350ms);
   }
 
-  &:after {
-    content: '';
-    position: absolute;
-    left: -0.5px;
-    top: 0;
-    bottom: 1.25rem;
-    border-left: 1px solid $border-gray;
-    pointer-events: none;
-    @include vec-transition(350ms);
-  }
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   left: -0.5px;
+  //   top: 0;
+  //   bottom: 1.25rem;
+  //   border-left: 1px solid $border-gray;
+  //   pointer-events: none;
+  //   @include vec-transition(350ms);
+  // }
 
   &:hover {
     &::before {
@@ -368,13 +388,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: $gray-dark;
-        color: $white;
+        background: $white;
         min-width: 2.5rem;
         padding: .5rem 2px;
         line-height: 1;
         text-align: center;
-        border-radius: $border-radius;
+        border-radius: 5px;
+        box-shadow: 0 0 10px 0 #8f8f8f4d;
 
         @media (max-width: 767px) {
           min-width: 2.1875rem;
@@ -389,11 +409,14 @@
           font-size: .875rem;
           font-weight: 700;
           margin-bottom: .125rem;
+          color: var(--hovercolor);
         }
 
         .countdown-period {
-          font-size: 10px;
-          text-transform: capitalize;
+          font-size: 9px;
+          font-weight: 500;
+          text-transform: uppercase;
+          color: $main-color;
         }
       }
     }
@@ -456,6 +479,11 @@
         padding: 0 .3125rem;
         margin: 0 .3125rem .3125rem 0;
         display: inline-block;
+
+        &.out_of_stock {
+          background-color: $gray;
+          color: $white;
+        }
       }
     }
   }
@@ -665,6 +693,8 @@
         font-size: .875rem;
         text-transform: capitalize;
         width: 100%;
+        display: block;
+        text-align: center;
         min-height: 2.25rem;
         background: var(--buttonhoverbackground);
         color: var(--buttonhovercolor);
@@ -1355,7 +1385,10 @@
 
 .product-miniature-list {
   @include flex;
-  padding: 1.25rem;
+
+  @media (min-width: 480px) {
+    flex-wrap: nowrap;
+  }
 
   &:not(:last-child) {
     margin-bottom: 1.25rem;
@@ -1367,51 +1400,19 @@
     @media (min-width: 480px) {
       flex: 0 0 auto;
       width: 45%;
-      max-width: 300px;
-    }
-
-    @media (min-width: 1200px) {
-      max-width: 200px;
+      max-width: 330px;
     }
   }
 
   .product-content {
-    padding: .9375rem 0 0 0;
-
-    @media (min-width: 480px) {
-      flex: 1;
-      padding: 0 0 0 .9375rem;
-    }
-
-    @media (min-width: 1200px) {
-      padding: 0 12.5rem 0 .9375rem;
-    }
-
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
 
-    .col-buy {
-      @media (min-width: 1200px) {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        align-items: center;
-        justify-content: center;
-
-        .product-cart {
-          width: 100%;
-        }
-      }
-
-      display: flex;
-      flex-direction: column;
-      width: 11.25rem;
-    }
-
     .product_name {
-      font-size: 1.125rem;
+      font-size: 1.5rem;
+      font-weight: 600;
     }
 
     .product-price-and-shipping {
@@ -1419,7 +1420,7 @@
       line-height: 1.2;
 
       .price {
-        font-size: 1.25rem;
+        font-size: 1.5625rem;
       }
     }
 
@@ -1434,6 +1435,31 @@
 
     .product-desc {
       margin: .9375rem 0 0 0;
+
+      ul li {
+        &::before {
+          content: "\f04b";
+          font-family: FontAwesome;
+          display: inline-block;
+          margin-right: 7px;
+          position: relative;
+          font-size: 8px;
+          color: var(--hovercolor);
+          vertical-align: 3px;
+        }
+      }
+    }
+
+    .box-action {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: .625rem;
+
+      >* {
+        margin-right: .625rem;
+        margin-bottom: .625rem
+      }
     }
 
     .add-links {
@@ -1441,24 +1467,25 @@
       align-items: center;
 
       a {
-        width: 2.125rem;
-        height: 2.125rem;
+        width: 2.625rem;
+        height: 2.625rem;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         font-size: 0;
         border: 1px solid $border-gray;
         background: $white;
-        margin-top: .9375rem;
+        color: $main-color;
         cursor: pointer;
+        border-radius: $border-radius;
 
         &:not(:last-child) {
-          margin-right: .3125rem;
+          margin-right: .625rem;
         }
 
         &::before {
           font-family: $font-icon;
-          font-size: 1rem;
+          font-size: 1.125rem;
         }
 
         &.quick-view {
@@ -1470,13 +1497,13 @@
         &.compare-button {
           &::before {
             content: '\e92b';
-            font-size: 1.125rem;
           }
         }
 
         &.btn-wishlist {
           &::before {
             content: '\e942';
+            font-weight: 600;
           }
         }
 
@@ -1494,13 +1521,12 @@
       span.ajax-add-to-cart-button {
         font-size: .875rem;
         text-transform: uppercase;
-        width: 100%;
-        max-width: 13.75rem;
-        background: var(--buttonbackground);
-        color: var(--buttoncolor);
+        background: var(--buttonhoverbackground);
+        color: var(--buttonhovercolor);
         border: none;
         font-weight: 500;
-        padding: .5rem .625rem;
+        padding: .625rem 2.1875rem;
+        border-radius: $border-radius;
         cursor: pointer;
 
         &:hover {
@@ -1646,7 +1672,8 @@
 
     .category-cover {
       img {
-        margin-bottom: 1rem;
+        margin-bottom: 1.875rem;
+        border-radius: $border-radius;
       }
     }
   }
@@ -1660,15 +1687,18 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    background-color: $gray-light;
+    padding: .3125rem .625rem;
+    border-radius: $border-radius;
 
     .sort-by-left,
     .sort-by-right {
       @include flex;
-      margin-bottom: .625rem;
       align-items: center;
+      padding: .3125rem 0;
 
       >*:not(:last-child) {
-        margin-right: .625rem;
+        margin-right: .9375rem;
       }
     }
   }
@@ -1699,9 +1729,10 @@
   }
 
   .filter-button a {
-    padding: 0.5rem 1.25rem;
-    color: $gray-dark;
-    background: $gray-light;
+    padding: .3125rem 1.25rem;
+    background: var(--buttonbackground);
+    color: var(--buttoncolor);
+    border-radius: $border-radius;
     font-size: 1rem;
     cursor: pointer;
     line-height: 1.5rem;
@@ -1709,7 +1740,7 @@
 
     &::before {
       font-family: $font-icon;
-      content: '\e930';
+      content: '\e92a';
       font-size: 1rem;
       margin-right: .3125rem;
       vertical-align: -2px;
@@ -1751,15 +1782,16 @@
   .select-title {
     display: inline-flex;
     width: 100%;
-    padding: .5rem .9375rem;
+    padding: .3125rem .9375rem;
     color: $gray-darker;
     font-size: .8125rem;
     cursor: pointer;
-    background: $gray-light;
+    background: $white;
     justify-content: space-between;
     align-items: center;
     border: none;
     line-height: 1.5rem;
+    border-radius: $border-radius;
 
     i {
       font-size: .8125rem;
@@ -1865,22 +1897,42 @@
   >.h6 {
     font-size: 1.25rem;
     color: $gray-dark;
-    font-weight: 500;
     margin-bottom: 1.25rem;
   }
 
   .facet {
-    padding-top: 1.25rem;
+    padding: 1.875rem 1.875rem .9375rem 1.875rem;
+    border: 2px solid $border-gray;
+    border-radius: $border-radius;
+
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
 
     .collapse {
       display: block;
     }
 
     .facet-title {
-      font-size: 1rem;
-      text-transform: uppercase;
+      font-size: 1.25rem;
       color: $gray-darker;
-      margin-bottom: .9375rem;
+      margin-bottom: 1.5625rem;
+      width: auto !important;
+      position: relative;
+      overflow: visible !important;
+      display: inline-flex !important;
+      padding-bottom: .625rem;
+      font-weight: 700;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background-color: var(--hovercolor);
+      }
+
     }
 
     .facet-label {
@@ -1894,8 +1946,8 @@
       a {
         display: inline-block;
         margin-top: .1875rem;
-        font-size: .875rem;
-        color: #4e4c4c;
+        font-size: .9375rem;
+        color: $gray;
 
         .magnitude {
           font-size: .75rem;
@@ -1912,15 +1964,21 @@
 
       p {
         color: $gray-dark;
-        font-size: .8125rem;
+        font-size: .9375rem;
       }
     }
   }
 }
 
 #search_filters {
+  @media (min-width: 1025px) {
+    >.h6 {
+      display: none;
+    }
+  }
+
   .ui-slider-horizontal {
-    height: .3125rem !important;
+    height: .125rem !important;
     background: #dbdbdb;
     border: none;
     border-radius: 0;
@@ -1931,7 +1989,7 @@
     }
 
     .ui-slider-handle {
-      top: -4px !important;
+      top: -6px !important;
       width: .8125rem !important;
       height: 0.8125rem !important;
       border: none !important;
@@ -1971,7 +2029,7 @@
 
     li {
       &:not(:last-child) {
-        margin-right: 2px;
+        margin-right: 5px;
       }
     }
   }
@@ -1983,6 +2041,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border-radius: .3125rem;
+    border: 1px solid $border-gray;
 
     i {
       font-size: 1.0625rem;
@@ -1992,6 +2052,7 @@
   a:hover,
   .current a {
     background: var(--buttonbackground);
+    border-color: var(--buttonbackground);
     color: var(--buttoncolor);
     text-decoration: none;
   }
@@ -2088,24 +2149,56 @@
 }
 
 .block-categories {
-  margin-bottom: 1.563rem;
+  margin-bottom: 2.5rem;
   background: $white;
+  padding: 1.875rem 1.875rem .9375rem 1.875rem;
+  border: 2px solid $border-gray;
+  border-radius: $border-radius;
 
   .h6 {
-    font-size: 1rem;
-    color: $gray-dark;
-    font-weight: 500;
+    font-size: 1.25rem;
+    color: $gray-darker;
+    margin-bottom: .9375rem;
+    position: relative;
+    display: inline-flex;
+    padding-bottom: .625rem;
+    font-weight: 700;
+    text-transform: none !important;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: var(--hovercolor);
+    }
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  li>.category-sub-menu {
+    padding-left: .9375rem;
   }
 
   .category-sub-menu {
-    margin-top: .625rem;
-
     .category-sub-link {
       font-size: $font-size-sm;
     }
 
     li {
       position: relative;
+
+      &[data-depth="0"] {
+        list-style-type: disc;
+        color: #e6e6e6f2;
+
+        &:not(:last-child) {
+          border-bottom: 1px dashed $border-gray;
+        }
+      }
 
       &[data-depth="1"] {
         margin-bottom: $small-space;
@@ -2116,7 +2209,8 @@
     li[data-depth="0"]>a {
       display: inline-block;
       width: 100%;
-      padding: 0.3125rem 0;
+      padding: .625rem 0;
+      font-size: .9375rem;
     }
 
     li:not([data-depth="0"]):not([data-depth="1"]) {
@@ -2130,7 +2224,7 @@
   }
 
   a {
-    color: #4e4c4c;
+    color: $gray;
 
     &:hover {
       color: var(--hovercolor);
@@ -2139,7 +2233,7 @@
 
   .collapse-icons {
     position: absolute;
-    top: 0;
+    top: 12px;
     right: 0;
     padding: 0;
     cursor: pointer;
@@ -2148,6 +2242,8 @@
 
     i {
       font-size: 1.25rem;
+      font-size: 1rem;
+      color: $main-color;
     }
 
     &[aria-expanded="true"] {

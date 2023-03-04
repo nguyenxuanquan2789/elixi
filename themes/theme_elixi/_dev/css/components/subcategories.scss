@@ -1,11 +1,13 @@
 #subcategories {
   margin-bottom: 0;
   padding: 0 0 1.25rem 0;
+
   .subcategory-heading {
     margin-bottom: 20px;
     font-weight: 500;
     font-size: 1.125rem;
     color: $gray-dark;
+    display: none;
   }
 
   ul {
@@ -17,11 +19,13 @@
       width: calc(100% / 5 - 20px);
       min-width: 150px;
       margin: 0 10px;
+
       .subcategory-image {
         padding: 0 0 8px;
 
         a {
           display: block;
+
           img {
             max-width: 100%;
             vertical-align: top;
@@ -31,9 +35,9 @@
       }
 
       .subcategory-name {
-        text-transform: uppercase;
         color: $gray-dark;
-        font-size: .8125rem;
+        font-size: 1rem;
+
         &:hover {
           color: var(--hovercolor);
         }
@@ -46,13 +50,12 @@
       &:hover {
         .subcategory-image {
           a {
-              img {
-                @include vec-transform(scale(1.05));
-              }
+            img {
+              @include vec-transform(scale(1.05));
+            }
           }
         }
       }
     }
   }
 }
-

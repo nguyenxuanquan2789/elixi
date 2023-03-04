@@ -1,6 +1,7 @@
 /* stylelint-disable */
 @import "~bourbon/app/assets/stylesheets/bourbon";
 @import "partials/_variables";
+@import "partials/_fonts";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css";
 @import "partials/_mixins";
@@ -293,6 +294,12 @@
         margin-right: 1.25rem;
     }
 
+    .btn-wishlist:not(.added) {
+        i {
+            font-weight: 600;
+        }
+    }
+
     .product-compare-button,
     .btn-wishlist {
         border: none;
@@ -335,7 +342,7 @@
         &.added {
             i {
                 &::before {
-                    content: "\e919";
+                    content: "\e917";
                     color: $brand-success;
                     font-size: 1.25rem;
                 }
@@ -355,9 +362,10 @@
         background: var(--buttonbackground);
         color: var(--buttoncolor);
         border: none;
-        font-weight: 500;
+        font-weight: $display1-weight;
         padding: .5rem .625rem;
         cursor: pointer;
+        border-radius: $border-radius;
         @include vec-transition(300ms);
 
         &:hover {
@@ -861,6 +869,7 @@
                     .product-name {
                         display: block;
                         font-size: 0.875rem;
+                        font-weight: 700;
                         color: $gray-dark;
                         white-space: nowrap;
                         overflow: hidden;
@@ -871,7 +880,7 @@
                         display: block;
                         margin: 5px 0 0;
                         font-size: 1rem;
-                        font-weight: 400;
+                        font-weight: 900;
                         color: $price-color;
                     }
 
@@ -1380,15 +1389,16 @@
                     position: absolute;
                     right: 0.625rem;
                     top: 50%;
+                    line-height: 1;
                     @include vec-transform(translateY(-50%));
 
                     &:before {
                         font-family: $font-icon;
-                        content: '\e920';
+                        content: '\e91c';
                         display: inline-block;
                         width: 0.875rem;
                         height: 0.875rem;
-                        font-size: 1.125rem;
+                        font-size: 1rem;
                         line-height: 1;
                         cursor: pointer;
                     }
@@ -1572,6 +1582,7 @@
     .result-content {
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
+        border-radius: $border-radius;
     }
 
     .suggest-content>* {
@@ -1653,6 +1664,7 @@
             img {
                 width: 80px;
                 border: 1px solid $border-gray;
+                border-radius: $border-radius;
             }
 
             .product-infos {
@@ -1663,6 +1675,7 @@
                     font-size: .875rem;
                     color: $gray-dark;
                     margin-bottom: .625rem;
+                    font-weight: 700;
                 }
 
                 span {
@@ -3052,11 +3065,12 @@
     position: relative;
 
     .product-title {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.875rem;
+        text-align: center;
 
         h2 {
-            font-size: 26px;
-            font-weight: 500;
+            font-size: 32px;
+            font-weight: 700;
             text-transform: capitalize;
             margin: 0;
         }
@@ -3065,18 +3079,31 @@
 
 .categoryproducts,
 .products-accessories,
-.elementor-widget-brand-carousel,
 .elementor-widget-product-tab,
 .elementor-widget-v-smartblog,
 .elementor-widget-product-sale,
 .elementor-widget-product-carousel {
     .elementor-slick-slider {
+        margin: 0 -15px;
+
+        @media (max-width: 767px) {
+            margin: 0 -5px;
+        }
+
         .slick-slider {
             .slick-list {
                 margin: -5px 0 -90px 0;
                 padding: 5px 0 90px 0;
                 display: inline-block;
                 width: 100%;
+            }
+
+            .slick-slide {
+                padding: 0 15px;
+
+                @media (max-width: 767px) {
+                    padding: 0 5px;
+                }
             }
 
             .slick-arrow {
@@ -3201,10 +3228,18 @@
 .elementor-widget-v-smartblog {
     .elementor-image-carousel-wrapper {
         margin: 0 -15px;
+
+        @media (max-width: 767px) {
+            margin: 0 -5px;
+        }
     }
 
     .slick-slide {
         padding: 0 15px;
+
+        @media (max-width: 767px) {
+            padding: 0 5px;
+        }
     }
 
     .elementor-slick-slider {
@@ -3579,15 +3614,15 @@
 
     &:not(.style-no-padding-yes) {
         .elementor-image-carousel-wrapper {
-            margin: 0 -10px;
+            margin: 0 -15px;
         }
 
         .slick-slide {
-            padding: 0 10px;
+            padding: 0 15px;
         }
 
         .slick-slide>div:not(:last-child) {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .elementor-slick-slider {
@@ -3926,6 +3961,8 @@
             button.ajax-add-to-cart-button,
             span.ajax-add-to-cart-button {
                 width: 100%;
+                display: block;
+                text-align: center;
                 font-size: .875rem;
                 background: var(--buttonbackground);
                 color: var(--buttoncolor);

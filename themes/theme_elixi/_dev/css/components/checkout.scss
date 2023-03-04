@@ -23,8 +23,9 @@ body#checkout {
 
   .cart-grid-right {
     .block-promo .cart-voucher {
-      margin-top: -0.625rem; 
+      margin-top: -0.625rem;
     }
+
     .card {
       border: 0;
       box-shadow: none;
@@ -43,7 +44,7 @@ body#checkout {
 
           .label {
             font-size: 0.875rem;
-            font-weight: 400;
+            font-weight: $headings-font-weight;
           }
 
           .value {
@@ -62,7 +63,7 @@ body#checkout {
   .custom-checkbox {
     display: flex;
 
-    > label {
+    >label {
       padding-left: 1.5rem;
     }
 
@@ -90,12 +91,13 @@ body#checkout {
   section.checkout-step {
     padding: 0.625rem 0;
     background-color: $white;
+
     &:last-child {
       border: 0;
     }
 
     .step-title {
-      padding-bottom: 1.125rem;  
+      padding-bottom: 1.125rem;
       margin-bottom: 0;
       font-size: 1.125rem;
       font-weight: $headings-font-weight;
@@ -103,16 +105,19 @@ body#checkout {
       cursor: pointer;
       border-bottom: 1px solid $border-gray;
     }
-	.nav-link {
-	  font-size: 1rem;
-	  font-weight: $headings-font-weight;
-    color: $gray-dark;
-	  &:hover,
-		&.active {
-		  text-decoration:underline;
-		}
-	}
-    &.-current + .checkout-step {
+
+    .nav-link {
+      font-size: 1rem;
+      font-weight: $headings-font-weight;
+      color: $gray-dark;
+
+      &:hover,
+      &.active {
+        text-decoration: underline;
+      }
+    }
+
+    &.-current+.checkout-step {
       .step-title {
         padding-top: 1.25rem;
         border-top: 1px solid $border-gray;
@@ -132,10 +137,11 @@ body#checkout {
     .step-edit {
       font-weight: 500;
       text-transform: lowercase;
-	  font-style: italic;	
+      font-style: italic;
+
       .edit {
         font-size: $base-font-size;
-		vertical-align: -3px;
+        vertical-align: -3px;
       }
     }
 
@@ -168,6 +174,7 @@ body#checkout {
     }
 
     &.-current.-reachable.-complete {
+
       .done,
       .step-edit {
         display: none;
@@ -204,16 +211,17 @@ body#checkout {
       h1 {
         .done {
           display: inline-block;
-		      padding-left: 0;
+          padding-left: 0;
           vertical-align: -4px;
         }
+
         .step-edit {
           display: block;
           float: right;
           margin-right: 0.125rem;
           color: $main-color;
           cursor: pointer;
-          line-height: 33px; 
+          line-height: 33px;
         }
       }
 
@@ -247,7 +255,7 @@ body#checkout {
       margin-top: 3.75rem;
     }
 
-    .checkbox-field + .checkbox-field div {
+    .checkbox-field+.checkbox-field div {
       margin-top: 0;
     }
 
@@ -258,10 +266,11 @@ body#checkout {
 
     .form-footer {
       text-align: center;
-	  button {
-	    width: 100%;
-		margin-top: 1.25rem; 
-	  }
+
+      button {
+        width: 100%;
+        margin-top: 1.25rem;
+      }
     }
 
     #conditions-to-approve {
@@ -310,19 +319,21 @@ body#checkout {
       background: $white;
       border: 1px solid $border-gray;
 
-      > header {
+      >header {
         min-height: 13.125rem;
       }
 
       &.selected {
         background: $white;
         border: var(--hovercolor) 1px solid;
+
         hr {
           border-top: var(--hovercolor) 1px solid;
         }
       }
+
       .custom-radio {
-        margin-top: -2px; 
+        margin-top: -2px;
       }
     }
 
@@ -396,7 +407,7 @@ body#checkout {
     }
 
     .delivery-options {
-      > .row {
+      >.row {
         margin: 0;
       }
 
@@ -407,7 +418,7 @@ body#checkout {
         background: $gray-lighter;
 
         &,
-        label > .row,
+        label>.row,
         .carrier {
           display: flex;
           flex-wrap: wrap;
@@ -423,7 +434,7 @@ body#checkout {
             margin-left: 0;
 
             &:not(.#{$carrier-selector}-hasLogo) {
-              > .col-xs-12 {
+              >.col-xs-12 {
                 padding-left: calc(33.33333% + 15px);
               }
             }
@@ -449,6 +460,7 @@ body#checkout {
     #invoice-address,
     #login-form {
       margin-top: 1.563rem;
+
       .form-control-label {
         text-align: left;
       }
@@ -593,7 +605,7 @@ body#checkout {
     border-color: $gray-darker;
 
     textarea {
-      max-width: 100%;
+      width: 100%;
       margin-bottom: 10px;
     }
   }
@@ -604,7 +616,7 @@ body#checkout {
   }
 
   #delivery {
-    > label {
+    >label {
       text-align: left;
     }
   }
@@ -612,12 +624,12 @@ body#checkout {
   #hook-display-after-carrier {
     margin-top: 20px;
 
-    > [class^="col"] {
+    >[class^="col"] {
       display: inline-block;
       float: inherit;
 
       &.links {
-        .row > [class^="col"] {
+        .row>[class^="col"] {
           width: auto;
         }
       }
@@ -630,7 +642,7 @@ body#checkout {
   padding-left: 1.3rem;
   margin-top: 1.25rem;
 
-  > .card-title {
+  >.card-title {
     margin-bottom: $large-space;
   }
 
@@ -655,7 +667,7 @@ body#checkout {
   }
 
   hr {
-    border-top-color: $border-gray; 
+    border-top-color: $border-gray;
   }
 
   table {
@@ -757,7 +769,7 @@ body#checkout {
 
   body#checkout section.checkout-step .delivery-options .delivery-option {
     .carrier {
-      > .col-xs-12 {
+      >.col-xs-12 {
         padding-left: 0;
       }
     }

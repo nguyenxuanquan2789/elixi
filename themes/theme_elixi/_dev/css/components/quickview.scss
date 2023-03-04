@@ -11,6 +11,7 @@
   .modal-header {
     padding: $small-space;
     border: none;
+
     .close {
       margin-top: 0;
     }
@@ -30,8 +31,9 @@
     display: none;
   }
 
-  .product-images-cover{
+  .product-images-cover {
     margin-bottom: .625rem;
+
     .cover-item {
       padding: 0;
     }
@@ -39,65 +41,81 @@
 
   .images-container {
     z-index: 1;
+
     .icon-zoom {
       display: none;
     }
-    
+
   }
+
   #product_comments_block_extra {
     .reviews {
       display: none;
     }
   }
+
   .social-sharing {
     margin-top: 0;
   }
 }
+
 .quickview {
   .images-container {
     margin-bottom: 1.25rem;
+
     .product-images-thumb {
       margin: auto;
-      margin-top: .625rem; 
+      margin-top: .625rem;
       max-width: 28.125rem;
+
       .slick-arrow {
         &.slick-prev {
           left: -10px;
         }
+
         &.slick-next {
           right: -10px;
         }
       }
     }
+
     .product-images-cover {
       border: 1px solid $border-gray;
       position: relative;
+
       .icon-zoom {
         display: none;
       }
+
       &:hover {
         .slick-arrow {
           opacity: 1;
           visibility: visible;
+
           &.slick-prev {
             left: 1.25rem;
           }
+
           &.slick-next {
             right: 1.25rem;
           }
         }
       }
     }
+
     .product-images-thumb {
       position: relative;
+
       &:hover {
         .slick-arrow {
           opacity: 1;
           visibility: visible;
         }
       }
+
       .slick-slide {
         padding: 0 5px;
+
         .thumb-item {
           img {
             cursor: pointer;
@@ -106,6 +124,7 @@
             @include vec-transition(300ms);
           }
         }
+
         &.is-active,
         &:hover {
           .thumb-item {
@@ -115,9 +134,11 @@
           }
         }
       }
+
       .slick-arrow {
         width: 1.875rem;
         height: 1.875rem;
+
         &:before {
           font-family: $font-icon;
           font-size: 10px;
@@ -125,6 +146,7 @@
       }
     }
   }
+
   .slick-arrow {
     position: absolute;
     top: 50%;
@@ -145,23 +167,29 @@
     z-index: 1;
     opacity: 0;
     visibility: hidden;
+
     &:hover {
       background: var(--buttonbackground);
       color: var(--buttoncolor);
     }
+
     &:before {
       font-family: $font-icon;
       font-size: 12px;
     }
+
     &.slick-prev {
       left: 0;
-      &:before{
-        content: "\e903";
+
+      &:before {
+        content: "\e904";
       }
     }
+
     &.slick-next {
       right: 0;
-      &:before{
+
+      &:before {
         content: "\e905";
       }
     }

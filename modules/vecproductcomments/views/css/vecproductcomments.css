@@ -68,8 +68,8 @@ form#sendComment h3 {
 }
 
 div.star:after {
-  content: "\e9a6";
-  font-family: "vecthemes-icon";
+  content: "\e991";
+  font-family: "elixi-icon";
   display: inline-block;
   color: #acacac;
   font-weight:400;
@@ -81,8 +81,8 @@ div.star.star_on {
   display: block;
 }
 div.star.star_on:after {
-  content: "\e9a6";
-   font-family: "vecthemes-icon";
+  content: "\e991";
+   font-family: "elixi-icon";
   display: inline-block;
   color: #f9b223;
   font-weight:400;
@@ -91,8 +91,8 @@ div.star.star_on:after {
 }
 
 div.star.star_hover:after {
-  content: "\e9a6";
-   font-family: "vecthemes-icon";
+  content: "\e991";
+   font-family: "elixi-icon";
   display: inline-block;
   color: #f9b223;
   font-weight:400;
@@ -204,8 +204,8 @@ div.star a:hover {
   margin-top: 1px;
 }
 #product_comments_block_extra div.star:after {
-  content: "\e9a6";
-   font-family: "vecthemes-icon";
+  content: "\e991";
+   font-family: "elixi-icon";
   display: inline-block;
   color: #acacac;
   font-weight:400;
@@ -213,8 +213,8 @@ div.star a:hover {
   vertical-align:top;
 }
 #product_comments_block_extra div.star_on:after {
-  content: "\e9a6";
-   font-family: "vecthemes-icon";
+  content: "\e991";
+   font-family: "elixi-icon";
   display: inline-block;
   color: #f9b223;
   font-weight:400;
@@ -242,7 +242,7 @@ div.star a:hover {
 }
 .comments_advices a:before {
   display: inline-block;
-  font-family: "vecthemes-icon"; 
+  font-family: "elixi-icon"; 
   font-weight: normal;
   margin-right: 5px; 
   vertical-align:-1px;
@@ -381,15 +381,15 @@ div.star a:hover {
     padding: 2px 0 2px;
   }
   #product_comments_block_tab div.comment .comment_details ul li:before {
-   font-family: "vecthemes-icon";
+   font-family: "elixi-icon";
     content: "\e972";
     color: #acacac;
     margin-right: 8px;
   }
 }
 #product_comments_block_tab div.star:after {
-  content: "\e9a6";
-   font-family: "vecthemes-icon";
+  content: "\e991";
+   font-family: "elixi-icon";
   display: inline-block;
   color: #acacac;
   font-weight:400;
@@ -397,8 +397,8 @@ div.star a:hover {
   vertical-align: top;
 }
 #product_comments_block_tab div.star_on:after {
-  content: "\e9a6";
-   font-family: "vecthemes-icon";
+  content: "\e991";
+   font-family: "elixi-icon";
   display: inline-block;
   color: #f9b223;
   font-weight:400;
