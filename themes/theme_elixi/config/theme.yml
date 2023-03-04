@@ -125,6 +125,8 @@ global_settings:
         - vecviewedproduct   
       displayReassurance:
         - blockreassurance
+      displayFilterCanvas:
+        - ps_facetedsearch
   image_types:
     cart_default:
       width: 125

@@ -113,13 +113,29 @@ function vecInitHorizontalMegamenu() {
         $dropdown.css({
             'width': dropdownWidth
         });
-        if ($li.hasClass('hasChild') && dropdownWidth > 1200) {
+		if($dropdown.hasClass('submenu-center')){
+        	var leftOffset = ($dropdown.width() - $li.width())/2;
+        	$dropdown.css({
+	            'left': '-' + leftOffset + 'px'
+	        });
+			$li.addClass('menu_initialized');
+			return;
+        }
+        if ($li.hasClass('hasChild') && dropdownWidth >= 1200) {
             viewportWidth = $window.width();
-            if (dropdownOffset.left + dropdownWidth >= viewportWidth) { 
-				toRight = dropdownOffset.left + dropdownWidth - viewportWidth;
-				$dropdown.css({
-					left: -toRight
-				})
+			var elementContainer = $('#header').find('.elementor-container').width();
+			if (dropdownOffset.left + dropdownWidth >= elementContainer) { 
+				if (dropdownOffset.left + dropdownWidth >= viewportWidth) { 
+					toRight = dropdownOffset.left + dropdownWidth - viewportWidth;
+					$dropdown.css({
+						left: -toRight
+					})
+				}else{
+					toRight = dropdownOffset.left + dropdownWidth - elementContainer - ((viewportWidth-elementContainer)/2) + 15;
+					$dropdown.css({
+						left: -toRight
+					})
+				}
 			}
             $li.addClass('menu_initialized')
         } else if ($li.hasClass('dropdown-mega')) {

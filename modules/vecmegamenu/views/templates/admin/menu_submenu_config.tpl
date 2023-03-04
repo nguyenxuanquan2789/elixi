@@ -16,6 +16,11 @@
 	                <label class="control-label col-lg-2" for="submenu_class">{l s='Specific class' mod='vecmegamenu'}</label>
 	                <div class="col-lg-6">
 	                    <input class="fixed-width-xl" name="submenu_class" value="{if $submenu_info.submenu_class}{$submenu_info.submenu_class}{/if}" id="submenu_class" type="text">
+                        <p class="help-block">{l s='Add specific class for CSS. Allow adding multiple class, separate by space. Few preset class:' mod='vecmegamenu'}
+                        <ul>
+                        <li>{l s='submenu-center : make the submenu position in center' mod='vecmegamenu'}</li>
+                        </ul>
+                        </p>
 	                </div>
 	            </div>
                 <div class="form-group">

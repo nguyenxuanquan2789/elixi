@@ -88,7 +88,11 @@ $(document).ready(() => {
   })
 
   prestashop.on('clickQuickView', (elm) => {
-    $('.js-quick-view').addClass('loading');
+    $('.js-quick-view').each(function(){
+      if($(this).data('id-product') == elm.dataset.idProduct){
+        $(this).addClass('loading');
+      }
+    })
     const data = {
       action: 'quickview',
       id_product: elm.dataset.idProduct,

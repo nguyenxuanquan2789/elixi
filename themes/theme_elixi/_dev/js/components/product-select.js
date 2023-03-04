@@ -36,7 +36,12 @@ export default class ProductSelect {
     $wrapper.on('shown.bs.modal', '#product-modal', function (e) {
       var $thumbnails_modal = $('.product-images-modal');
       $thumbnails_modal
-      .on('init', function(event, slick) {$(this).find('.slick-slide.slick-current').addClass('is-active');})
+      .on('init', function(event, slick) {
+        if($(this).find('.slick-slide.is-active').length == 0){
+          $(this).find('.slick-slide.slick-current').addClass('is-active');
+        }
+          
+      })
       .slick({
         slidesToShow: $thumbnails_modal.data('item'),
       });

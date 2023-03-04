@@ -30,7 +30,7 @@
 			<div class="add-links">
 				{include file='catalog/_partials/miniatures/customize/button-cart.tpl' product=$product}
 				{block name='quick_view'}
-					<a class="quick-view js-quick-view" href="#" data-link-action="quickview"
+					<a class="quick-view js-quick-view" href="#" data-link-action="quickview" data-id-product="{$product.id_product}" 
 						title="{l s='Quick view' d='Shop.Theme.Actions'}">
 						<span>{l s='Quick view' d='Shop.Theme.Actions'}</span>
 					</a>

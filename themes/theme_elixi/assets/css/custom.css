@@ -99,3 +99,8 @@
    }
  }
  
+.cmp_added:after{
+  font-family: "elixi-icon";
+  content: '\e916';
+  font-size: 12px;
+}
