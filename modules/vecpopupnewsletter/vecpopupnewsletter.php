@@ -61,7 +61,7 @@ class VecPopupNewsletter extends Module
 			Configuration::updateValue('VEC_NEWSLETTER_TITLE', $title, true) &&
 			Configuration::updateValue('VEC_NEWSLETTER_TEXT', $content, true) &&
 			Configuration::updateValue('VEC_NEWSLETTER_FORM', true) &&
-			Configuration::updateValue('VEC_NEWSLETTER_BG', false) &&
+			Configuration::updateValue('VEC_NEWSLETTER_BG', true) &&
 			Configuration::updateValue('VEC_NEWSLETTER_BG_IMAGE', _MODULE_DIR_.$this->name.'/img/background_image1.jpg') && 
 			Configuration::updateValue('VEC_NEWSLETTER_DELAY', 3000) &&
 			Configuration::updateValue('VEC_NEWSLETTER_POPUP_START', '0000-00-00 00:00:00'))

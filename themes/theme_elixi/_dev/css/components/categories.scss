@@ -24,36 +24,19 @@
 //filters-canvas
 .filters-canvas {
   position: fixed;
-  right: 0;
+  left: 0;
   top: 0;
   bottom: 0;
   z-index: 1055;
-  overflow: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   opacity: 0;
   visibility: hidden;
   width: 25rem;
   max-width: 90%;
   background-color: #fff;
-  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   transition: opacity .5s, transform .5s ease, visibility .5s ease;
-  @include vec-transform(translateX(100%));
-
-  &::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #ddd;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #eee;
-  }
+  @include vec-transform(translateX(-100%));
 
   &.filter-open {
     opacity: 1;
@@ -68,13 +51,44 @@
   .filter-close-btn {
     border: none;
     padding: 0;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     background: none;
     color: $gray-dark;
+    background-color: $white;
     cursor: pointer;
+    position: absolute;
+    right: -3.125rem;
+    top: .3125rem;
+    width: 2.8125rem;
+    height: 2.8125rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius;
 
     &:hover {
-      color: var(--hovercolor);
+      background-color: var(--hovercolor);
+      color: $white;
+    }
+  }
+
+  #_desktop_search_filters {
+    padding: 1.25rem;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ddd;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #eee;
     }
   }
 }
@@ -101,6 +115,7 @@
     display: inline-block;
     position: relative;
     padding: 0 !important;
+    border: none !important;
     margin-bottom: .625rem;
 
     .facet-title {
@@ -109,10 +124,15 @@
       background: $gray-light;
       font-size: .875rem !important;
       margin: 0 !important;
+      border-radius: $border-radius;
       cursor: pointer;
 
+      &::before {
+        display: none;
+      }
+
       &::after {
-        content: '\e9c9';
+        content: '\e90b';
         font-family: $font-icon;
         font-size: .8125rem;
         margin-left: .9375rem;
@@ -125,11 +145,12 @@
       left: 0;
       padding: 1rem 1rem 0 1rem;
       border: 1px solid $border-gray;
-      min-width: 200px;
+      min-width: 230px;
       background: $white;
       opacity: 0;
       visibility: hidden;
-      z-index: 1;
+      z-index: 2;
+      border-radius: $border-radius;
       @include vec-transition(300ms);
 
       &.facet-open {
@@ -170,18 +191,16 @@
   margin-bottom: 3rem;
 
   .products.row {
-    margin: 0 -10px;
+    margin: 0 -15px;
 
     .column-list {
-      padding: 0 10px;
-
-      &:not(:last-child) {
-        margin-bottom: 1.875rem;
-      }
+      padding: 0 15px;
+      margin-bottom: 1.875rem;
     }
 
     .column-product {
-      padding: 0 10px;
+      padding: 0 15px;
+      margin-bottom: 1.875rem;
     }
 
     @media (max-width: 767px) {
@@ -492,7 +511,7 @@
     padding: 1.25rem;
 
     @media (max-width: 767px) {
-      padding: 1.25rem 8px;
+      padding: 10px;
     }
 
     position: relative;
@@ -730,7 +749,7 @@
           @include vec-transition(350ms);
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 1199px) {
           font-size: 0;
           min-width: 40px;
 
@@ -1360,7 +1379,8 @@
     display: flex !important;
     align-items: center;
     flex-wrap: nowrap;
-    padding: 20px;
+    padding: 30px;
+    border: 1px solid $border-gray;
 
     .img-block {
       flex: 0 0 auto;
@@ -1674,6 +1694,7 @@
       img {
         margin-bottom: 1.875rem;
         border-radius: $border-radius;
+        width: 100%;
       }
     }
   }

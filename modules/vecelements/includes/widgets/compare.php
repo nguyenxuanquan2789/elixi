@@ -55,14 +55,25 @@ class WidgetCompare extends WidgetBase
 					'prefix_class' => 'button-layout-',
 				]
 			);
+			$this->addControl(
+				'button_design',
+				[
+					'label' => __( 'Button desgin'),
+					'type' => ControlsManager::SELECT,
+					'default' => 'inline',
+					'options' => [
+						'inline' => __( 'inline'),
+						'block' => __( 'block'),
+					],
+					'prefix_class' => 'button-design-'
+				]
+			);
 			$icon_options = [
 				'elicon-refresh1',
 				'elicon-repeat1',
-				'elicon-repeat2',
+				'elicon-compare',
 				'elicon-sync',
 				'elicon-sync2',
-				'elicon-shuffle1',
-				'elicon-shuffle2',
 				'elicon-shuffle3',
 			];
 			$this->addControl(

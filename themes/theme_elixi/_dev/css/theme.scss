@@ -1097,6 +1097,17 @@
             vertical-align: -1px;
         }
     }
+
+    &.button-design-block {
+        .btn-compare-top {
+            text-align: center;
+
+            i {
+                display: block;
+                line-height: 37px;
+            }
+        }
+    }
 }
 
 //account
@@ -1218,6 +1229,7 @@
             >i {
                 display: block;
                 line-height: 37px;
+                margin: auto;
             }
         }
     }
@@ -3077,6 +3089,8 @@
     }
 }
 
+.elementor-widget-testimonial-carousel,
+.elementor-widget-v-smartblog,
 .categoryproducts,
 .products-accessories,
 .elementor-widget-product-tab,
@@ -3150,11 +3164,11 @@
 
             &.slick-arrows-inside {
                 .slick-prev {
-                    left: -15px;
+                    left: 0;
                 }
 
                 .slick-next {
-                    right: -15px;
+                    right: 0;
                 }
 
                 &:hover {
@@ -3167,19 +3181,19 @@
 
             &.slick-arrows-outside {
                 .slick-arrow {
-                    top: -3.125rem;
+                    top: -4.375rem;
                     transform: none;
                     opacity: 1;
                     visibility: visible;
                 }
 
                 .slick-prev {
-                    right: 40px;
+                    right: 55px;
                     left: auto;
                 }
 
                 .slick-next {
-                    right: 0;
+                    right: 15px;
                 }
             }
         }
@@ -3204,7 +3218,7 @@
         }
 
         .tab-loading {
-            position: relative;
+            position: relative; 
 
             &:before {
                 content: "";
@@ -3224,58 +3238,10 @@
     }
 }
 
-.elementor-widget-testimonial-carousel,
-.elementor-widget-v-smartblog {
-    .elementor-image-carousel-wrapper {
-        margin: 0 -15px;
-
-        @media (max-width: 767px) {
-            margin: 0 -5px;
-        }
-    }
-
-    .slick-slide {
-        padding: 0 15px;
-
-        @media (max-width: 767px) {
-            padding: 0 5px;
-        }
-    }
-
-    .elementor-slick-slider {
-        .slick-slider {
-            &.slick-arrows-inside {
-                .slick-prev {
-                    left: -5px;
-                }
-
-                .slick-next {
-                    right: -5px;
-                }
-            }
-
-            &.slick-arrows-outside {
-                .slick-prev {
-                    right: 50px;
-                    left: auto;
-                }
-
-                .slick-next {
-                    right: 10px;
-                }
-            }
-        }
-    }
-}
-
 //testi
 .elementor-testimonial-wrapper {
     padding: 1.875rem;
     position: relative;
-
-    .elementor-testimonial-name {}
-
-    .elementor-testimonial-job {}
 
     &.design-layout1 {
         .elementor-testimonial-meta .elementor-testimonial-image {
@@ -3678,6 +3644,10 @@
             flex-direction: column;
             justify-content: center;
             overflow: hidden;
+
+            >*:last-child {
+                margin-bottom: 0;
+            }
 
             .elementor-categories-name {
                 font-size: .875rem;
@@ -4520,6 +4490,10 @@
         padding: .625rem;
     }
 
+    .modal-content {
+        border-radius: $border-radius;
+    }
+
     .wrapper-popup {
         padding: 1.25rem;
         position: relative;
@@ -4544,9 +4518,8 @@
                 p {
                     margin: 0;
                     font-size: inherit;
-                    text-transform: uppercase;
                     color: inherit;
-                    font-weight: 500;
+                    font-weight: inherit;
                 }
 
                 i {
@@ -4784,4 +4757,8 @@
 
 .white {
     color: $white !important;
+}
+
+.elementor-section:hover {
+    z-index: 1;
 }
